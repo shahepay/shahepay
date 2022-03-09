@@ -79,14 +79,16 @@ To build executables for Windows 64-bit, install the following dependencies:
     sudo apt-get install g++-mingw-w64-x86-64 mingw-w64-x86-64-dev
 
 Then build using:
-
+    
     PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
+    sudo bash -c "echo 0 > /proc/sys/fs/binfmt_misc/status" # Disable WSL support for Win32 applications.
     cd depends
     make HOST=x86_64-w64-mingw32
     cd ..
-    ./autogen.sh # not required when building from tarball
+    ./autogen.sh
     CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
-    make
+    make # use "-j N" for N parallel jobs
+    sudo bash -c "echo 1 > /proc/sys/fs/binfmt_misc/status" # Enable WSL support for Win32 applications.
 
 ## Building for 32-bit Windows
 
@@ -116,4 +118,4 @@ executables to a directory on the windows drive in the same directory structure
 as they appear in the release `.zip` archive. This can be done in the following
 way. This will install to `c:\workspace\redecoin`, for example:
 
-    make install DESTDIR=/mnt/c/workspace/redecoin
+    make install DESTDIR=/mnt/c/local/redecoin

@@ -616,10 +616,10 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/redeproject/redecoin>";
-    const std::string URL_WEBSITE = "<https://redecoin.com>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/redecoinproject/redecoin>";
+    const std::string URL_WEBSITE = "<https://www.redecoin.eu>";
 
-    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
+    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2022, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
            strprintf(_("Please contribute if you find %s useful. "
                        "Visit %s for further information about the software."),
@@ -915,7 +915,7 @@ void InitLogging()
     fLogIPs = gArgs.GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("redecoin version %s\n", FormatFullVersion());
+    LogPrintf("Redecoin version %s\n", FormatFullVersion());
 }
 
 namespace { // Variables internal to initialization process only

@@ -98,19 +98,19 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;  //Assets (RIP2)
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1645757351; // Fri, 25 Feb 2022 02:49:11 +0000
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1646929722; // Thu, 10 Mar 2022 16:28:42 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1677293351; // Sat, 25 Feb 2023 02:49:11 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1814;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;  // Assets (RIP5)
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime =1645757351; // Fri, 25 Feb 2022 02:49:11 +0000
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1646929722; // Thu, 10 Mar 2022 16:28:42 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1677293351; // Sat, 25 Feb 2023 02:49:11 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1714; // Approx 85% of 2016
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;  // Assets (RIP5)
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1645757351; // Fri, 25 Feb 2022 02:49:11 +0000
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1646929722; // Thu, 10 Mar 2022 16:28:42 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1677293351; // Sat, 25 Feb 2023 02:49:11 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411; // Approx 70% of 2016
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
@@ -119,7 +119,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00"); // Block xxx
 
         // By default assume that the signatures in ancestors of this block are valid. Block# 1040000
-        consensus.defaultAssumeValid = uint256S("0x000000308ac9641625ca3bd67b36985364c54c39c74e3b5cf9de262065b408d7"); // Block 1
+        consensus.defaultAssumeValid = uint256S("0x000000cba50260c77ad344051a00d477bc6159a2426e94ff62b0a9173f00ef82"); // Block 1
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -131,12 +131,12 @@ public:
         pchMessageStart[2] = 0x43; // C
         pchMessageStart[3] = 0x4E; // N
         nDefaultPort = 3456;
-        nPruneAfterHeight = 10000000;
+        nPruneAfterHeight = 100000;
 
 
         // Build Genesis Block:
         /*
-        uint32_t nGenesisTime = 1645757351;
+        uint32_t nGenesisTime = ;
         arith_uint256 test;
         bool fNegative;
         bool fOverflow;
@@ -146,7 +146,7 @@ public:
         uint256 TempHashHolding = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
         uint256 BestBlockHash = uint256S("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         for (int i=0;i<40000000;i++) {
-            genesis = CreateGenesisBlock(nGenesisTime, i, 0x1e00ffff, 2, 1000000 * COIN);
+            genesis = CreateGenesisBlock(nGenesisTime, i, 0x1e00ffff, 2, 500 * COIN);
             //genesis.hashPrevBlock = TempHashHolding;
             consensus.hashGenesisBlock = genesis.GetHash();
             arith_uint256 BestBlockHashArith = UintToArith256(BestBlockHash);
@@ -175,11 +175,11 @@ public:
         return;
         */
 
-        genesis = CreateGenesisBlock(1645757351, 24232574, 0x1e00ffff, 2, 500 * COIN);
+        genesis = CreateGenesisBlock(1646929722, 7765368, 0x1e00ffff, 2, 500 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x000000308ac9641625ca3bd67b36985364c54c39c74e3b5cf9de262065b408d7"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000000cba50260c77ad344051a00d477bc6159a2426e94ff62b0a9173f00ef82"));
         assert(genesis.hashMerkleRoot == uint256S("0c402877080e148835778c5ea545748e3ac372a9afe247e866d39e2cc9265e2e"));
 
         // Main Seeders

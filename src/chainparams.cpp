@@ -19,7 +19,6 @@
 extern double algoHashTotal[16];
 extern int algoHashHits[16];
 
-
 static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     CMutableTransaction txNew;
@@ -40,7 +39,6 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
     return genesis;
 }
-
 
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
@@ -177,7 +175,6 @@ public:
         return;
         */
 
-
         genesis = CreateGenesisBlock(1645757351, 24232574, 0x1e00ffff, 2, 500 * COIN);
 
         consensus.hashGenesisBlock = genesis.GetX16RHash();
@@ -209,7 +206,6 @@ public:
         fMineBlocksOnDemand = false;
         fMiningRequiresPeers = true;
 
-
         checkpointData = (CCheckpointData) {
             {
 
@@ -223,7 +219,6 @@ public:
                         //   (the tx=... number in the SetBestChain debug.log lines)
             3.1         // * estimated number of transactions per second after that timestamp
         };
-
 
         /** REDE Start **/
         // Burn Amounts
@@ -272,7 +267,7 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 2100000;  //~ 4 yrs at 1 min block time
+        consensus.nSubsidyHalvingInterval = 2100000;
         consensus.nBIP34Enabled = true;
         consensus.nBIP65Enabled = true;
         consensus.nBIP66Enabled = true;
@@ -280,39 +275,35 @@ public:
         consensus.nCSVEnabled = true;
 
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 2016 * 60; // 1.4 days
+        consensus.nPowTargetTimespan = 2016 * 60;
         consensus.nPowTargetSpacing = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1310; // Approx 65% for testchains
-        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 1310;
+        consensus.nMinerConfirmationWindow = 2016;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 1310;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
-
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 5;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1533924000; // UTC: Fri Aug 10 2018 18:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1577257200; // UTC: Wed Dec 25 2019 07:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1533924000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1577257200;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1310;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
-
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 6;  //Assets (RIP5)
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1570428000; // UTC: Mon Oct 07 2019 06:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1577257200; // UTC: Wed Dec 25 2019 07:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 6;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1570428000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1577257200;
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1310;
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 7;  // Assets (RIP5)
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1593972000; // UTC: Sun Jul 05 2020 18:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1625508000; // UTC:  Mon Jul 05 2021 18:00:00
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411; // Approx 70% of 2016
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1593972000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1625508000;
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
 
-        // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
 
-        // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
         pchMessageStart[0] = 0xe4; // R
@@ -322,22 +313,16 @@ public:
         nDefaultPort = 18770;
         nPruneAfterHeight = 1000;
 
-        uint32_t nGenesisTime = 1645757351;
+        uint32_t nGenesisTime = 1582102162;
 
-        genesis = CreateGenesisBlock(nGenesisTime, 24232574, 0x1e00ffff, 2, 5000 * COIN);
+        genesis = CreateGenesisBlock(nGenesisTime, 27767613, 0x1e00ffff, 2, 5000 * COIN);
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
-        //Test MerkleRoot and GenesisBlock
-        assert(consensus.hashGenesisBlock == uint256S("0x000000308ac9641625ca3bd67b36985364c54c39c74e3b5cf9de262065b408d7"));
-        assert(genesis.hashMerkleRoot == uint256S("0c402877080e148835778c5ea545748e3ac372a9afe247e866d39e2cc9265e2e"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000000bff3c34ba01bd51028bf3a9bc68fc20904796d59b032d249838f67d36"));
+        assert(genesis.hashMerkleRoot == uint256S("efd8ab9a4f997ad7e925b0b66949c57e90af025bd93ffc53e12e21bce2a890d7"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-
-       /* vSeeds.emplace_back("seed-testnet-redecoin.eu", false);
-        vSeeds.emplace_back("seed-testnet-redecoin.eu", false);
-        vSeeds.emplace_back("seed-testnet-redecoin.eu", false);
-        */
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,95);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,90);
@@ -357,18 +342,10 @@ public:
             }
         };
 
-
         chainTxData = ChainTxData{
-            // Update as we know more about the contents of the redecoin chain
-            // Stats as of block on window size 43200
-            //1543633332, // * UNIX timestamp of last known number of transactions
-            //146666,     // * total number of transactions between genesis and that timestamp
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-            //0.02        // * estimated number of transactions per second after that timestamp
+
         };
 
-        /** REDE Start **/
-        // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
         nIssueSubAssetBurnAmount = 100 * COIN;
@@ -379,31 +356,28 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
-        // Burn Addresses
-        strIssueAssetBurnAddress = "rXissueAssetXXXXXXXXXXXXXXXXZabcde";
-        strReissueAssetBurnAddress = "rXReissueAssetXXXXXXXXXXXXXXYabcde";
-        strIssueSubAssetBurnAddress = "rXissueSubAssetXXXXXXXXXXXXXaabcde";
-        strIssueUniqueAssetBurnAddress = "rXissueUniqueAssetXXXXXXXXXXSabcde";
-        strIssueMsgChannelAssetBurnAddress = "rXissueMsgChanneLAssetXXXXXXRabcde";
-        strIssueQualifierAssetBurnAddress = "rXissueQuaLifierXXXXXXXXXXXXXabcde";
-        strIssueSubQualifierAssetBurnAddress = "rXissueSubQuaLifierXXXXXXXXXXabcde";
-        strIssueRestrictedAssetBurnAddress = "rXissueRestrictedXXXXXXXXXXXbabcde";
-        strAddNullQualifierTagBurnAddress = "rXaddTagBurnXXXXXXXXXXXXXXXXWabcde";
+        strIssueAssetBurnAddress = "fXissueAssetXXXXXXXXXXXXXXXXZbEEFU";
+        strReissueAssetBurnAddress = "fXReissueAssetXXXXXXXXXXXXXXYSUun2";
+        strIssueSubAssetBurnAddress = "fXissueSubAssetXXXXXXXXXXXXXakqJkC";
+        strIssueUniqueAssetBurnAddress = "fXissueUniqueAssetXXXXXXXXXXSycUW7";
+        strIssueMsgChannelAssetBurnAddress = "fXissueMsgChanneLAssetXXXXXXRjh85D";
+        strIssueQualifierAssetBurnAddress = "fXissueQuaLifierXXXXXXXXXXXXXAGDbp";
+        strIssueSubQualifierAssetBurnAddress = "fXissueSubQuaLifierXXXXXXXXXXB1EjR";
+        strIssueRestrictedAssetBurnAddress = "fXissueRestrictedXXXXXXXXXXXb6ZKVu";
+        strAddNullQualifierTagBurnAddress = "fXaddTagBurnXXXXXXXXXXXXXXXXWYBj2e";
 
-        // Global Burn Address
-        strGlobalBurnAddress = "rXBurnXXXXXXXXXXXXXXXXXXXXXXXabcde";
+        strGlobalBurnAddress = "fXBurnXXXXXXXXXXXXXXXXXXXXXXX3XqfT";
 
-        // DGW Activation
         nDGWActivationBlock = 1;
 
-        nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
+        nMaxReorganizationDepth = 60;
         nMinReorganizationPeers = 4;
-        nMinReorganizationAge = 60 * 60 * 12; // 12 hours
+        nMinReorganizationAge = 60 * 60 * 12;
 
-        nAssetActivationHeight = 0; // Asset activated block height
-        nMessagingActivationBlock = 0; // Messaging activated block height
-        nRestrictedActivationBlock = 0; // Restricted activated block height // TODO after restricted goes active on testnet
-        /** REDE End **/
+        nAssetActivationHeight = 0;
+        nMessagingActivationBlock = 0;
+        nRestrictedActivationBlock = 0;
+
     }
 };
 
@@ -421,12 +395,12 @@ public:
         consensus.nCSVEnabled = true;
         consensus.nSubsidyHalvingInterval = 150;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 2016 * 60; // 1.4 days
+        consensus.nPowTargetTimespan = 2016 * 60;
         consensus.nPowTargetSpacing = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
-        consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
-        consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+        consensus.nRuleChangeActivationThreshold = 108;
+        consensus.nMinerConfirmationWindow = 144;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 999999999999ULL;
@@ -437,21 +411,19 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 999999999999ULL;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 108;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 144;
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;  // Assets (RIP5)
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 0; // GMT: Sun Mar 3, 2019 5:00:00 PM
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 999999999999ULL; // UTC: Wed Dec 25 2019 07:00:00
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 0;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 999999999999ULL;
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 108;
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 144;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;  // Assets (RIP5)
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 999999999999ULL;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 108;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 144;
 
-        // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
 
-        // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
         pchMessageStart[0] = 0xc6; // C
@@ -461,15 +433,14 @@ public:
         nDefaultPort = 18444;
         nPruneAfterHeight = 1000;
 
-
-        genesis = CreateGenesisBlock(1645757351, 24232574, 0x207fffff, 4, 5000 * COIN);
+        genesis = CreateGenesisBlock(1524179366, 1, 0x207fffff, 4, 5000 * COIN);
         consensus.hashGenesisBlock = genesis.GetX16RHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x000000308ac9641625ca3bd67b36985364c54c39c74e3b5cf9de262065b408d7"));
-        assert(genesis.hashMerkleRoot == uint256S("0c402877080e148835778c5ea545748e3ac372a9afe247e866d39e2cc9265e2e"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0b2c703dc93bb63a36c4e33b85be4855ddbca2ac951a7a0a29b8de0408200a3c "));
+        assert(genesis.hashMerkleRoot == uint256S("0x28ff00a867739a352523808d301f504bc4547699398d70faf2266a8bae5f3516"));
 
-        vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
-        vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
+        vFixedSeeds.clear();
+        vSeeds.clear();
 
         fDefaultConsistencyChecks = true;
         fRequireStandard = false;
@@ -492,9 +463,6 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-
-        /** REDE Start **/
-        // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
         nIssueSubAssetBurnAmount = 100 * COIN;
@@ -505,31 +473,27 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
-        // Burn Addresses
-        strIssueAssetBurnAddress = "reg2issueAssetXXXXXXXXXXXXXXXXbfbi47";
-        strReissueAssetBurnAddress = "reg2ReissueAssetXXXXXXXXXXXXXXTxxPkJ";
-        strIssueSubAssetBurnAddress = "reg2issueSubAssetXXXXXXXXXXXXXVw16Ye";
-        strIssueUniqueAssetBurnAddress = "reg2issueUniqueAssetXXXXXXXXXXWmN3Qg";
-        strIssueMsgChannelAssetBurnAddress = "reg2issueMsgChanneLAssetXXXXXXW6188u";
-        strIssueQualifierAssetBurnAddress = "reg2issueQuaLifierXXXXXXXXXXXXVQXVcN";
-        strIssueSubQualifierAssetBurnAddress = "reg2issueSubQuaLifierXXXXXXXXXUAFxve";
-        strIssueRestrictedAssetBurnAddress = "reg1issueRestrictedXXXXXXXXXXXXZVT9V";
-        strAddNullQualifierTagBurnAddress = "reg2addTagBurnXXXXXXXXXXXXXXXXWQj6Et";
+        strIssueAssetBurnAddress = "n2issueAssetXXXXXXXXXXXXXXXXbfbi47";
+        strReissueAssetBurnAddress = "n2ReissueAssetXXXXXXXXXXXXXXTxxPkJ";
+        strIssueSubAssetBurnAddress = "n2issueSubAssetXXXXXXXXXXXXXVw16Ye";
+        strIssueUniqueAssetBurnAddress = "n2issueUniqueAssetXXXXXXXXXXWmN3Qg";
+        strIssueMsgChannelAssetBurnAddress = "n2issueMsgChanneLAssetXXXXXXW6188u";
+        strIssueQualifierAssetBurnAddress = "n2issueQuaLifierXXXXXXXXXXXXVQXVcN";
+        strIssueSubQualifierAssetBurnAddress = "n2issueSubQuaLifierXXXXXXXXXUAFxve";
+        strIssueRestrictedAssetBurnAddress = "n1issueRestrictedXXXXXXXXXXXXZVT9V";
+        strAddNullQualifierTagBurnAddress = "n2addTagBurnXXXXXXXXXXXXXXXXWQj6Et";
 
-        // Global Burn Address
-        strGlobalBurnAddress = "reg2BurnXXXXXXXXXXXXXXXXXXXXXXABCXYZ";
+        strGlobalBurnAddress = "n2BurnXXXXXXXXXXXXXXXXXXXXXXV3KNcW";
 
-        // DGW Activation
         nDGWActivationBlock = 200;
 
-        nMaxReorganizationDepth = 60; // 60 at 1 minute block timespan is +/- 60 minutes.
+        nMaxReorganizationDepth = 60;
         nMinReorganizationPeers = 4;
-        nMinReorganizationAge = 60 * 60 * 12; // 12 hours
+        nMinReorganizationAge = 60 * 60 * 12;
 
-        nAssetActivationHeight = 0; // Asset activated block height
-        nMessagingActivationBlock = 0; // Messaging activated block height
-        nRestrictedActivationBlock = 0; // Restricted activated block height
-        /** REDE End **/
+        nAssetActivationHeight = 0;
+        nMessagingActivationBlock = 0;
+        nRestrictedActivationBlock = 0;
     }
 };
 
@@ -565,13 +529,22 @@ void UpdateVersionBitsParameters(Consensus::DeploymentPos d, int64_t nStartTime,
     globalChainParams->UpdateVersionBitsParameters(d, nStartTime, nTimeout);
 }
 
-void TurnOffSegwit(){globalChainParams->TurnOffSegwit();}
+void TurnOffSegwit(){
+	globalChainParams->TurnOffSegwit();
+}
 
-void TurnOffCSV() {globalChainParams->TurnOffCSV();}
+void TurnOffCSV() {
+	globalChainParams->TurnOffCSV();
+}
 
-void TurnOffBIP34() {globalChainParams->TurnOffBIP34();}
+void TurnOffBIP34() {
+	globalChainParams->TurnOffBIP34();
+}
 
-void TurnOffBIP65() {globalChainParams->TurnOffBIP65();}
+void TurnOffBIP65() {
+	globalChainParams->TurnOffBIP65();
+}
 
-void TurnOffBIP66() {globalChainParams->TurnOffBIP66();}
-
+void TurnOffBIP66() {
+	globalChainParams->TurnOffBIP66();
+}

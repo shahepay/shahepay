@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2022-2022 The Redecoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -619,20 +619,25 @@ std::string LicenseInfo()
     const std::string URL_SOURCE_CODE = "<https://github.com/redecoinproject/redecoin>";
     const std::string URL_WEBSITE = "<https://www.redecoin.eu>";
 
-    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2022, COPYRIGHT_YEAR) + " ") + "\n" +
+    // return FormatParagraph(strprintf(_("Copyright (C) %i-%i %s"), 2009, COPYRIGHT_YEAR, CopyrightHolders())) + "\n" +
+    return FormatParagraph(strprintf("Copyright (C) %i-%i The Bitcoin Core Developers", 2009, COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           strprintf(_("Please contribute if you find %s useful. "
+           FormatParagraph(strprintf("Copyright (C) %i-%i The Raven Core Developers", 2009, COPYRIGHT_YEAR)) + "\n" +
+           "\n" +
+           FormatParagraph(strprintf("Copyright (C) %i The Redecoin Core Developers", 2022)) + "\n" +
+           "\n" +
+           FormatParagraph(strprintf(_("Please contribute if you find Redecoin useful. "
                        "Visit %s for further information about the software."),
-               PACKAGE_NAME, URL_WEBSITE) +
+               URL_WEBSITE)) +
            "\n" +
-           strprintf(_("The source code is available from %s."),
-               URL_SOURCE_CODE) +
+           FormatParagraph(strprintf(_("The source code is available from %s."),
+               URL_SOURCE_CODE)) +
            "\n" +
            "\n" +
-           _("This is experimental software.") + "\n" +
-           strprintf(_("Distributed under the MIT software license, see the accompanying file %s or %s"), "COPYING", "<https://opensource.org/licenses/MIT>") + "\n" +
+           FormatParagraph(_("This is experimental software.")) + "\n" +
+           FormatParagraph(_("Distributed under the MIT software license, see the accompanying file COPYING or <http://www.opensource.org/licenses/mit-license.php>.")) + "\n" +
            "\n" +
-           strprintf(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit %s and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard."), "<https://www.openssl.org>") +
+           _("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.") +
            "\n";
 }
 

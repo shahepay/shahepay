@@ -130,7 +130,7 @@ public:
         pchMessageStart[1] = 0xfa; // D
         pchMessageStart[2] = 0x43; // C
         pchMessageStart[3] = 0x4E; // N
-        nDefaultPort = 3456;
+        nDefaultPort = 34567;
         nPruneAfterHeight = 100000;
 
 

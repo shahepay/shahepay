@@ -26,40 +26,40 @@ void AppendParamsHelpMessages(std::string& strUsage, bool debugHelp)
     }
 }
 
-/**
- * Main network
- */
+
+/*** M A I N   N E T W O R K ***/
+
 class CBaseMainParams : public CBaseChainParams
 {
 public:
     CBaseMainParams()
     {
-        nRPCPort = 23456;
+        nRPCPort = 45678;
     }
 };
 
-/**
- * Testnet (v6)
- */
+
+/*** T E S T N E T  (V6) ***/
+
 class CBaseTestNetParams : public CBaseChainParams
 {
 public:
     CBaseTestNetParams()
     {
-        nRPCPort = 18766;
+        nRPCPort = 11678;
         strDataDir = "testnet7";
     }
 };
 
-/*
- * Regression test
- */
+
+/*** R E G R E S S I O N    T E S T ***/
+
 class CBaseRegTestParams : public CBaseChainParams
 {
 public:
     CBaseRegTestParams()
     {
-        nRPCPort = 18443;
+        nRPCPort = 22678;
         strDataDir = "regtest";
     }
 };

@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CHECKPOINTS_H
-#define REDECOIN_CHECKPOINTS_H
+#ifndef SHAHEPAY_CHECKPOINTS_H
+#define SHAHEPAY_CHECKPOINTS_H
 
 #include "uint256.h"
 
@@ -26,4 +26,4 @@ CBlockIndex* GetLastCheckpoint(const CCheckpointData& data);
 
 } //namespace Checkpoints
 
-#endif // REDECOIN_CHECKPOINTS_H
+#endif // SHAHEPAY_CHECKPOINTS_H

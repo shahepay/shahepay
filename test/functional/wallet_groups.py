@@ -6,11 +6,11 @@
 
 """Test wallet group functionality."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.mininode import CTransaction, from_hex, to_hex
 from test_framework.util import assert_approx, assert_equal
 
-class WalletGroupTest(redecoinTestFramework):
+class WalletGroupTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3

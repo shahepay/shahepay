@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # Copyright (c) 2015-2016 The Bitcoin Core developers
-# Copyright (c) 2017-2018 The redecoin Core developers
+# Copyright (c) 2017-2018 The shahepay Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """Test restricted asset related RPC commands."""
 
 import math
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal
 
 BURN_ADDRESSES = {
@@ -249,14 +249,14 @@ def get_tx_freeze_asset_hex(node, op, asset_name, owner_change_address):
     tx_freeze_hex = tx_freeze_signed['hex']
     return tx_freeze_hex
 
-class RawRestrictedAssetsTest(redecoinTestFramework):
+class RawRestrictedAssetsTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2
         self.extra_args = [['-assetindex'], ['-assetindex']]
 
     def activate_restricted_assets(self):
-        self.log.info("Generating REDE and activating restricted assets...")
+        self.log.info("Generating SHAHE and activating restricted assets...")
         n0 = self.nodes[0]
         n0.generate(432)
         self.sync_all()

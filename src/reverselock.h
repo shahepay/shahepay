@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_REVERSELOCK_H
-#define REDECOIN_REVERSELOCK_H
+#ifndef SHAHEPAY_REVERSELOCK_H
+#define SHAHEPAY_REVERSELOCK_H
 
 /**
  * An RAII-style reverse lock. Unlocks on construction and locks on destruction.
@@ -33,4 +33,4 @@ private:
     Lock templock;
 };
 
-#endif // REDECOIN_REVERSELOCK_H
+#endif // SHAHEPAY_REVERSELOCK_H

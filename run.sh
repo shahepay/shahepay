@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 env
-if [[ -e /etc/redecoin/redecoind.conf ]]; then
-    source /etc/redecoin/redecoind.conf
-    /home/redecoin/redecoind \
+if [[ -e /etc/shahepay/shahepayd.conf ]]; then
+    source /etc/shahepay/shahepayd.conf
+    /home/shahepay/shahepayd \
       -server=$SERVER \
       -printtoconsole=$PRINTTOCONSOLE \
       -maxconnections=$MAXCONNECTIONS \
@@ -37,7 +37,7 @@ else
     $SERVER_ARG = "-server=$SERVER"
   fi
 
-  /home/redecoin/redecoind \
+  /home/shahepay/shahepayd \
     $SERVER_ARG \
     -printtoconsole=$PRINTTOCONSOLE \
     -maxconnections=$MAXCONNECTIONS \

@@ -8,20 +8,20 @@ EXPOSE $PORT
 
 RUN apt-get update && apt-get install -y bash net-tools && apt-get clean
 
-RUN useradd -ms /bin/bash redecoin
+RUN useradd -ms /bin/bash shahepay
 
-RUN mkdir /etc/redecoin
+RUN mkdir /etc/shahepay
 
-RUN mkdir /var/lib/redecoin
+RUN mkdir /var/lib/shahepay
 
-RUN chown redecoin:redecoin /etc/redecoin /var/lib/redecoin
+RUN chown shahepay:shahepay /etc/shahepay /var/lib/shahepay
 
-WORKDIR /home/redecoin
+WORKDIR /home/shahepay
 
-COPY --chown=redecoin:redecoin linux64/* /home/redecoin/
+COPY --chown=shahepay:shahepay linux64/* /home/shahepay/
 
-COPY --chown=redecoin:redecoin run.sh /home/redecoin/
+COPY --chown=shahepay:shahepay run.sh /home/shahepay/
 
-USER redecoin
+USER shahepay
 
-CMD ["/home/redecoin/run.sh"]
+CMD ["/home/shahepay/run.sh"]

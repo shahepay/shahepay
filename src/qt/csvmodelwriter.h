@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2014 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_CSVMODELWRITER_H
-#define REDECOIN_QT_CSVMODELWRITER_H
+#ifndef SHAHEPAY_QT_CSVMODELWRITER_H
+#define SHAHEPAY_QT_CSVMODELWRITER_H
 
 #include <QList>
 #include <QObject>
@@ -45,4 +45,4 @@ private:
     QList<Column> columns;
 };
 
-#endif // REDECOIN_QT_CSVMODELWRITER_H
+#endif // SHAHEPAY_QT_CSVMODELWRITER_H

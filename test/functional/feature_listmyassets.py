@@ -6,10 +6,10 @@
 
 """Test listmyassets RPC command."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_contains_pair
 
-class ListMyAssetsTest(redecoinTestFramework):
+class ListMyAssetsTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

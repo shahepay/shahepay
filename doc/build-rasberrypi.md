@@ -1,6 +1,6 @@
 RASBERRY PI BUILD NOTES
 ====================
-Origin: traysi.org/redecoin_rpi.php
+Origin: traysi.org/shahepay_rpi.php
 
 # Install necessary packages:
 ```
@@ -33,11 +33,11 @@ make -j4 # If error, remove the -j4
 sudo make install
 ```
 
-# Build redecoin
+# Build shahepay
 ```
 cd ~/build/
-git clone https://github.com/redecoinProject/redecoin
-cd redecoin/
+git clone https://github.com/shahepayProject/shahepay
+cd shahepay/
 ./autogen.sh
 ./configure --disable-tests --with-gui=no CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include -O2" LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib"
 make

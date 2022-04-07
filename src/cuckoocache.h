@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CUCKOOCACHE_H
-#define REDECOIN_CUCKOOCACHE_H
+#ifndef SHAHEPAY_CUCKOOCACHE_H
+#define SHAHEPAY_CUCKOOCACHE_H
 
 #include <array>
 #include <algorithm>
@@ -478,4 +478,4 @@ public:
 };
 } // namespace CuckooCache
 
-#endif // REDECOIN_CUCKOOCACHE_H
+#endif // SHAHEPAY_CUCKOOCACHE_H

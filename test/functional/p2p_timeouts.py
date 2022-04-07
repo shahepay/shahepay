@@ -7,7 +7,7 @@
 """
 Test various net timeouts.
 
-- Create three redecoind nodes:
+- Create three shahepayd nodes:
 
     no_verack_node - we never send a verack in response to their version
     no_version_node - we never send a version (only a ping)
@@ -26,7 +26,7 @@ Test various net timeouts.
 
 from time import sleep
 from test_framework.mininode import NodeConn, NodeConnCB, NetworkThread, MsgPing
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import p2p_port
 
 class TestNode(NodeConnCB):
@@ -34,7 +34,7 @@ class TestNode(NodeConnCB):
         # Don't send a verack in response
         pass
 
-class TimeoutsTest(redecoinTestFramework):
+class TimeoutsTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

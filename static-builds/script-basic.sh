@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Set DISTNAME, BRANCH and MAKEOPTS to the desired settings
-DISTNAME=redecoin-1.0.0
+DISTNAME=shahepay-1.0.0
 MAKEOPTS="-j $(nproc)"
 BRANCH=master
 clear
@@ -24,9 +24,9 @@ echo @@@"Building linux 64 binaries"
 echo @@@
 
 
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=x86_64-linux-gnu $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/x86_64-linux-gnu/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-linux-gnu/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g" LDFLAGS="-static-libstdc++"
@@ -39,8 +39,8 @@ cd ~/linux64
 find . -name "lib*.la" -delete
 find . -name "lib*.a" -delete
 rm -rf $DISTNAME/lib/pkgconfig
-find ${DISTNAME}/bin -type f -executable -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
-find ${DISTNAME}/lib -type f -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/bin -type f -executable -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/lib -type f -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
 find $DISTNAME/ -not -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/release/$DISTNAME-x86_64-linux-gnu.tar.gz
 export PATH=$PATH_orig
 
@@ -56,9 +56,9 @@ update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++
 mkdir -p ~/release/unsigned/
 mkdir -p ~/sign/win64
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=x86_64-w64-mingw32 $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/x86_64-w64-mingw32/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g"
@@ -66,7 +66,7 @@ make $MAKEOPTS
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f redecoin-*setup*.exe ~/release/unsigned/
+cp -f shahepay-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win64
 make install DESTDIR=~/win64/$DISTNAME
 cd ~/win64
@@ -79,10 +79,10 @@ find ./$DISTNAME -not -name "*.dbg"  -type f | sort | zip -X@ ./$DISTNAME-x86_64
 mv ./$DISTNAME-x86_64-*.zip ~/release/$DISTNAME-win64.zip
 cd ~/
 rm -rf win64
-cp -rf redecoin/contrib/windeploy ~/sign/win64
+cp -rf shahepay/contrib/windeploy ~/sign/win64
 cd ~/sign/win64/windeploy
 mkdir -p unsigned
-mv ~/redecoin/redecoin-*setup-unsigned.exe unsigned/
+mv ~/shahepay/shahepay-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win64-unsigned.tar.gz
 export PATH=$PATH_orig
 

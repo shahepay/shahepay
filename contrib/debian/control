@@ -1,4 +1,4 @@
-Source: redecoin
+Source: shahepay
 Section: utils
 Priority: optional
 Maintainer: Matt Corallo <matt@mattcorallo.com>
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://redecoin.org/
-Vcs-Git: git://github.com/redecoinProject/redecoin.git
-Vcs-Browser: https://github.com/redecoinProject/redecoin
+Homepage: https://shahepay.com/
+Vcs-Git: git://github.com/shahepayProject/shahepay.git
+Vcs-Browser: https://github.com/shahepayProject/shahepay
 
-Package: redecoind
+Package: shahepayd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- redecoin is a free open source peer-to-peer electronic cash system that
+ shahepay is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides the daemon, redecoind, and the CLI tool
- redecoin-cli to interact with the daemon.
+ This package provides the daemon, shahepayd, and the CLI tool
+ shahepay-cli to interact with the daemon.
 
-Package: redecoin-qt
+Package: shahepay-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- redecoin is a free open source peer-to-peer electronic cash system that
+ shahepay is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides redecoin-Qt, a GUI for redecoin based on Qt.
+ This package provides shahepay-Qt, a GUI for shahepay based on Qt.
 
-Package: redecoin-tx
+Package: shahepay-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- redecoin is a free open source peer-to-peer electronic cash system that
+ shahepay is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides redecoin-tx, a command-line transaction creation
- tool which can be used without a redecoin daemon.  Some means of
+ This package provides shahepay-tx, a command-line transaction creation
+ tool which can be used without a shahepay daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

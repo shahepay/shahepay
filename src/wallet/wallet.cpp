@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1565,7 +1565,7 @@ void CWalletTx::GetAmounts(std::list<COutputEntry>& listReceived,
                 listReceived.push_back(output);
         }
 
-        /** REDE START */
+        /** SHAHE START */
         if (AreAssetsDeployed()) {
             if (txout.scriptPubKey.IsAssetScript()) {
                 CAssetOutputEntry assetoutput;
@@ -1580,7 +1580,7 @@ void CWalletTx::GetAmounts(std::list<COutputEntry>& listReceived,
                     assetsReceived.emplace_back(assetoutput);
             }
         }
-        /** REDE END */
+        /** SHAHE END */
     }
 
 }
@@ -2184,7 +2184,7 @@ void CWallet::AvailableCoinsWithAssets(std::vector<COutput> &vCoins, std::map<st
     AvailableCoinsAll(vCoins, mapAssetCoins, true, AreAssetsDeployed(), fOnlySafe, coinControl, nMinimumAmount, nMaximumAmount, nMinimumSumAmount, nMaximumCount, nMinDepth, nMaxDepth);
 }
 
-void CWallet::AvailableCoinsAll(std::vector<COutput>& vCoins, std::map<std::string, std::vector<COutput> >& mapAssetCoins, bool fGetREDE, bool fGetAssets, bool fOnlySafe, const CCoinControl *coinControl, const CAmount& nMinimumAmount, const CAmount& nMaximumAmount, const CAmount& nMinimumSumAmount, const uint64_t& nMaximumCount, const int& nMinDepth, const int& nMaxDepth) const {
+void CWallet::AvailableCoinsAll(std::vector<COutput>& vCoins, std::map<std::string, std::vector<COutput> >& mapAssetCoins, bool fGetSHAHE, bool fGetAssets, bool fOnlySafe, const CCoinControl *coinControl, const CAmount& nMinimumAmount, const CAmount& nMaximumAmount, const CAmount& nMinimumSumAmount, const uint64_t& nMaximumCount, const int& nMinDepth, const int& nMaxDepth) const {
     vCoins.clear();
 
     {
@@ -2192,8 +2192,8 @@ void CWallet::AvailableCoinsAll(std::vector<COutput>& vCoins, std::map<std::stri
 
         CAmount nTotal = 0;
 
-        /** REDE START */
-        bool fREDELimitHit = false;
+        /** SHAHE START */
+        bool fSHAHELimitHit = false;
         // A set of the hashes that have already been used
         std::set<uint256> usedMempoolHashes;
 
@@ -2338,11 +2338,11 @@ void CWallet::AvailableCoinsAll(std::vector<COutput>& vCoins, std::map<std::stri
                     }
                 }
 
-                if (fGetREDE) { // Looking for REDE Tx OutPoints Only
-                    if (fREDELimitHit) // We hit our limit
+                if (fGetSHAHE) { // Looking for SHAHE Tx OutPoints Only
+                    if (fSHAHELimitHit) // We hit our limit
                         continue;
 
-                    // We only want REDE OutPoints. Don't include Asset OutPoints
+                    // We only want SHAHE OutPoints. Don't include Asset OutPoints
                     if (isAssetScript)
                         continue;
 
@@ -2353,23 +2353,23 @@ void CWallet::AvailableCoinsAll(std::vector<COutput>& vCoins, std::map<std::stri
                         nTotal += pcoin->tx->vout[i].nValue;
 
                         if (nTotal >= nMinimumSumAmount) {
-                            fREDELimitHit = true;
+                            fSHAHELimitHit = true;
                         }
                     }
 
                     // Checks the maximum number of UTXO's.
                     if (nMaximumCount > 0 && vCoins.size() >= nMaximumCount) {
-                        fREDELimitHit = true;
+                        fSHAHELimitHit = true;
                     }
                     continue;
                 }
             }
         }
-        /** REDE END */
+        /** SHAHE END */
     }
 }
 
-/** REDE START */
+/** SHAHE START */
 
 std::map<CTxDestination, std::vector<COutput>> CWallet::ListAssets() const
 {
@@ -2379,8 +2379,8 @@ std::map<CTxDestination, std::vector<COutput>> CWallet::ListAssets() const
     // CWalletTx objects, callers to this function really should acquire the
     // cs_wallet lock before calling it. However, the current caller doesn't
     // acquire this lock yet. There was an attempt to add the missing lock in
-    // https://github.com/redecoinProject/redecoin/pull/10340, but that change has been
-    // postponed until after https://github.com/redecoinProject/redecoin/pull/10244 to
+    // https://github.com/shahepayProject/shahepay/pull/10340, but that change has been
+    // postponed until after https://github.com/shahepayProject/shahepay/pull/10244 to
     // avoid adding some extra complexity to the Qt code.
 
     std::map<CTxDestination, std::vector<COutput>> result;
@@ -2421,7 +2421,7 @@ std::map<CTxDestination, std::vector<COutput>> CWallet::ListAssets() const
     return result;
 }
 
-/** REDE END */
+/** SHAHE END */
 
 std::map<CTxDestination, std::vector<COutput>> CWallet::ListCoins() const
 {
@@ -2431,8 +2431,8 @@ std::map<CTxDestination, std::vector<COutput>> CWallet::ListCoins() const
     // CWalletTx objects, callers to this function really should acquire the
     // cs_wallet lock before calling it. However, the current caller doesn't
     // acquire this lock yet. There was an attempt to add the missing lock in
-    // https://github.com/redecoinProject/redecoin/pull/10340, but that change has been
-    // postponed until after https://github.com/redecoinProject/redecoin/pull/10244 to
+    // https://github.com/shahepayProject/shahepay/pull/10340, but that change has been
+    // postponed until after https://github.com/shahepayProject/shahepay/pull/10244 to
     // avoid adding some extra complexity to the Qt code.
 
     std::map<CTxDestination, std::vector<COutput>> result;
@@ -2753,7 +2753,7 @@ bool CWallet::SelectCoins(const std::vector<COutput>& vAvailableCoins, const CAm
     return res;
 }
 
-/** REDE START */
+/** SHAHE START */
 bool CWallet::CreateNewChangeAddress(CReserveKey& reservekey, CKeyID& keyID, std::string& strFailReason)
 {
     // Called with coin control doesn't have a change_address
@@ -2983,7 +2983,7 @@ bool CWallet::SelectAssets(const std::map<std::string, std::vector<COutput> >& m
     return true;
 }
 
-/** REDE END */
+/** SHAHE END */
 
 bool CWallet::SignTransaction(CMutableTransaction &tx)
 {
@@ -3118,7 +3118,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                                    bool fTransferAsset, bool fReissueAsset, const CReissueAsset& reissueAsset,
                                    const AssetType& assetType, bool sign)
 {
-    /** REDE START */
+    /** SHAHE START */
     if (!AreAssetsDeployed() && (fTransferAsset || fNewAsset || fReissueAsset))
         return false;
 
@@ -3130,7 +3130,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
 
     if (fReissueAsset && (reissueAsset.IsNull() || !IsValidDestination(destination)))
         return error("%s : Tried reissuing an asset and the reissue data was null or the destination was invalid", __func__);
-    /** REDE END */
+    /** SHAHE END */
 
     CAmount nValue = 0;
     std::map<std::string, CAmount> mapAssetValue;
@@ -3138,7 +3138,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
     unsigned int nSubtractFeeFromAmount = 0;
     for (const auto& recipient : vecSend)
     {
-        /** REDE START */
+        /** SHAHE START */
         if (fTransferAsset || fReissueAsset || assetType == AssetType::SUB || assetType == AssetType::UNIQUE || assetType == AssetType::MSGCHANNEL || assetType == AssetType::SUB_QUALIFIER || assetType == AssetType::RESTRICTED) {
             CAssetTransfer assetTransfer;
             std::string address;
@@ -3154,7 +3154,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                 mapAssetValue[assetTransfer.strName] += assetTransfer.nAmount;
             }
         }
-        /** REDE END */
+        /** SHAHE END */
 
         if (nValue < 0 || recipient.nAmount < 0)
         {
@@ -3216,17 +3216,17 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
         std::set<CInputCoin> setAssets;
         LOCK2(cs_main, cs_wallet);
         {
-            /** REDE START */
+            /** SHAHE START */
             std::vector<COutput> vAvailableCoins;
             std::map<std::string, std::vector<COutput> > mapAssetCoins;
             if (fTransferAsset || fReissueAsset || assetType == AssetType::SUB || assetType == AssetType::UNIQUE || assetType == AssetType::MSGCHANNEL || assetType == AssetType::SUB_QUALIFIER || assetType == AssetType::RESTRICTED)
                 AvailableCoinsWithAssets(vAvailableCoins, mapAssetCoins, true, &coin_control);
             else
                 AvailableCoins(vAvailableCoins, true, &coin_control);
-            /** REDE END */
+            /** SHAHE END */
             // Create change script that will be used if we need change
             // TODO: pass in scriptChange instead of reservekey so
-            // change transaction isn't always pay-to-redecoin-address
+            // change transaction isn't always pay-to-shahepay-address
             CScript scriptChange;
             CScript assetScriptChange;
 
@@ -3243,13 +3243,13 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                 scriptChange = GetScriptForDestination(keyID);
             }
 
-            /** REDE START */
+            /** SHAHE START */
             if (!boost::get<CNoDestination>(&coin_control.assetDestChange)) {
                 assetScriptChange = GetScriptForDestination(coin_control.assetDestChange);
             } else {
                 assetScriptChange = scriptChange;
             }
-            /** REDE END */
+            /** SHAHE END */
 
             CTxOut change_prototype_txout(0, scriptChange);
             size_t change_prototype_size = GetSerializeSize(change_prototype_txout, SER_DISK, 0);
@@ -3279,14 +3279,14 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                 {
                     CTxOut txout(recipient.nAmount, recipient.scriptPubKey);
 
-                    /** REDE START */
-                    // Check to see if you need to make an asset data outpoint OP_REDE_ASSET data
+                    /** SHAHE START */
+                    // Check to see if you need to make an asset data outpoint OP_SHAHE_ASSET data
                     if (recipient.scriptPubKey.IsNullAssetTxDataScript()) {
                         assert(txout.nValue == 0);
                         txNew.vout.push_back(txout);
                         continue;
                     }
-                    /** REDE END */
+                    /** SHAHE END */
 
                     if (recipient.fSubtractFeeFromAmount)
                     {
@@ -3300,7 +3300,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                         }
                     }
 
-                    if (IsDust(txout, ::dustRelayFee) && !IsScriptTransferAsset(recipient.scriptPubKey)) /** REDE START */ /** REDE END */
+                    if (IsDust(txout, ::dustRelayFee) && !IsScriptTransferAsset(recipient.scriptPubKey)) /** SHAHE START */ /** SHAHE END */
                     {
                         if (recipient.fSubtractFeeFromAmount && nFeeRet > 0)
                         {
@@ -3328,7 +3328,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                         return false;
                     }
 
-                    /** REDE START */
+                    /** SHAHE START */
                     if (AreAssetsDeployed()) {
                         setAssets.clear();
                         mapAssetsIn.clear();
@@ -3337,12 +3337,12 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                             return false;
                         }
                     }
-                    /** REDE END */
+                    /** SHAHE END */
                 }
 
                 const CAmount nChange = nValueIn - nValueToSelect;
 
-                /** REDE START */
+                /** SHAHE START */
                 if (AreAssetsDeployed()) {
                     // Add the change for the assets
                     std::map<std::string, CAmount> mapAssetChange;
@@ -3429,7 +3429,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                         }
                     }
                 }
-                /** REDE END */
+                /** SHAHE END */
 
                 if (nChange > 0)
                 {
@@ -3463,7 +3463,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                     nChangePosInOut = -1;
                 }
 
-                /** REDE START */
+                /** SHAHE START */
                 if (AreAssetsDeployed()) {
                     if (fNewAsset) {
                         for (auto asset : assets) {
@@ -3492,7 +3492,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                         txNew.vout.push_back(reissueTxOut);
                     }
                 }
-                /** REDE END */
+                /** SHAHE END */
 
                 // Fill vin
                 //
@@ -3510,13 +3510,13 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                     txNew.vin.push_back(CTxIn(coin.outpoint,CScript(),
                                               nSequence));
 
-                /** REDE START */
+                /** SHAHE START */
                 if (AreAssetsDeployed()) {
                     for (const auto &asset : setAssets)
                         txNew.vin.push_back(CTxIn(asset.outpoint, CScript(),
                                                   nSequence));
                 }
-                /** REDE END */
+                /** SHAHE END */
 
                 // Add the new asset inputs into the tempSet so the dummysigntx will add the correct amount of sigsß
                 std::set<CInputCoin> tempSet = setCoins;
@@ -3628,7 +3628,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
 
                 nIn++;
             }
-            /** REDE START */
+            /** SHAHE START */
             if (AreAssetsDeployed()) {
                 for (const auto &asset : setAssets) {
                     const CScript &scriptPubKey = asset.txout.scriptPubKey;
@@ -3646,7 +3646,7 @@ bool CWallet::CreateTransactionAll(const std::vector<CRecipient>& vecSend, CWall
                     nIn++;
                 }
             }
-            /** REDE END */
+            /** SHAHE END */
         }
 
         // Embed the constructed transaction data in wtxNew.
@@ -4437,8 +4437,8 @@ void CWallet::GetKeyBirthTimes(std::map<CTxDestination, int64_t> &mapKeyBirth) c
  *   the block time.
  *
  * For more information see CWalletTx::nTimeSmart,
- * https://redecointalk.org/?topic=54527, or
- * https://github.com/redecoinProject/redecoin/pull/1393.
+ * https://shahepaytalk.org/?topic=54527, or
+ * https://github.com/shahepayProject/shahepay/pull/1393.
  */
 unsigned int CWallet::ComputeTimeSmart(const CWalletTx& wtx) const
 {

@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_OPTIONSMODEL_H
-#define REDECOIN_QT_OPTIONSMODEL_H
+#ifndef SHAHEPAY_QT_OPTIONSMODEL_H
+#define SHAHEPAY_QT_OPTIONSMODEL_H
 
 #include "amount.h"
 
@@ -15,7 +15,7 @@ QT_BEGIN_NAMESPACE
 class QNetworkProxy;
 QT_END_NAMESPACE
 
-/** Interface from Qt to configuration data structure for redecoin client.
+/** Interface from Qt to configuration data structure for shahepay client.
    To Qt, the options are presented as a list with the different options
    laid out vertically.
    This can be changed to a tree once the settings become sufficiently
@@ -40,7 +40,7 @@ public:
         ProxyUseTor,            // bool
         ProxyIPTor,             // QString
         ProxyPortTor,           // int
-        DisplayUnit,            // redecoinUnits::Unit
+        DisplayUnit,            // shahepayUnits::Unit
         ThirdPartyTxUrls,       // QString
         Language,               // QString
         CoinControlFeatures,    // bool
@@ -87,10 +87,10 @@ private:
     int nDisplayUnit;
     QString strThirdPartyTxUrls;
     bool fCoinControlFeatures;
-    /** REDE START*/
+    /** SHAHE START*/
     bool fCustomFeeFeatures;
     bool fDarkModeEnabled;
-    /** REDE END*/
+    /** SHAHE END*/
     /* settings that were overridden by command-line */
     QString strOverriddenByCommandLine;
 
@@ -106,4 +106,4 @@ Q_SIGNALS:
     void hideTrayIconChanged(bool);
 };
 
-#endif // REDECOIN_QT_OPTIONSMODEL_H
+#endif // SHAHEPAY_QT_OPTIONSMODEL_H

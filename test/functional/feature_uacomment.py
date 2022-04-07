@@ -6,10 +6,10 @@
 
 """Test the -uacomment option."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal
 
-class UacommentTest(redecoinTestFramework):
+class UacommentTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True

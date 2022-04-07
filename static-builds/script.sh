@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Set DISTNAME, BRANCH and MAKEOPTS to the desired settings
-DISTNAME=redecoin-1.0.1
+DISTNAME=shahepay-1.0.1
 MAKEOPTS="-j15"
 BRANCH=master
 clear
@@ -27,10 +27,10 @@ apt install -y curl g++-aarch64-linux-gnu g++-7-aarch64-linux-gnu gcc-7-aarch64-
 cd ~/
 
 # Removes any existing builds and starts clean WARNING
-rm -rf ~/redecoin ~/sign ~/release
+rm -rf ~/shahepay ~/sign ~/release
 
-git clone https://github.com/redecoinproject/redecoin.git
-cd ~/redecoin
+git clone https://github.com/shahepayproject/shahepay.git
+cd ~/shahepay
 chmod -R +x *
 git checkout $BRANCH
 
@@ -40,9 +40,9 @@ echo @@@"Building linux 64 binaries"
 echo @@@
 
 mkdir -p ~/release
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=x86_64-linux-gnu $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/x86_64-linux-gnu/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-linux-gnu/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g" LDFLAGS="-static-libstdc++"
@@ -55,10 +55,10 @@ cd ~/linux64
 find . -name "lib*.la" -delete
 find . -name "lib*.a" -delete
 rm -rf $DISTNAME/lib/pkgconfig
-find ${DISTNAME}/bin -type f -executable -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
-find ${DISTNAME}/lib -type f -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/bin -type f -executable -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/lib -type f -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
 find $DISTNAME/ -not -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/release/$DISTNAME-x86_64-linux-gnu.tar.gz
-cd ~/redecoin
+cd ~/shahepay
 rm -rf ~/linux64
 make clean
 export PATH=$PATH_orig
@@ -68,17 +68,17 @@ echo @@@
 echo @@@"Building general sourcecode"
 echo @@@
 
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/x86_64-linux-gnu/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-linux-gnu/share/config.site ./configure --prefix=/
 make dist
-SOURCEDIST=`echo redecoin-*.tar.gz`
-mkdir -p ~/redecoin/temp
-cd ~/redecoin/temp
+SOURCEDIST=`echo shahepay-*.tar.gz`
+mkdir -p ~/shahepay/temp
+cd ~/shahepay/temp
 tar xf ../$SOURCEDIST
-find redecoin-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
-cd ~/redecoin
+find shahepay-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+cd ~/shahepay
 mv $SOURCEDIST ~/release
 rm -rf temp
 make clean
@@ -113,10 +113,10 @@ done
 
 export PATH=$PWD/wrapped:$PATH
 export HOST_ID_SALT="$PWD/wrapped/extra_includes/i386-linux-gnu"
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=i686-pc-linux-gnu $MAKEOPTS
 unset HOST_ID_SALT
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/i686-pc-linux-gnu/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/i686-pc-linux-gnu/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g" LDFLAGS="-static-libstdc++"
@@ -129,10 +129,10 @@ cd ~/linux32
 find . -name "lib*.la" -delete
 find . -name "lib*.a" -delete
 rm -rf $DISTNAME/lib/pkgconfig
-find ${DISTNAME}/bin -type f -executable -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
-find ${DISTNAME}/lib -type f -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/bin -type f -executable -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/lib -type f -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
 find $DISTNAME/ -not -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/release/$DISTNAME-i686-pc-linux-gnu.tar.gz
-cd ~/redecoin
+cd ~/shahepay
 rm -rf ~/linux32
 rm -rf ~/wrapped
 make clean
@@ -143,9 +143,9 @@ echo @@@
 echo @@@ "Building linux ARM binaries"
 echo @@@
 
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=arm-linux-gnueabihf $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/arm-linux-gnueabihf/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/arm-linux-gnueabihf/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g" LDFLAGS="-static-libstdc++"
@@ -157,10 +157,10 @@ cd ~/linuxARM
 find . -name "lib*.la" -delete
 find . -name "lib*.a" -delete
 rm -rf $DISTNAME/lib/pkgconfig
-find ${DISTNAME}/bin -type f -executable -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
-find ${DISTNAME}/lib -type f -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/bin -type f -executable -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/lib -type f -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
 find $DISTNAME/ -not -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/release/$DISTNAME-arm-linux-gnueabihf.tar.gz
-cd ~/redecoin
+cd ~/shahepay
 rm -rf ~/linuxARM
 make clean
 export PATH=$PATH_orig
@@ -170,9 +170,9 @@ echo @@@
 echo @@@ "Building linux aarch64 binaries"
 echo @@@
 
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=aarch64-linux-gnu $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/aarch64-linux-gnu/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/aarch64-linux-gnu/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g" LDFLAGS="-static-libstdc++"
@@ -184,10 +184,10 @@ cd ~/linuxaarch64
 find . -name "lib*.la" -delete
 find . -name "lib*.a" -delete
 rm -rf $DISTNAME/lib/pkgconfig
-find ${DISTNAME}/bin -type f -executable -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
-find ${DISTNAME}/lib -type f -exec ../redecoin/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/bin -type f -executable -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
+find ${DISTNAME}/lib -type f -exec ../shahepay/contrib/devtools/split-debug.sh {} {} {}.dbg \;
 find $DISTNAME/ -not -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/release/$DISTNAME-aarch64-linux-gnu.tar.gz
-cd ~/redecoin
+cd ~/shahepay
 rm -rf ~/linuxaarch64
 make clean
 export PATH=$PATH_orig
@@ -201,9 +201,9 @@ update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++
 mkdir -p ~/release/unsigned/
 mkdir -p ~/sign/win64
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=x86_64-w64-mingw32 $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/x86_64-w64-mingw32/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g"
@@ -211,7 +211,7 @@ make $MAKEOPTS
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f redecoin-*setup*.exe ~/release/unsigned/
+cp -f shahepay-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win64
 make install DESTDIR=~/win64/$DISTNAME
 cd ~/win64
@@ -224,14 +224,14 @@ find ./$DISTNAME -not -name "*.dbg"  -type f | sort | zip -X@ ./$DISTNAME-x86_64
 mv ./$DISTNAME-x86_64-*.zip ~/release/$DISTNAME-win64.zip
 cd ~/
 rm -rf win64
-cp -rf redecoin/contrib/windeploy ~/sign/win64
+cp -rf shahepay/contrib/windeploy ~/sign/win64
 cd ~/sign/win64/windeploy
 mkdir -p unsigned
-mv ~/redecoin/redecoin-*setup-unsigned.exe unsigned/
+mv ~/shahepay/shahepay-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win64-unsigned.tar.gz
 cd ~/sign
 rm -rf win64
-cd ~/redecoin
+cd ~/shahepay
 rm -rf release
 make clean
 export PATH=$PATH_orig
@@ -244,9 +244,9 @@ echo @@@
 update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix 
 mkdir -p ~/sign/win32
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') 
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make HOST=i686-w64-mingw32 $MAKEOPTS
-cd ~/redecoin
+cd ~/shahepay
 export PATH=$PWD/depends/i686-w64-mingw32/native/bin:$PATH
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/i686-w64-mingw32/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-reduce-exports --disable-bench --disable-gui-tests CFLAGS="-O2 -g" CXXFLAGS="-O2 -g"
@@ -254,7 +254,7 @@ make $MAKEOPTS
 make -C src check-security
 make deploy
 rename 's/-setup\.exe$/-setup-unsigned.exe/' *-setup.exe
-cp -f redecoin-*setup*.exe ~/release/unsigned/
+cp -f shahepay-*setup*.exe ~/release/unsigned/
 mkdir -p ~/win32
 make install DESTDIR=~/win32/$DISTNAME
 cd ~/win32
@@ -267,14 +267,14 @@ find ./$DISTNAME -not -name "*.dbg"  -type f | sort | zip -X@ ./$DISTNAME-i686-w
 mv ./$DISTNAME-i686-w64-*.zip ~/release/$DISTNAME-win32.zip
 cd ~/
 rm -rf win32
-cp -rf redecoin/contrib/windeploy ~/sign/win32
+cp -rf shahepay/contrib/windeploy ~/sign/win32
 cd ~/sign/win32/windeploy
 mkdir -p unsigned
-mv ~/redecoin/redecoin-*setup-unsigned.exe unsigned/
+mv ~/shahepay/shahepay-*setup-unsigned.exe unsigned/
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-win32-unsigned.tar.gz
 cd ~/sign
 rm -rf win32
-cd ~/redecoin
+cd ~/shahepay
 rm -rf release
 make clean
 export PATH=$PATH_orig
@@ -284,13 +284,13 @@ echo @@@
 echo @@@ "Building OSX binaries"
 echo @@@
 
-mkdir -p ~/redecoin/depends/SDKs
-cp ~/MacOSX10.11.sdk.tar.gz ~/redecoin/depends/SDKs/MacOSX10.11.sdk.tar.gz
-cd ~/redecoin/depends/SDKs && tar -xf MacOSX10.11.sdk.tar.gz 
+mkdir -p ~/shahepay/depends/SDKs
+cp ~/MacOSX10.11.sdk.tar.gz ~/shahepay/depends/SDKs/MacOSX10.11.sdk.tar.gz
+cd ~/shahepay/depends/SDKs && tar -xf MacOSX10.11.sdk.tar.gz 
 rm -rf MacOSX10.11.sdk.tar.gz 
-cd ~/redecoin/depends
+cd ~/shahepay/depends
 make $MAKEOPTS HOST="x86_64-apple-darwin14"
-cd ~/redecoin
+cd ~/shahepay
 ./autogen.sh
 CONFIG_SITE=$PWD/depends/x86_64-apple-darwin14/share/config.site ./configure --prefix=/ --disable-ccache --disable-maintainer-mode --disable-dependency-tracking --enable-reduce-exports --disable-bench --disable-gui-tests GENISOIMAGE=$PWD/depends/x86_64-apple-darwin14/native/bin/genisoimage
 make $MAKEOPTS 
@@ -309,16 +309,16 @@ cp $PWD/depends/x86_64-apple-darwin14/native/bin/x86_64-apple-darwin14-pagestuff
 mv dist unsigned-app-$DISTNAME
 cd unsigned-app-$DISTNAME
 find . | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/sign/$DISTNAME-osx-unsigned.tar.gz
-cd ~/redecoin
+cd ~/shahepay
 make deploy
-$PWD/depends/x86_64-apple-darwin14/native/bin/dmg dmg "redecoin-Core.dmg" ~/release/unsigned/$DISTNAME-osx-unsigned.dmg
+$PWD/depends/x86_64-apple-darwin14/native/bin/dmg dmg "shahepay-Core.dmg" ~/release/unsigned/$DISTNAME-osx-unsigned.dmg
 rm -rf unsigned-app-$DISTNAME dist osx_volname dpi36.background.tiff dpi72.background.tiff
 cd ~/OSX
 find . -name "lib*.la" -delete
 find . -name "lib*.a" -delete
 rm -rf $DISTNAME/lib/pkgconfig
 find $DISTNAME | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ~/release/$DISTNAME-osx64.tar.gz
-cd ~/redecoin
+cd ~/shahepay
 rm -rf ~/OSX
 make clean
 export PATH=$PATH_orig

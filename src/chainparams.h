@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CHAINPARAMS_H
-#define REDECOIN_CHAINPARAMS_H
+#ifndef SHAHEPAY_CHAINPARAMS_H
+#define SHAHEPAY_CHAINPARAMS_H
 
 #include "chainparamsbase.h"
 #include "consensus/params.h"
@@ -41,7 +41,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * redecoin system. There are three: the main network on which people trade goods
+ * shahepay system. There are three: the main network on which people trade goods
  * and services, the public test network which gets reset from time to time and
  * a regression test mode which is intended for private networks only. It has
  * minimal difficulty to ensure that blocks can be found instantly.
@@ -90,7 +90,7 @@ public:
     bool BIP66();
     bool CSVEnabled() const;
 
-    /** REDE Start **/
+    /** SHAHE Start **/
     const CAmount& IssueAssetBurnAmount() const { return nIssueAssetBurnAmount; }
     const CAmount& ReissueAssetBurnAmount() const { return nReissueAssetBurnAmount; }
     const CAmount& IssueSubAssetBurnAmount() const { return nIssueSubAssetBurnAmount; }
@@ -142,7 +142,7 @@ public:
     int MinReorganizationAge() const { return nMinReorganizationAge; }
 
     int GetAssetActivationHeight() const { return nAssetActivationHeight; }
-    /** REDE End **/
+    /** SHAHE End **/
 
 protected:
     CChainParams() {}
@@ -163,7 +163,7 @@ protected:
     CCheckpointData checkpointData;
     ChainTxData chainTxData;
 
-    /** REDE Start **/
+    /** SHAHE Start **/
     // Burn Amounts
     CAmount nIssueAssetBurnAmount;
     CAmount nReissueAssetBurnAmount;
@@ -198,7 +198,7 @@ protected:
     int nMinReorganizationAge;
 
     int nAssetActivationHeight;
-    /** REDE End **/
+    /** SHAHE End **/
 };
 
 /**
@@ -235,4 +235,4 @@ void TurnOffBIP66();
 
 void TurnOffCSV();
 
-#endif // REDECOIN_CHAINPARAMS_H
+#endif // SHAHEPAY_CHAINPARAMS_H

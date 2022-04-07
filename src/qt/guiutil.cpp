@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "guiutil.h"
 
-#include "redecoinaddressvalidator.h"
-#include "redecoinunits.h"
+#include "shahepayaddressvalidator.h"
+#include "shahepayunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -213,11 +213,11 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a redecoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a shahepay address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(GetParams()))));
 #endif
-    widget->setValidator(new redecoinAddressEntryValidator(parent));
-    widget->setCheckValidator(new redecoinAddressCheckValidator(parent));
+    widget->setValidator(new shahepayAddressEntryValidator(parent));
+    widget->setCheckValidator(new shahepayAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -229,10 +229,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseredecoinURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseshahepayURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no redecoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("redecoin"))
+    // return if URI is not valid or is no shahepay: URI
+    if(!uri.isValid() || uri.scheme() != QString("shahepay"))
         return false;
 
     SendCoinsRecipient rv;
@@ -272,7 +272,7 @@ bool parseredecoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!redecoinUnits::parse(redecoinUnits::REDE, i->second, &rv.amount))
+                if(!shahepayUnits::parse(shahepayUnits::SHAHE, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -290,28 +290,28 @@ bool parseredecoinURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseredecoinURI(QString uri, SendCoinsRecipient *out)
+bool parseshahepayURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert redecoin:// to redecoin:
+    // Convert shahepay:// to shahepay:
     //
-    //    Cannot handle this later, because redecoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because shahepay:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("redecoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("shahepay://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "redecoin:");
+        uri.replace(0, 10, "shahepay:");
     }
     QUrl uriInstance(uri);
-    return parseredecoinURI(uriInstance, out);
+    return parseshahepayURI(uriInstance, out);
 }
 
-QString formatredecoinURI(const SendCoinsRecipient &info)
+QString formatshahepayURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("redecoin:%1").arg(info.address);
+    QString ret = QString("shahepay:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(redecoinUnits::format(redecoinUnits::REDE, info.amount, false, redecoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(shahepayUnits::format(shahepayUnits::SHAHE, info.amount, false, shahepayUnits::separatorNever));
         paramCount++;
     }
 
@@ -501,9 +501,9 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
-bool openredecoinConf()
+bool openshahepayConf()
 {
-    boost::filesystem::path pathConfig = GetConfigFile(REDECOIN_CONF_FILENAME);
+    boost::filesystem::path pathConfig = GetConfigFile(SHAHEPAY_CONF_FILENAME);
 
     /* Create the file */
     boost::filesystem::ofstream configFile(pathConfig, std::ios_base::app);
@@ -513,7 +513,7 @@ bool openredecoinConf()
     
     configFile.close();
     
-    /* Open redecoin.conf with the associated application */
+    /* Open shahepay.conf with the associated application */
     return QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
 
@@ -722,15 +722,15 @@ fs::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "redecoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "shahepay.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "redecoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("redecoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "shahepay (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("shahepay (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for redecoin*.lnk
+    // check for shahepay*.lnk
     return fs::exists(StartupShortcutPath());
 }
 
@@ -820,8 +820,8 @@ fs::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "redecoin.desktop";
-    return GetAutostartDir() / strprintf("redecoin-%s.lnk", chain);
+        return GetAutostartDir() / "shahepay.desktop";
+    return GetAutostartDir() / strprintf("shahepay-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -861,13 +861,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a redecoin.desktop file to the autostart directory:
+        // Write a shahepay.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=redecoin\n";
+            optionFile << "Name=shahepay\n";
         else
-            optionFile << strprintf("Name=redecoin (%s)\n", chain);
+            optionFile << strprintf("Name=shahepay (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", gArgs.GetBoolArg("-testnet", false), gArgs.GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -893,7 +893,7 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
         return nullptr;
     }
     
-    // loop through the list of startup items and try to find the redecoin app
+    // loop through the list of startup items and try to find the shahepay app
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
@@ -927,38 +927,38 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef redecoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (redecoinAppUrl == nullptr) {
+    CFURLRef shahepayAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (shahepayAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, redecoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, shahepayAppUrl);
 
-    CFRelease(redecoinAppUrl);
+    CFRelease(shahepayAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef redecoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
-    if (redecoinAppUrl == nullptr) {
+    CFURLRef shahepayAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    if (shahepayAppUrl == nullptr) {
         return false;
     }
     
     LSSharedFileListRef loginItems = LSSharedFileListCreate(nullptr, kLSSharedFileListSessionLoginItems, nullptr);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, redecoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, shahepayAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add redecoin app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, redecoinAppUrl, nullptr, nullptr);
+        // add shahepay app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, nullptr, nullptr, shahepayAppUrl, nullptr, nullptr);
     }
     else if(!fAutoStart && foundItem) {
         // remove item
         LSSharedFileListItemRemove(loginItems, foundItem);
     }
     
-    CFRelease(redecoinAppUrl);
+    CFRelease(shahepayAppUrl);
     return true;
 }
 #pragma GCC diagnostic pop

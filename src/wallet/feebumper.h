@@ -1,11 +1,11 @@
 // Copyright (c) 2017 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_WALLET_FEEBUMPER_H
-#define REDECOIN_WALLET_FEEBUMPER_H
+#ifndef SHAHEPAY_WALLET_FEEBUMPER_H
+#define SHAHEPAY_WALLET_FEEBUMPER_H
 
 #include <primitives/transaction.h>
 
@@ -60,4 +60,4 @@ private:
     CAmount nNewFee;
 };
 
-#endif // REDECOIN_WALLET_FEEBUMPER_H
+#endif // SHAHEPAY_WALLET_FEEBUMPER_H

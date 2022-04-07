@@ -10,14 +10,14 @@ define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Shahepay Core]])
 AC_INIT([Shahepay Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/shahepay/shahepay/issues],[Shahepay],[https://www.shahepay.com])
 AC_CONFIG_SRCDIR([src/validation.cpp])
-AC_CONFIG_HEADERS([src/config/redecoin-config.h])
+AC_CONFIG_HEADERS([src/config/shahepay-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-REDECOIN_DAEMON_NAME=shahepayd
-REDECOIN_GUI_NAME=shahepay-qt
-REDECOIN_CLI_NAME=shahepay-cli
-REDECOIN_TX_NAME=shahepay-tx
+SHAHEPAY_DAEMON_NAME=shahepayd
+SHAHEPAY_GUI_NAME=shahepay-qt
+SHAHEPAY_CLI_NAME=shahepay-cli
+SHAHEPAY_TX_NAME=shahepay-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
@@ -27,9 +27,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef REDECOIN_CONFIG_H])
-AH_TOP([#define REDECOIN_CONFIG_H])
-AH_BOTTOM([#endif //REDECOIN_CONFIG_H])
+AH_TOP([#ifndef SHAHEPAY_CONFIG_H])
+AH_TOP([#define SHAHEPAY_CONFIG_H])
+AH_BOTTOM([#endif //SHAHEPAY_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -83,7 +83,7 @@ AC_PATH_TOOL(RANLIB, ranlib)
 AC_PATH_TOOL(STRIP, strip)
 AC_PATH_TOOL(GCOV, gcov)
 AC_PATH_PROG(LCOV, lcov)
-dnl Python 3.x is supported from 3.4 on (see https://github.com/redecoinProject/redecoin/issues/7893)
+dnl Python 3.x is supported from 3.4 on (see https://github.com/shahepayProject/shahepay/issues/7893)
 AC_PATH_PROGS([PYTHON], [python3.6 python3.5 python3.4 python3 python2.7 python2 python])
 AC_PATH_PROG(GENHTML, genhtml)
 AC_PATH_PROG([GIT], [git])
@@ -298,27 +298,27 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([cli],
   [AS_HELP_STRING([--with-cli],
-  [build redecoin-cli (default=yes)])],
-  [build_redecoin_cli=$withval],
-  [build_redecoin_cli=yes])
+  [build shahepay-cli (default=yes)])],
+  [build_shahepay_cli=$withval],
+  [build_shahepay_cli=yes])
 
 AC_ARG_WITH([tx],
   [AS_HELP_STRING([--with-tx],
-  [build redecoin-tx (default=no)])],
-  [build_redecoin_tx=$withval],
-  [build_redecoin_tx=no])
+  [build shahepay-tx (default=no)])],
+  [build_shahepay_tx=$withval],
+  [build_shahepay_tx=no])
 
 AC_ARG_WITH([libs],
   [AS_HELP_STRING([--with-libs],
   [build libraries (default=yes)])],
-  [build_redecoin_libs=$withval],
-  [build_redecoin_libs=yes])
+  [build_shahepay_libs=$withval],
+  [build_shahepay_libs=yes])
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build redecoind daemon (default=yes)])],
-  [build_redecoind=$withval],
-  [build_redecoind=yes])
+  [build shahepayd daemon (default=yes)])],
+  [build_shahepayd=$withval],
+  [build_shahepayd=yes])
 
 use_pkgconfig=yes
 case $host in
@@ -515,7 +515,7 @@ AC_C_BIGENDIAN
 dnl Check for pthread compile/link requirements
 AX_PTHREAD
 
-# The following macro will add the necessary defines to redecoin-config.h, but
+# The following macro will add the necessary defines to shahepay-config.h, but
 # they also need to be passed down to any subprojects. Pull the results out of
 # the cache and add them to CPPFLAGS.
 AC_SYS_LARGEFILE
@@ -720,7 +720,7 @@ AC_SUBST(LIBMEMENV)
 
 if test x$enable_wallet != xno; then
     dnl Check for libdb_cxx only if wallet enabled
-    REDECOIN_FIND_BDB48
+    SHAHEPAY_FIND_BDB48
 fi
 
 dnl Check for libminiupnpc (optional)
@@ -732,12 +732,12 @@ if test x$use_upnp != xno; then
   )
 fi
 
-REDECOIN_QT_INIT
+SHAHEPAY_QT_INIT
 
-dnl sets $redecoin_enable_qt, $redecoin_enable_qt_test, $redecoin_enable_qt_dbus
-REDECOIN_QT_CONFIGURE([$use_pkgconfig], [qt5])
+dnl sets $shahepay_enable_qt, $shahepay_enable_qt_test, $shahepay_enable_qt_dbus
+SHAHEPAY_QT_CONFIGURE([$use_pkgconfig], [qt5])
 
-if test x$build_redecoin_cli$build_redecoin_tx$build_redecoind$redecoin_enable_qt$use_tests$use_bench = xnononononono; then
+if test x$build_shahepay_cli$build_shahepay_tx$build_shahepayd$shahepay_enable_qt$use_tests$use_bench = xnononononono; then
     use_boost=no
 else
     use_boost=yes
@@ -919,11 +919,11 @@ if test x$use_pkgconfig = xyes; then
     [
       PKG_CHECK_MODULES([SSL], [libssl],, [AC_MSG_ERROR(openssl  not found.)])
       PKG_CHECK_MODULES([CRYPTO], [libcrypto],,[AC_MSG_ERROR(libcrypto  not found.)])
-      REDECOIN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [REDECOIN_QT_FAIL(libprotobuf not found)])])
+      SHAHEPAY_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [SHAHEPAY_QT_FAIL(libprotobuf not found)])])
       if test x$use_qr != xno; then
-        REDECOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+        SHAHEPAY_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
       fi
-      if test x$build_redecoin_cli$build_redecoin_tx$build_redecoind$redecoin_enable_qt$use_tests != xnonononono; then
+      if test x$build_shahepay_cli$build_shahepay_tx$build_shahepayd$shahepay_enable_qt$use_tests != xnonononono; then
         PKG_CHECK_MODULES([EVENT], [libevent],, [AC_MSG_ERROR(libevent not found.)])
         if test x$TARGET_OS != xwindows; then
           PKG_CHECK_MODULES([EVENT_PTHREADS], [libevent_pthreads],, [AC_MSG_ERROR(libevent_pthreads not found.)])
@@ -948,7 +948,7 @@ else
   AC_CHECK_HEADER([openssl/ssl.h],, AC_MSG_ERROR(libssl headers missing),)
   AC_CHECK_LIB([ssl],         [main],SSL_LIBS=-lssl, AC_MSG_ERROR(libssl missing))
 
-  if test x$build_redecoin_cli$build_redecoin_tx$build_redecoind$redecoin_enable_qt$use_tests != xnonononono; then
+  if test x$build_shahepay_cli$build_shahepay_tx$build_shahepayd$shahepay_enable_qt$use_tests != xnonononono; then
     AC_CHECK_HEADER([event2/event.h],, AC_MSG_ERROR(libevent headers missing),)
     AC_CHECK_LIB([event],[main],EVENT_LIBS=-levent,AC_MSG_ERROR(libevent missing))
     if test x$TARGET_OS != xwindows; then
@@ -979,10 +979,10 @@ else
     esac
   fi
 
-  REDECOIN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], REDECOIN_QT_FAIL(libprotobuf not found)))
+  SHAHEPAY_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], SHAHEPAY_QT_FAIL(libprotobuf not found)))
   if test x$use_qr != xno; then
-    REDECOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
-    REDECOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
+    SHAHEPAY_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
+    SHAHEPAY_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
   fi
 fi
 
@@ -997,7 +997,7 @@ dnl univalue check
 
 need_bundled_univalue=yes
 
-if test x$build_redecoin_cli$build_redecoin_tx$build_redecoind$redecoin_enable_qt$use_tests$use_bench = xnonononono; then
+if test x$build_shahepay_cli$build_shahepay_tx$build_shahepayd$shahepay_enable_qt$use_tests$use_bench = xnonononono; then
   need_bundled_univalue=no
 else
 
@@ -1041,27 +1041,27 @@ AM_CONDITIONAL([EMBEDDED_UNIVALUE],[test x$need_bundled_univalue = xyes])
 AC_SUBST(UNIVALUE_CFLAGS)
 AC_SUBST(UNIVALUE_LIBS)
 
-REDECOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
+SHAHEPAY_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build redecoind])
-AM_CONDITIONAL([BUILD_REDECOIND], [test x$build_redecoind = xyes])
-AC_MSG_RESULT($build_redecoind)
+AC_MSG_CHECKING([whether to build shahepayd])
+AM_CONDITIONAL([BUILD_SHAHEPAYD], [test x$build_shahepayd = xyes])
+AC_MSG_RESULT($build_shahepayd)
 
-AC_MSG_CHECKING([whether to build redecoin-cli])
-AM_CONDITIONAL([BUILD_REDECOIN_CLI], [test x$build_redecoin_cli = xyes])
-AC_MSG_RESULT($build_redecoin_cli)
+AC_MSG_CHECKING([whether to build shahepay-cli])
+AM_CONDITIONAL([BUILD_SHAHEPAY_CLI], [test x$build_shahepay_cli = xyes])
+AC_MSG_RESULT($build_shahepay_cli)
 
-AC_MSG_CHECKING([whether to build redecoin-tx])
-AM_CONDITIONAL([BUILD_REDECOIN_TX], [test x$build_redecoin_tx = xyes])
-AC_MSG_RESULT($build_redecoin_tx)
+AC_MSG_CHECKING([whether to build shahepay-tx])
+AM_CONDITIONAL([BUILD_SHAHEPAY_TX], [test x$build_shahepay_tx = xyes])
+AC_MSG_RESULT($build_shahepay_tx)
 
 AC_MSG_CHECKING([whether to build libraries])
-AM_CONDITIONAL([BUILD_REDECOIN_LIBS], [test x$build_redecoin_libs = xyes])
-if test x$build_redecoin_libs = xyes; then
+AM_CONDITIONAL([BUILD_SHAHEPAY_LIBS], [test x$build_shahepay_libs = xyes])
+if test x$build_shahepay_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libredecoinconsensus.pc:libredecoinconsensus.pc.in])
+  AC_CONFIG_FILES([libshahepayconsensus.pc:libshahepayconsensus.pc.in])
 fi
-AC_MSG_RESULT($build_redecoin_libs)
+AC_MSG_RESULT($build_shahepay_libs)
 
 AC_LANG_POP
 
@@ -1123,13 +1123,13 @@ fi
 
 dnl these are only used when qt is enabled
 BUILD_TEST_QT=""
-if test x$redecoin_enable_qt != xno; then
+if test x$shahepay_enable_qt != xno; then
   dnl enable dbus support
   AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
-  if test x$redecoin_enable_qt_dbus != xno; then
+  if test x$shahepay_enable_qt_dbus != xno; then
     AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
   fi
-  AC_MSG_RESULT($redecoin_enable_qt_dbus)
+  AC_MSG_RESULT($shahepay_enable_qt_dbus)
 
   dnl enable qr support
   AC_MSG_CHECKING([whether to build GUI with support for QR codes])
@@ -1152,8 +1152,8 @@ if test x$redecoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_redecoin-qt])
-  if test x$use_gui_tests$redecoin_enable_qt_test = xyesyes; then
+  AC_MSG_CHECKING([whether to build test_shahepay-qt])
+  if test x$use_gui_tests$shahepay_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
   else
@@ -1163,7 +1163,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_redecoin])
+AC_MSG_CHECKING([whether to build test_shahepay])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"
@@ -1179,7 +1179,7 @@ else
   AC_MSG_RESULT([no])
 fi
 
-if test x$build_redecoin_cli$build_redecoin_tx$build_redecoin_libs$build_redecoind$redecoin_enable_qt$use_bench$use_tests = xnonononononono; then
+if test x$build_shahepay_cli$build_shahepay_tx$build_shahepay_libs$build_shahepayd$shahepay_enable_qt$use_bench$use_tests = xnonononononono; then
   AC_MSG_ERROR([No targets! Please specify at least one of: --with-cli --with-tx --with-libs --with-daemon --with-gui --enable-bench or --enable-tests])
 fi
 
@@ -1188,7 +1188,7 @@ AM_CONDITIONAL([BUILD_DARWIN], [test x$BUILD_OS = xdarwin])
 AM_CONDITIONAL([TARGET_WINDOWS], [test x$TARGET_OS = xwindows])
 AM_CONDITIONAL([ENABLE_WALLET],[test x$enable_wallet = xyes])
 AM_CONDITIONAL([ENABLE_TESTS],[test x$BUILD_TEST = xyes])
-AM_CONDITIONAL([ENABLE_QT],[test x$redecoin_enable_qt = xyes])
+AM_CONDITIONAL([ENABLE_QT],[test x$shahepay_enable_qt = xyes])
 AM_CONDITIONAL([ENABLE_QT_TESTS],[test x$BUILD_TEST_QT = xyes])
 AM_CONDITIONAL([ENABLE_BENCH],[test x$use_bench = xyes])
 AM_CONDITIONAL([USE_QRCODE], [test x$use_qr = xyes])
@@ -1217,10 +1217,10 @@ AC_SUBST(COPYRIGHT_YEAR, _COPYRIGHT_YEAR)
 AC_SUBST(COPYRIGHT_HOLDERS, "_COPYRIGHT_HOLDERS")
 AC_SUBST(COPYRIGHT_HOLDERS_SUBSTITUTION, "_COPYRIGHT_HOLDERS_SUBSTITUTION")
 AC_SUBST(COPYRIGHT_HOLDERS_FINAL, "_COPYRIGHT_HOLDERS_FINAL")
-AC_SUBST(REDECOIN_DAEMON_NAME)
-AC_SUBST(REDECOIN_GUI_NAME)
-AC_SUBST(REDECOIN_CLI_NAME)
-AC_SUBST(REDECOIN_TX_NAME)
+AC_SUBST(SHAHEPAY_DAEMON_NAME)
+AC_SUBST(SHAHEPAY_GUI_NAME)
+AC_SUBST(SHAHEPAY_CLI_NAME)
+AC_SUBST(SHAHEPAY_TX_NAME)
 
 AC_SUBST(RELDFLAGS)
 AC_SUBST(COMPAT_LDFLAGS)
@@ -1251,7 +1251,7 @@ AC_CONFIG_FILES([contrib/devtools/split-debug.sh],[chmod +x contrib/devtools/spl
 AM_COND_IF([HAVE_DOXYGEN], [AC_CONFIG_FILES([doc/Doxyfile])])
 AC_CONFIG_LINKS([contrib/filter-lcov.py:contrib/filter-lcov.py])
 AC_CONFIG_LINKS([test/functional/test_runner.py:test/functional/test_runner.py])
-AC_CONFIG_LINKS([test/util/redecoin-util-test.py:test/util/redecoin-util-test.py])
+AC_CONFIG_LINKS([test/util/shahepay-util-test.py:test/util/shahepay-util-test.py])
 AC_CONFIG_LINKS([src/crypto/md_helper.c:src/crypto/md_helper.c])
 
 dnl boost's m4 checks do something really nasty: they export these vars. As a
@@ -1307,12 +1307,12 @@ esac
 
 echo
 echo "Options used to compile and link:"
-echo "  build redecoin-cli = $build_redecoin_cli"
-echo "  build redecoin-tx  = $build_redecoin_tx"
+echo "  build shahepay-cli = $build_shahepay_cli"
+echo "  build shahepay-tx  = $build_shahepay_tx"
 echo "  with wallet     = $enable_wallet"
-echo "  with gui / qt   = $redecoin_enable_qt"
-if test x$redecoin_enable_qt != xno; then
-    echo "    qt version    = $redecoin_qt_got_major_vers"
+echo "  with gui / qt   = $shahepay_enable_qt"
+if test x$shahepay_enable_qt != xno; then
+    echo "    qt version    = $shahepay_qt_got_major_vers"
     echo "    with qr       = $use_qr"
 fi
 echo "  with zmq        = $use_zmq"

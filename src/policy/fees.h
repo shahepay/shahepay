@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef REDECOIN_POLICYESTIMATOR_H
-#define REDECOIN_POLICYESTIMATOR_H
+#ifndef SHAHEPAY_POLICYESTIMATOR_H
+#define SHAHEPAY_POLICYESTIMATOR_H
 
 #include "amount.h"
 #include "feerate.h"
@@ -302,4 +302,4 @@ static const std::array<int, 9> confTargets = { {2, 4, 6, 12, 24, 48, 144, 504, 
 int getConfTargetForIndex(int index);
 int getIndexForConfTarget(int target);
 
-#endif /*REDECOIN_POLICYESTIMATOR_H */
+#endif /*SHAHEPAY_POLICYESTIMATOR_H */

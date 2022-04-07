@@ -1,0 +1,8 @@
+/usr/bin/shahepay-cli		--	gen_context(system_u:object_r:shahepay_exec_t,s0)
+/usr/sbin/shahepayd		--	gen_context(system_u:object_r:shahepay_exec_t,s0)
+/usr/lib(64)?/shahepay/shahepayd		--	gen_context(system_u:object_r:shahepay_exec_t,s0)
+
+/etc/shahepay(/.*)?		gen_context(system_u:object_r:shahepay_conf_t,s0)
+/var/lib/shahepay(/.*)?		gen_context(system_u:object_r:shahepay_var_lib_t,s0)
+
+(/var)?/run/shahepayd(/.*)?   gen_context(system_u:object_r:shahepay_var_run_t,s0)

@@ -1,11 +1,11 @@
 ﻿// Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_ASSETSDIALOG_H
-#define REDECOIN_QT_ASSETSDIALOG_H
+#ifndef SHAHEPAY_QT_ASSETSDIALOG_H
+#define SHAHEPAY_QT_ASSETSDIALOG_H
 
 #include "walletmodel.h"
 
@@ -27,7 +27,7 @@ QT_BEGIN_NAMESPACE
 class QUrl;
 QT_END_NAMESPACE
 
-/** Dialog for sending redecoins */
+/** Dialog for sending shahepays */
 class AssetsDialog : public QDialog
 {
     Q_OBJECT
@@ -109,14 +109,14 @@ private Q_SLOTS:
 
     void customFeeFeatureChanged(bool);
 
-    /** REDE START */
+    /** SHAHE START */
     void assetControlUpdateSendCoinsDialog();
     void focusAsset(const QModelIndex& index);
-    /** REDE END */
+    /** SHAHE END */
 
     Q_SIGNALS:
             // Fired when a message should be reported to the user
             void message(const QString &title, const QString &message, unsigned int style);
 };
 
-#endif // REDECOIN_QT_ASSETSSDIALOG_H
+#endif // SHAHEPAY_QT_ASSETSSDIALOG_H

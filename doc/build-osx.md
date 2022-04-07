@@ -27,17 +27,17 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
 
-Build redecoin Core
+Build shahepay Core
 ------------------------
 
-1. Clone the redecoin source code and cd into `redecoin`
+1. Clone the shahepay source code and cd into `shahepay`
 
-        git clone https://github.com/redecoinProject/redecoin
-        cd redecoin
+        git clone https://github.com/shahepayProject/shahepay
+        cd shahepay
 
-2.  Build redecoin-core:
+2.  Build shahepay-core:
 
-    Configure and build the headless redecoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless shahepay binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -56,37 +56,37 @@ Build redecoin Core
 Running
 -------
 
-redecoin Core is now available at `./src/redecoind`
+shahepay Core is now available at `./src/shahepayd`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=redecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/redecoin/redecoin.conf"
+    echo -e "rpcuser=shahepayrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/shahepay/shahepay.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/redecoin/redecoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/shahepay/shahepay.conf"
 
-The first time you run redecoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run shahepayd, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/redecoin/debug.log
+    tail -f $HOME/Library/Application\ Support/shahepay/debug.log
 
 Other commands:
 -------
 
-    ./src/redecoind -daemon # Starts the redecoin daemon.
-    ./src/redecoin-cli --help # Outputs a list of command-line options.
-    ./src/redecoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/shahepayd -daemon # Starts the shahepay daemon.
+    ./src/shahepay-cli --help # Outputs a list of command-line options.
+    ./src/shahepay-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for redecoin development.
+You can use Qt Creator as an IDE, for shahepay development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "redecoin-qt" as project name, enter src/qt as location
+4. Enter "shahepay-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

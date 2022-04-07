@@ -10,10 +10,10 @@ Test corresponds to code in rpc/server.cpp.
 
 import time
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 
 
-class UptimeTest(redecoinTestFramework):
+class UptimeTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True

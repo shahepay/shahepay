@@ -11,7 +11,7 @@ import random
 from binascii import hexlify
 from test_framework.mininode import (NodeConnCB, mininode_lock, MsgInv, CInv, MsgBlock, CBlockHeader, MsgHeaders, MsgGetdata, MsgTx, MsgWitnessTx, MsgWitnessBlock, NODE_WITNESS, CTxIn, COutPoint,
                                      CTxInWitness, CTxWitness, MAX_BLOCK_BASE_SIZE, ser_vector, MSG_WITNESS_FLAG, CBlock, NodeConn, NODE_NETWORK, NetworkThread)
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, connect_nodes, get_bip9_status, sync_blocks, bytes_to_hex_str, hex_str_to_bytes, sync_mempools, p2p_port
 from test_framework.script import (CScript, CScriptOp, OP_DUP, OP_HASH160, OP_EQUALVERIFY, OP_CHECKMULTISIG, segwit_version1_signature_hash, OP_CHECKSIG, CTransaction, CTxOut, OP_TRUE, CScriptNum,
                                    hash160, OP_EQUAL, sha256, OP_0, OP_RETURN, ser_uint256, OP_2DROP, uint256_from_str, OP_DROP, struct, OP_1, OP_16, SIGHASH_ANYONECANPAY, SIGHASH_ALL, SIGHASH_NONE,
@@ -112,7 +112,7 @@ def sign_p2pk_witness_input(script, tx_to, in_idx, hashtype, value, key):
     tx_to.rehash()
 
 
-class SegWitTest(redecoinTestFramework):
+class SegWitTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
@@ -207,7 +207,7 @@ class SegWitTest(redecoinTestFramework):
         # rule).
         self.test_node.test_witness_block(block, accepted=False)
         # TODO: fix synchronization so we can test reject reason
-        # Right now, redecoind delays sending reject messages for blocks
+        # Right now, shahepayd delays sending reject messages for blocks
         # until the future, making synchronization here difficult.
         #assert_equal(self.test_node.last_message["reject"].reason, "unexpected-witness")
 
@@ -530,7 +530,7 @@ class SegWitTest(redecoinTestFramework):
         self.nodes[0].submitblock(bytes_to_hex_str(block.serialize(True)))
         assert(self.nodes[0].getbestblockhash() != block.hash)
 
-        # Now redo commitment with the standard nonce, but let redecoind fill it in.
+        # Now redo commitment with the standard nonce, but let shahepayd fill it in.
         add_witness_commitment(block, nonce=0)
         block.vtx[0].wit = CTxWitness()
         block.solve()
@@ -1450,7 +1450,7 @@ class SegWitTest(redecoinTestFramework):
         # This transaction should not be accepted into the mempool pre- or
         # post-segwit.  Mempool acceptance will use SCRIPT_VERIFY_WITNESS which
         # will require a witness to spend a witness program regardless of
-        # segwit activation.  Note that older redecoind's that are not
+        # segwit activation.  Note that older shahepayd's that are not
         # segwit-aware would also reject this for failing CLEANSTACK.
         self.test_node.test_transaction_acceptance(spend_tx, with_witness=False, accepted=False)
 
@@ -1486,12 +1486,12 @@ class SegWitTest(redecoinTestFramework):
     # Test the behavior of starting up a segwit-aware node after the softfork
     # has activated.  As segwit requires different block data than pre-segwit
     # nodes would have stored, this requires special handling.
-    # To enable this test, pass --oldbinary=<path-to-pre-segwit-redecoind> to
+    # To enable this test, pass --oldbinary=<path-to-pre-segwit-shahepayd> to
     # the test.
     def test_upgrade_after_activation(self, node_id):
         self.log.info("Testing software upgrade after softfork activation")
 
-        assert(node_id != 0) # node0 is assumed to be a segwit-active redecoind
+        assert(node_id != 0) # node0 is assumed to be a segwit-active shahepayd
 
         # Make sure the nodes are all up
         sync_blocks(self.nodes)

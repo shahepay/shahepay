@@ -1,6 +1,6 @@
 // Copyright 2014 BitPay Inc.
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,8 +43,8 @@ static void initJsonEscape()
 static void outputEscape()
 {
 	printf(	"// Automatically generated file. Do not modify.\n"
-		"#ifndef REDECOIN_UNIVALUE_UNIVALUE_ESCAPES_H\n"
-		"#define REDECOIN_UNIVALUE_UNIVALUE_ESCAPES_H\n"
+		"#ifndef SHAHEPAY_UNIVALUE_UNIVALUE_ESCAPES_H\n"
+		"#define SHAHEPAY_UNIVALUE_UNIVALUE_ESCAPES_H\n"
 		"static const char *escapes[256] = {\n");
 
 	for (unsigned int i = 0; i < 256; i++) {
@@ -74,7 +74,7 @@ static void outputEscape()
 	}
 
 	printf(	"};\n"
-		"#endif // REDECOIN_UNIVALUE_UNIVALUE_ESCAPES_H\n");
+		"#endif // SHAHEPAY_UNIVALUE_UNIVALUE_ESCAPES_H\n");
 }
 
 int main (int argc, char *argv[])

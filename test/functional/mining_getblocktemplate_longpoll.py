@@ -7,7 +7,7 @@
 """Test longpolling with getblocktemplate."""
 
 import threading
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import get_rpc_proxy, random_transaction, Decimal
 
 class LongpollThread(threading.Thread):
@@ -23,7 +23,7 @@ class LongpollThread(threading.Thread):
     def run(self):
         self.node.getblocktemplate({'longpollid':self.longpollid})
 
-class GetBlockTemplateLPTest(redecoinTestFramework):
+class GetBlockTemplateLPTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
 

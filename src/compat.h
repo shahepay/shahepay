@@ -1,15 +1,15 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_COMPAT_H
-#define REDECOIN_COMPAT_H
+#ifndef SHAHEPAY_COMPAT_H
+#define SHAHEPAY_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/redecoin-config.h"
+#include "config/shahepay-config.h"
 #endif
 
 #ifdef WIN32
@@ -102,4 +102,4 @@ bool static inline IsSelectableSocket(const SOCKET& s) {
 #endif
 }
 
-#endif // REDECOIN_COMPAT_H
+#endif // SHAHEPAY_COMPAT_H

@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_VERSION_H
-#define REDECOIN_VERSION_H
+#ifndef SHAHEPAY_VERSION_H
+#define SHAHEPAY_VERSION_H
 
 /**
  * network protocol versioning
@@ -58,4 +58,4 @@ static const int ASSETDATA_VERSION_UPDATED = 70020;
 //! In this version, 'rip5 (messaging and restricted assets)' was introduced
 static const int MESSAGING_RESTRICTED_ASSETS_VERSION = 70026;
 
-#endif // REDECOIN_VERSION_H
+#endif // SHAHEPAY_VERSION_H

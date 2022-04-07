@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_ASSETTABLEMODEL_H
-#define REDECOIN_QT_ASSETTABLEMODEL_H
+#ifndef SHAHEPAY_QT_ASSETTABLEMODEL_H
+#define SHAHEPAY_QT_ASSETTABLEMODEL_H
 
 #include "amount.h"
 
@@ -39,7 +39,7 @@ public:
     enum RoleIndex {
         /** Net amount of transaction */
             AmountRole = 100,
-        /** REDE or name of an asset */
+        /** SHAHE or name of an asset */
             AssetNameRole = 101,
         /** Formatted amount, without brackets when unconfirmed */
             FormattedAmountRole = 102,
@@ -66,4 +66,4 @@ private:
     friend class AssetTablePriv;
 };
 
-#endif // REDECOIN_QT_ASSETTABLEMODEL_H
+#endif // SHAHEPAY_QT_ASSETTABLEMODEL_H

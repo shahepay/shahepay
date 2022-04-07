@@ -1,11 +1,11 @@
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <assets/assets.h>
 
-#include <test/test_redecoin.h>
+#include <test/test_shahepay.h>
 
 #include <boost/test/unit_test.hpp>
 
@@ -24,7 +24,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("REDECOINTEST", 1000);
+        CAssetTransfer asset("SHAHEPAYTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -72,7 +72,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("REDECOINTEST", 1000);
+        CAssetTransfer asset("SHAHEPAYTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -99,8 +99,8 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         in.prevout = outpoint;
 
         // Create CTxOut that will only send 100 of the asset
-        // This should fail because 900 REDECOIN doesn't have a destination
-        CAssetTransfer assetTransfer("REDECOINTEST", 100);
+        // This should fail because 900 SHAHEPAY doesn't have a destination
+        CAssetTransfer assetTransfer("SHAHEPAYTEST", 100);
         CScript scriptLess = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         assetTransfer.ConstructTransaction(scriptLess);
 
@@ -129,7 +129,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("REDECOINTEST", 1000);
+        CAssetTransfer asset("SHAHEPAYTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -158,7 +158,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         // Create CTxOut that will only send 100 of the asset 10 times total = 1000
         for (int i = 0; i < 10; i++)
         {
-            CAssetTransfer asset2("REDECOINTEST", 100);
+            CAssetTransfer asset2("SHAHEPAYTEST", 100);
             CScript scriptPubKey2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             asset2.ConstructTransaction(scriptPubKey2);
 
@@ -190,7 +190,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKey
-        CAssetTransfer asset("REDECOINTEST", 1000);
+        CAssetTransfer asset("SHAHEPAYTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
@@ -219,7 +219,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         // Create CTxOut that will only send 100 of the asset 12 times, total = 1200
         for (int i = 0; i < 12; i++)
         {
-            CAssetTransfer asset2("REDECOINTEST", 100);
+            CAssetTransfer asset2("SHAHEPAYTEST", 100);
             CScript scriptPubKey2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             asset2.ConstructTransaction(scriptPubKey2);
 
@@ -251,15 +251,15 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         SelectParams(CBaseChainParams::MAIN);
 
         // Create the asset scriptPubKeys
-        CAssetTransfer asset("REDECOINTEST", 1000);
+        CAssetTransfer asset("SHAHEPAYTEST", 1000);
         CScript scriptPubKey = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset.ConstructTransaction(scriptPubKey);
 
-        CAssetTransfer asset2("REDECOINTESTTEST", 1000);
+        CAssetTransfer asset2("SHAHEPAYTESTTEST", 1000);
         CScript scriptPubKey2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset2.ConstructTransaction(scriptPubKey2);
 
-        CAssetTransfer asset3("REDECOINTESTTESTTEST", 1000);
+        CAssetTransfer asset3("SHAHEPAYTESTTESTTEST", 1000);
         CScript scriptPubKey3 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
         asset3.ConstructTransaction(scriptPubKey3);
 
@@ -316,7 +316,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         for (int i = 0; i < 10; i++)
         {
             // Add the first asset
-            CAssetTransfer outAsset("REDECOINTEST", 100);
+            CAssetTransfer outAsset("SHAHEPAYTEST", 100);
             CScript outScript = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset.ConstructTransaction(outScript);
 
@@ -327,7 +327,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx.vout.emplace_back(txOutNew);
 
             // Add the second asset
-            CAssetTransfer outAsset2("REDECOINTESTTEST", 100);
+            CAssetTransfer outAsset2("SHAHEPAYTESTTEST", 100);
             CScript outScript2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset2.ConstructTransaction(outScript2);
 
@@ -338,7 +338,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx.vout.emplace_back(txOutNew2);
 
             // Add the third asset
-            CAssetTransfer outAsset3("REDECOINTESTTESTTEST", 100);
+            CAssetTransfer outAsset3("SHAHEPAYTESTTESTTEST", 100);
             CScript outScript3 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset3.ConstructTransaction(outScript3);
 
@@ -357,8 +357,8 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         CTransaction tx(mutTx);
         CValidationState state;
 
-        // The inputs are spending 3000 Assets (1000 of each REDECOIN, REDECOINTEST, REDECOINTESTTEST)
-        // The outputs are spending 100 Assets to 10 destinations (10 * 100 = 1000) (of each REDECOIN, REDECOINTEST, REDECOINTESTTEST)
+        // The inputs are spending 3000 Assets (1000 of each SHAHEPAY, SHAHEPAYTEST, SHAHEPAYTESTTEST)
+        // The outputs are spending 100 Assets to 10 destinations (10 * 100 = 1000) (of each SHAHEPAY, SHAHEPAYTEST, SHAHEPAYTESTTEST)
         // This test should pass because for each asset that is spent. It is assigned a destination
         std::vector<std::pair<std::string, uint256>> vReissueAssets;
         BOOST_CHECK_MESSAGE(Consensus::CheckTxAssets(tx, state, coins, nullptr, false, vReissueAssets, true), state.GetDebugMessage());
@@ -371,7 +371,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
         for (int i = 0; i < 9; i++)
         {
             // Add the first asset
-            CAssetTransfer outAsset("REDECOINTEST", 100);
+            CAssetTransfer outAsset("SHAHEPAYTEST", 100);
             CScript outScript = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset.ConstructTransaction(outScript);
 
@@ -382,7 +382,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx2.vout.emplace_back(txOutNew);
 
             // Add the second asset
-            CAssetTransfer outAsset2("REDECOINTESTTEST", 100);
+            CAssetTransfer outAsset2("SHAHEPAYTESTTEST", 100);
             CScript outScript2 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset2.ConstructTransaction(outScript2);
 
@@ -393,7 +393,7 @@ BOOST_FIXTURE_TEST_SUITE(asset_tx_tests, BasicTestingSetup)
             mutTx2.vout.emplace_back(txOutNew2);
 
             // Add the third asset
-            CAssetTransfer outAsset3("REDECOINTESTTESTTEST", 100);
+            CAssetTransfer outAsset3("SHAHEPAYTESTTESTTEST", 100);
             CScript outScript3 = GetScriptForDestination(DecodeDestination(GetParams().GlobalBurnAddress()));
             outAsset3.ConstructTransaction(outScript3);
 

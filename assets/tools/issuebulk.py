@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Script to issue assets on the redecoin platform
+# Script to issue assets on the shahepay platform
 # Reads from a csv file
 # Template Google Spreadsheet at:  
 #   https://docs.google.com/spreadsheets/d/1Ym88-ggbw8yiMgVxOtVYDsCXJGNGZqlpOfgdbVK8iYU
 # In Google Sheets: File->Download As->.csv
-# Prerequisite: redecoind daemon to be running
+# Prerequisite: shahepayd daemon to be running
 # In order to use metadata, you must install be running IPFS
 # Steps:
 #   1. Get IPFS - https://ipfs.io/
@@ -23,15 +23,15 @@ import json
 import hashlib
 
 
-#Set this to your redecoin-cli program
-cli = "redecoin-cli"
+#Set this to your shahepay-cli program
+cli = "shahepay-cli"
 
 mode =  "-testnet"
 rpc_port = 18766
 #mode =  "-regtest"
 #rpc_port = 18443
-csv_file = "redecoin Assets - Sheet1.csv"
-#Set this information in your redecoin.conf file (in datadir, not testnet3)
+csv_file = "shahepay Assets - Sheet1.csv"
+#Set this information in your shahepay.conf file (in datadir, not testnet3)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 

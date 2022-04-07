@@ -19,10 +19,10 @@ import subprocess
 import sys
 import tempfile
 import urllib
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, wait_until
 
-class LoadblockTest(redecoinTestFramework):
+class LoadblockTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

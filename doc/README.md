@@ -1,15 +1,15 @@
-redecoin Core
+shahepay Core
 ==============
 
 Setup
 ---------------------
-redecoin Core is the original redecoin client and it builds the backbone of the network. It downloads and, by default, stores the entire history of redecoin transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
+shahepay Core is the original shahepay client and it builds the backbone of the network. It downloads and, by default, stores the entire history of shahepay transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
 
-To download compiled binaries of the redecoin Core and wallet, visit the [GitHub release page](https://github.com/redecoinProject/redecoin/releases).
+To download compiled binaries of the shahepay Core and wallet, visit the [GitHub release page](https://github.com/shahepayProject/shahepay/releases).
 
 Running
 ---------------------
-The following are some helpful notes on how to run redecoin on your native platform.
+The following are some helpful notes on how to run shahepay on your native platform.
 
 ### Linux
 
@@ -17,15 +17,15 @@ The following are some helpful notes on how to run redecoin on your native platf
 
 2) Install distribution-specific dependencies listed below.
 
-3) Run the GUI wallet or only the redecoin core deamon
+3) Run the GUI wallet or only the shahepay core deamon
 
    a. GUI wallet:
    
-   `./redecoin-qt`
+   `./shahepay-qt`
 
    b. Core deamon:
    
-   `./redecoind -deamon`
+   `./shahepayd -deamon`
 
 #### Ubuntu 16.04, 17.04/17.10 and 18.04
 
@@ -73,15 +73,15 @@ The GUI wallet requires the QR Code encoding library and Google's data interchan
 
 ### OS X
 
-1) Download redecoin-Qt.dmg.
+1) Download shahepay-Qt.dmg.
 
 2) Double click the DMG to mount it. 
 
-3) Drag redecoin Core icon to the Applications Folder
+3) Drag shahepay Core icon to the Applications Folder
 
 ![alt tag](https://i.imgur.com/GLhBFUV.png)
 
-4) Open the Applications folder and Launch redecoin Core. The client will begin synchronizing with the network.
+4) Open the Applications folder and Launch shahepay Core. The client will begin synchronizing with the network.
 
 ![alt tag](https://i.imgur.com/v3962qo.png)
 
@@ -89,69 +89,69 @@ Note: You may get the follow error on first launch:
 ```
 Dyld Error Message:
   Library not loaded: @loader_path/libboost_system-mt.dylib
-  Referenced from: /Applications/redecoin-Qt.app/Contents/Frameworks/libboost_thread-mt.dylib
+  Referenced from: /Applications/shahepay-Qt.app/Contents/Frameworks/libboost_thread-mt.dylib
   Reason: image not found
 ```
-To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dylib in the /Applications/redecoin-Qt.app/Contents/Frameworks folder
+To resolve, you will need to copy libboost_system.dylib to libboost_system-mt.dylib in the /Applications/shahepay-Qt.app/Contents/Frameworks folder
 
 ### Windows
 
 1) Download windows-x86_64.zip and unpack executables to desired folder.
 
-2) Double click the redecoin-qt.exe to launch it.
+2) Double click the shahepay-qt.exe to launch it.
 
 ### Need Help?
 
-- See the documentation at the [redecoin Wiki](https://redecoin.wiki/wiki/redecoin_Wiki)
+- See the documentation at the [shahepay Wiki](https://shahepay.wiki/wiki/shahepay_Wiki)
 for help and more information.
-- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/redecoinDev) or [Reddit](https://www.reddit.com/r/redecoin/).
-- Ask for help on the [redecoinTalk](https://www.redecointalk.org/) forums, in the [Development and Technical discussion board](https://www.redecointalk.org/?forum=661517).
+- Ask for help on [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/shahepayDev) or [Reddit](https://www.reddit.com/r/shahepay/).
+- Ask for help on the [shahepayTalk](https://www.shahepaytalk.org/) forums, in the [Development and Technical discussion board](https://www.shahepaytalk.org/?forum=661517).
 
 Building from source
 ---------------------
-The following are developer notes on how to build the redecoin core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build the shahepay core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](https://github.com/redecoinProject/redecoin/tree/master/doc/dependencies.md)
-- [OS X Build Notes](https://github.com/redecoinProject/redecoin/tree/master/doc/build-osx.md)
-- [Unix Build Notes](https://github.com/redecoinProject/redecoin/tree/master/doc/build-unix.md)
-- [Windows Build Notes](https://github.com/redecoinProject/redecoin/tree/master/doc/build-windows.md)
-- [OpenBSD Build Notes](https://github.com/redecoinProject/redecoin/tree/master/doc/build-openbsd.md)
-- [Gitian Building Guide](https://github.com/redecoinProject/redecoin/tree/master/doc/gitian-building.md)
+- [Dependencies](https://github.com/shahepayProject/shahepay/tree/master/doc/dependencies.md)
+- [OS X Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-osx.md)
+- [Unix Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-unix.md)
+- [Windows Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-windows.md)
+- [OpenBSD Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-openbsd.md)
+- [Gitian Building Guide](https://github.com/shahepayProject/shahepay/tree/master/doc/gitian-building.md)
 
 Development
 ---------------------
-redecoin repo's [root README](https://github.com/redecoinProject/redecoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+shahepay repo's [root README](https://github.com/shahepayProject/shahepay/blob/master/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](https://github.com/redecoinProject/redecoin/blob/master/doc/developer-notes.md)
-- [Release Notes](https://github.com/redecoinProject/redecoin/blob/master/doc/release-notes.md)
-- [Release Process](https://github.com/redecoinProject/redecoin/blob/master/doc/release-process.md)
-- [Source Code Documentation (External Link)](https://dev.visucore.com/redecoin/doxygen/) -- 2018-05-11 -- Broken link
-- [Translation Process](https://github.com/redecoinProject/redecoin/blob/master/doc/translation_process.md)
-- [Translation Strings Policy](https://github.com/redecoinProject/redecoin/blob/master/doc/translation_strings_policy.md)
-- [Travis CI](https://github.com/redecoinProject/redecoin/blob/master/doc/travis-ci.md)
-- [Unauthenticated REST Interface](https://github.com/redecoinProject/redecoin/blob/master/doc/REST-interface.md)
-- [Shared Libraries](https://github.com/redecoinProject/redecoin/blob/master/doc/shared-libraries.md)
-- [BIPS](https://github.com/redecoinProject/redecoin/blob/master/doc/bips.md)
-- [Dnsseed Policy](https://github.com/redecoinProject/redecoin/blob/master/doc/dnsseed-policy.md)
-- [Benchmarking](https://github.com/redecoinProject/redecoin/blob/master/doc/benchmarking.md)
+- [Developer Notes](https://github.com/shahepayProject/shahepay/blob/master/doc/developer-notes.md)
+- [Release Notes](https://github.com/shahepayProject/shahepay/blob/master/doc/release-notes.md)
+- [Release Process](https://github.com/shahepayProject/shahepay/blob/master/doc/release-process.md)
+- [Source Code Documentation (External Link)](https://dev.visucore.com/shahepay/doxygen/) -- 2018-05-11 -- Broken link
+- [Translation Process](https://github.com/shahepayProject/shahepay/blob/master/doc/translation_process.md)
+- [Translation Strings Policy](https://github.com/shahepayProject/shahepay/blob/master/doc/translation_strings_policy.md)
+- [Travis CI](https://github.com/shahepayProject/shahepay/blob/master/doc/travis-ci.md)
+- [Unauthenticated REST Interface](https://github.com/shahepayProject/shahepay/blob/master/doc/REST-interface.md)
+- [Shared Libraries](https://github.com/shahepayProject/shahepay/blob/master/doc/shared-libraries.md)
+- [BIPS](https://github.com/shahepayProject/shahepay/blob/master/doc/bips.md)
+- [Dnsseed Policy](https://github.com/shahepayProject/shahepay/blob/master/doc/dnsseed-policy.md)
+- [Benchmarking](https://github.com/shahepayProject/shahepay/blob/master/doc/benchmarking.md)
 
 ### Resources
-- Discuss on the [redecoinTalk](https://www.redecointalk.org/) forums, in the [Development & Technical Discussion board](https://www.redecointalk.org/?forum=661517).
-- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/redecoinDev) or [Reddit](https://www.reddit.com/r/redecoin/).
-- Find out more on the [redecoin Wiki](https://redecoin.wiki/wiki/redecoin_Wiki)
-- Visit the project home [redecoin.org](https://redecoin.org)
+- Discuss on the [shahepayTalk](https://www.shahepaytalk.org/) forums, in the [Development & Technical Discussion board](https://www.shahepaytalk.org/?forum=661517).
+- Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/shahepayDev) or [Reddit](https://www.reddit.com/r/shahepay/).
+- Find out more on the [shahepay Wiki](https://shahepay.wiki/wiki/shahepay_Wiki)
+- Visit the project home [shahepay.com](https://shahepay.com)
 
 ### Miscellaneous
-- [Assets Attribution](https://github.com/redecoinProject/redecoin/blob/master/doc/assets-attribution.md)
-- [Files](https://github.com/redecoinProject/redecoin/blob/master/doc/files.md)
-- [Fuzz-testing](https://github.com/redecoinProject/redecoin/blob/master/doc/fuzzing.md)
-- [Reduce Traffic](https://github.com/redecoinProject/redecoin/blob/master/doc/reduce-traffic.md)
-- [Tor Support](https://github.com/redecoinProject/redecoin/blob/master/doc/tor.md)
-- [Init Scripts (systemd/upstart/openrc)](https://github.com/redecoinProject/redecoin/blob/master/doc/init.md)
-- [ZMQ](https://github.com/redecoinProject/redecoin/blob/master/doc/zmq.md)
+- [Assets Attribution](https://github.com/shahepayProject/shahepay/blob/master/doc/assets-attribution.md)
+- [Files](https://github.com/shahepayProject/shahepay/blob/master/doc/files.md)
+- [Fuzz-testing](https://github.com/shahepayProject/shahepay/blob/master/doc/fuzzing.md)
+- [Reduce Traffic](https://github.com/shahepayProject/shahepay/blob/master/doc/reduce-traffic.md)
+- [Tor Support](https://github.com/shahepayProject/shahepay/blob/master/doc/tor.md)
+- [Init Scripts (systemd/upstart/openrc)](https://github.com/shahepayProject/shahepay/blob/master/doc/init.md)
+- [ZMQ](https://github.com/shahepayProject/shahepay/blob/master/doc/zmq.md)
 
 License
 ---------------------
-Distributed under the [MIT software license](https://github.com/redecoinProject/redecoin/blob/master/COPYING).
+Distributed under the [MIT software license](https://github.com/shahepayProject/shahepay/blob/master/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
 cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.

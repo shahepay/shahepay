@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_ARITH_UINT256_H
-#define REDECOIN_ARITH_UINT256_H
+#ifndef SHAHEPAY_ARITH_UINT256_H
+#define SHAHEPAY_ARITH_UINT256_H
 
 #include <assert.h>
 #include <cstring>
@@ -280,7 +280,7 @@ public:
      * Thus 0x1234560000 is compact (0x05123456)
      * and  0xc0de000000 is compact (0x0600c0de)
      *
-     * redecoin only uses this "compact" format for encoding difficulty
+     * shahepay only uses this "compact" format for encoding difficulty
      * targets, which are unsigned 256bit quantities.  Thus, all the
      * complexities of the sign bit and using base 256 are probably an
      * implementation accident.
@@ -295,4 +295,4 @@ public:
 uint256 ArithToUint256(const arith_uint256 &);
 arith_uint256 UintToArith256(const uint256 &);
 
-#endif // REDECOIN_ARITH_UINT256_H
+#endif // SHAHEPAY_ARITH_UINT256_H

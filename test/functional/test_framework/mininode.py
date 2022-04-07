@@ -6,17 +6,17 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-"""redecoin P2P network half-a-node.
+"""shahepay P2P network half-a-node.
 
 This python code was modified from ArtForz' public domain  half-a-node, as
 found in the mini-node branch of http://github.com/jgarzik/pynode.
 
-NodeConn: an object which manages p2p connectivity to a redecoin node
+NodeConn: an object which manages p2p connectivity to a shahepay node
 NodeConnCB: a base class that describes the interface for receiving
             callbacks with network messages from a NodeConn
 CBlock, CTransaction, CBlockHeader, CTxIn, CTxOut, etc....:
     data structures that should map to corresponding structures in
-    redecoin/primitives
+    shahepay/primitives
 msg_block, msg_tx, msg_headers, etc.:
     data structures that represent network messages
 ser_*, deser_*: functions that handle serialization/deserialization
@@ -229,7 +229,7 @@ def to_hex(obj):
     return bytes_to_hex_str(obj.serialize())
 
 
-# Objects that map to redecoind objects, which can be serialized/deserialized
+# Objects that map to shahepayd objects, which can be serialized/deserialized
 class CAddress:
     def __init__(self):
         self.nServices = 1
@@ -541,7 +541,7 @@ class CTransaction:
         if len(self.vin) == 0:
             flags = struct.unpack("<B", f.read(1))[0]
             # Not sure why flags can't be zero, but this
-            # matches the implementation in redecoind
+            # matches the implementation in shahepayd
             if flags != 0:
                 self.vin = deser_vector(f, CTxIn)
                 self.vout = deser_vector(f, CTxOut)
@@ -1442,7 +1442,7 @@ class MsgHeaders:
         self.headers = headers if headers is not None else []
 
     def deserialize(self, f):
-        # comment in redecoind indicates these should be deserialized as blocks
+        # comment in shahepayd indicates these should be deserialized as blocks
         blocks = deser_vector(f, CBlock)
         for x in blocks:
             self.headers.append(CBlockHeader(x))
@@ -1590,7 +1590,7 @@ class MsgWitnessBlocktxn(MsgBlockTxn):
 
 
 class NodeConnCB:
-    """Callback and helper functions for P2P connection to a redecoind node.
+    """Callback and helper functions for P2P connection to a shahepayd node.
 
     Individual test cases should subclass this and override the on_* methods
     if they want to alter message handling behaviour.
@@ -1833,7 +1833,7 @@ class NodeConn(asyncore.dispatcher):
             vt.addrFrom.port = 0
             self.send_message(vt, True)
 
-        logger.info('Connecting to redecoin Node: %s:%d' % (self.dstaddr, self.dstport))
+        logger.info('Connecting to shahepay Node: %s:%d' % (self.dstaddr, self.dstport))
 
         try:
             self.connect((dstaddr, dstport))

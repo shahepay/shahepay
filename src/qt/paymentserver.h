@@ -1,14 +1,14 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_PAYMENTSERVER_H
-#define REDECOIN_QT_PAYMENTSERVER_H
+#ifndef SHAHEPAY_QT_PAYMENTSERVER_H
+#define SHAHEPAY_QT_PAYMENTSERVER_H
 
 // This class handles payment requests from clicking on
-// redecoin: URIs
+// shahepay: URIs
 //
 // This is somewhat tricky, because we have to deal with
 // the situation where the user clicks on a link during
@@ -147,4 +147,4 @@ private:
     OptionsModel *optionsModel;
 };
 
-#endif // REDECOIN_QT_PAYMENTSERVER_H
+#endif // SHAHEPAY_QT_PAYMENTSERVER_H

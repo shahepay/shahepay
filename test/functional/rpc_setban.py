@@ -7,10 +7,10 @@
 """Test the setban rpc call."""
 
 import time
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import connect_nodes, p2p_port, assert_equal
 
-class SetBanTests(redecoinTestFramework):
+class SetBanTests(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True

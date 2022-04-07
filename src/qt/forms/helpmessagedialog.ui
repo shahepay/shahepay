@@ -52,7 +52,7 @@
         </size>
        </property>
        <property name="pixmap">
-        <pixmap resource="../redecoin.qrc">:/icons/redecoin</pixmap>
+        <pixmap resource="../shahepay.qrc">:/icons/shahepay</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -150,7 +150,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../redecoin.qrc"/>
+  <include location="../shahepay.qrc"/>
  </resources>
  <connections>
   <connection>

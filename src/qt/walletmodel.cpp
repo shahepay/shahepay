@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -243,7 +243,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
             total += subtotal;
         }
         else
-        {   // User-entered redecoin address / amount:
+        {   // User-entered shahepay address / amount:
             if(!validateAddress(rcp.address))
             {
                 return InvalidAddress;
@@ -334,7 +334,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(WalletModelTransaction &tran
                 rcp.paymentRequest.SerializeToString(&value);
                 newTx->vOrderForm.push_back(make_pair(key, value));
             }
-            else if (!rcp.message.isEmpty()) // Message from normal redecoin:URI (redecoin:123...?message=example)
+            else if (!rcp.message.isEmpty()) // Message from normal shahepay:URI (shahepay:123...?message=example)
                 newTx->vOrderForm.push_back(make_pair("Message", rcp.message.toStdString()));
         }
 
@@ -683,7 +683,7 @@ void WalletModel::listCoins(std::map<QString, std::vector<COutput> >& mapCoins) 
     }
 }
 
-/** REDE START */
+/** SHAHE START */
 // AvailableCoins + LockedCoins grouped by wallet address (put change in one group with wallet address)
 void WalletModel::listAssets(std::map<QString, std::map<QString, std::vector<COutput> > >& mapCoins) const
 {
@@ -709,7 +709,7 @@ void WalletModel::listAssets(std::map<QString, std::map<QString, std::vector<COu
         }
     }
 }
-/** REDE END */
+/** SHAHE END */
 
 bool WalletModel::isLockedCoin(uint256 hash, unsigned int n) const
 {
@@ -801,15 +801,15 @@ bool WalletModel::bumpFee(uint256 hash)
 //    questionString.append("<tr><td>");
 //    questionString.append(tr("Current fee:"));
 //    questionString.append("</td><td>");
-//    questionString.append(redecoinUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), oldFee));
+//    questionString.append(shahepayUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), oldFee));
 //    questionString.append("</td></tr><tr><td>");
 //    questionString.append(tr("Increase:"));
 //    questionString.append("</td><td>");
-//    questionString.append(redecoinUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee - oldFee));
+//    questionString.append(shahepayUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee - oldFee));
 //    questionString.append("</td></tr><tr><td>");
 //    questionString.append(tr("New fee:"));
 //    questionString.append("</td><td>");
-//    questionString.append(redecoinUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee));
+//    questionString.append(shahepayUnits::formatHtmlWithUnit(getOptionsModel()->getDisplayUnit(), newFee));
 //    questionString.append("</td></tr></table>");
 //    SendConfirmationDialog confirmationDialog(tr("Confirm fee bump"), questionString);
 //    confirmationDialog.exec();

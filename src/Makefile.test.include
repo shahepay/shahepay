@@ -3,12 +3,12 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-TESTS += test/test_redecoin
-bin_PROGRAMS += test/test_redecoin
-noinst_PROGRAMS += test/test_redecoin_fuzzy
-noinst_PROGRAMS += test/test_redecoin_hash
+TESTS += test/test_shahepay
+bin_PROGRAMS += test/test_shahepay
+noinst_PROGRAMS += test/test_shahepay_fuzzy
+noinst_PROGRAMS += test/test_shahepay_hash
 TEST_SRCDIR = test
-TEST_BINARY=test/test_redecoin$(EXEEXT)
+TEST_BINARY=test/test_shahepay$(EXEEXT)
 
 JSON_TEST_FILES = \
   test/data/script_tests.json \
@@ -23,8 +23,8 @@ RAW_TEST_FILES =
 
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
-# test_redecoin binary #
-REDECOIN_TESTS =\
+# test_shahepay binary #
+SHAHEPAY_TESTS =\
   test/assets/asset_tests.cpp \
   test/assets/serialization_tests.cpp \
   test/assets/asset_tx_tests.cpp \
@@ -88,9 +88,9 @@ REDECOIN_TESTS =\
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
   test/streams_tests.cpp \
-  test/test_redecoin.cpp \
-  test/test_redecoin.h \
-  test/test_redecoin_main.cpp \
+  test/test_shahepay.cpp \
+  test/test_shahepay.h \
+  test/test_shahepay_main.cpp \
   test/timedata_tests.cpp \
   test/torcontrol_tests.cpp \
   test/transaction_tests.cpp \
@@ -101,7 +101,7 @@ REDECOIN_TESTS =\
   test/util_tests.cpp
 
 if ENABLE_WALLET
-REDECOIN_TESTS += \
+SHAHEPAY_TESTS += \
   wallet/test/wallet_test_fixture.cpp \
   wallet/test/wallet_test_fixture.h \
   wallet/test/accounting_tests.cpp \
@@ -109,77 +109,77 @@ REDECOIN_TESTS += \
   wallet/test/crypto_tests.cpp
 endif
 
-test_test_redecoin_SOURCES = $(REDECOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_redecoin_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
-test_test_redecoin_LDADD =
+test_test_shahepay_SOURCES = $(SHAHEPAY_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_shahepay_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_CFLAGS)
+test_test_shahepay_LDADD =
 if ENABLE_WALLET
-test_test_redecoin_LDADD += $(LIBREDECOIN_WALLET)
+test_test_shahepay_LDADD += $(LIBSHAHEPAY_WALLET)
 endif
-test_test_redecoin_LDADD += $(LIBREDECOIN_SERVER) $(LIBREDECOIN_CLI) $(LIBREDECOIN_COMMON) $(LIBREDECOIN_UTIL) $(LIBREDECOIN_CONSENSUS) $(LIBREDECOIN_CRYPTO) $(LIBUNIVALUE) \
+test_test_shahepay_LDADD += $(LIBSHAHEPAY_SERVER) $(LIBSHAHEPAY_CLI) $(LIBSHAHEPAY_COMMON) $(LIBSHAHEPAY_UTIL) $(LIBSHAHEPAY_CONSENSUS) $(LIBSHAHEPAY_CRYPTO) $(LIBUNIVALUE) \
   $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS) $(EVENT_PTHREADS_LIBS)
-test_test_redecoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_shahepay_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
-test_test_redecoin_LDADD += $(LIBREDECOIN_CONSENSUS) $(LIBREDECOIN_CRYPTO) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-test_test_redecoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
+test_test_shahepay_LDADD += $(LIBSHAHEPAY_CONSENSUS) $(LIBSHAHEPAY_CRYPTO) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+test_test_shahepay_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 
 if ENABLE_ZMQ
-test_test_redecoin_LDADD += $(ZMQ_LIBS)
+test_test_shahepay_LDADD += $(ZMQ_LIBS)
 endif
 #
 
-# test_redecoin_fuzzy binary #
-test_test_redecoin_fuzzy_SOURCES = test/test_redecoin_fuzzy.cpp
-test_test_redecoin_fuzzy_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-test_test_redecoin_fuzzy_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-test_test_redecoin_fuzzy_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# test_shahepay_fuzzy binary #
+test_test_shahepay_fuzzy_SOURCES = test/test_shahepay_fuzzy.cpp
+test_test_shahepay_fuzzy_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+test_test_shahepay_fuzzy_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_shahepay_fuzzy_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
-test_test_redecoin_fuzzy_LDADD = \
+test_test_shahepay_fuzzy_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBREDECOIN_SERVER) \
-  $(LIBREDECOIN_COMMON) \
-  $(LIBREDECOIN_UTIL) \
-  $(LIBREDECOIN_CONSENSUS) \
-  $(LIBREDECOIN_CRYPTO) \
+  $(LIBSHAHEPAY_SERVER) \
+  $(LIBSHAHEPAY_COMMON) \
+  $(LIBSHAHEPAY_UTIL) \
+  $(LIBSHAHEPAY_CONSENSUS) \
+  $(LIBSHAHEPAY_CRYPTO) \
   $(LIBSECP256K1)
 
-test_test_redecoin_fuzzy_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+test_test_shahepay_fuzzy_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# test_redecoin_hash binary #
-test_test_redecoin_hash_SOURCES = test/test_redecoin_hash.cpp
-test_test_redecoin_hash_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-test_test_redecoin_hash_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-test_test_redecoin_hash_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_AP_LDFLAGS)
+# test_shahepay_hash binary #
+test_test_shahepay_hash_SOURCES = test/test_shahepay_hash.cpp
+test_test_shahepay_hash_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+test_test_shahepay_hash_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+test_test_shahepay_hash_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_AP_LDFLAGS)
 
-test_test_redecoin_hash_LDADD = \
+test_test_shahepay_hash_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBREDECOIN_COMMON) \
-  $(LIBREDECOIN_UTIL) \
-  $(LIBREDECOIN_CONSENSUS) \
-  $(LIBREDECOIN_CRYPTO)
+  $(LIBSHAHEPAY_COMMON) \
+  $(LIBSHAHEPAY_UTIL) \
+  $(LIBSHAHEPAY_CONSENSUS) \
+  $(LIBSHAHEPAY_CRYPTO)
 
-test_test_redecoin_hash_LDADD += $(CRYPTO_LIBS)
+test_test_shahepay_hash_LDADD += $(CRYPTO_LIBS)
 #
 
-nodist_test_test_redecoin_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_shahepay_SOURCES = $(GENERATED_TEST_FILES)
 
-$(REDECOIN_TESTS): $(GENERATED_TEST_FILES)
+$(SHAHEPAY_TESTS): $(GENERATED_TEST_FILES)
 
-CLEAN_REDECOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
+CLEAN_SHAHEPAY_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
-CLEANFILES += $(CLEAN_REDECOIN_TEST)
+CLEANFILES += $(CLEAN_SHAHEPAY_TEST)
 
-redecoin_test: $(TEST_BINARY)
+shahepay_test: $(TEST_BINARY)
 
-redecoin_test_check: $(TEST_BINARY) FORCE
+shahepay_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-redecoin_test_clean : FORCE
-	rm -f $(CLEAN_REDECOIN_TEST) $(test_test_redecoin_OBJECTS) $(TEST_BINARY)
+shahepay_test_clean : FORCE
+	rm -f $(CLEAN_SHAHEPAY_TEST) $(test_test_shahepay_OBJECTS) $(TEST_BINARY)
 
 check-local:
-	@echo "Running test/util/redecoin-util-test.py..."
-	$(PYTHON) $(top_builddir)/test/util/redecoin-util-test.py
+	@echo "Running test/util/shahepay-util-test.py..."
+	$(PYTHON) $(top_builddir)/test/util/shahepay-util-test.py
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C secp256k1 check
 if EMBEDDED_UNIVALUE
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C univalue check

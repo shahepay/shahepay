@@ -21,13 +21,13 @@ EXCLUDE = [
     'src/secp256k1/include/secp256k1_ecdh.h',
     'src/secp256k1/include/secp256k1_recovery.h',
     'src/secp256k1/include/secp256k1_schnorr.h',
-    'src/secp256k1/src/java/org_redecoin_NativeSecp256k1.c',
-    'src/secp256k1/src/java/org_redecoin_NativeSecp256k1.h',
-    'src/secp256k1/src/java/org_redecoin_Secp256k1Context.c',
-    'src/secp256k1/src/java/org_redecoin_Secp256k1Context.h',
+    'src/secp256k1/src/java/org_shahepay_NativeSecp256k1.c',
+    'src/secp256k1/src/java/org_shahepay_NativeSecp256k1.h',
+    'src/secp256k1/src/java/org_shahepay_Secp256k1Context.c',
+    'src/secp256k1/src/java/org_shahepay_Secp256k1Context.h',
     # auto generated:
     'src/univalue/lib/univalue_escapes.h',
-    'src/qt/redecoinstrings.cpp',
+    'src/qt/shahepaystrings.cpp',
     'src/chainparamsseeds.h',
     # other external copyrights:
     'src/tinyformat.h',
@@ -84,11 +84,11 @@ def compile_copyright_regex(copyright_style, year_style, name):
 
 EXPECTED_HOLDER_NAMES = [
     "Satoshi Nakamoto\n",
-    "The redecoin Core developers\n",
-    "The redecoin Core developers \n",
-    "redecoin Core Developers\n",
-    "the redecoin Core developers\n",
-    "The redecoin developers\n",
+    "The shahepay Core developers\n",
+    "The shahepay Core developers \n",
+    "shahepay Core Developers\n",
+    "the shahepay Core developers\n",
+    "The shahepay developers\n",
     "The LevelDB Authors\. All rights reserved\.\n",
     "BitPay Inc\.\n",
     "BitPay, Inc\.\n",
@@ -278,7 +278,7 @@ Usage:
     $ ./copyright_header.py report <base_directory> [verbose]
 
 Arguments:
-    <base_directory> - The base directory of a redecoin source code repository.
+    <base_directory> - The base directory of a shahepay source code repository.
     [verbose] - Includes a list of every file of each subcategory in the report.
 """
 
@@ -341,7 +341,7 @@ def write_file_lines(filename, file_lines):
 COPYRIGHT = 'Copyright \(c\)'
 YEAR = "20[0-9][0-9]"
 YEAR_RANGE = '(%s)(-%s)?' % (YEAR, YEAR)
-HOLDER = 'The redecoin Core developers'
+HOLDER = 'The shahepay Core developers'
 UPDATEABLE_LINE_COMPILED = re.compile(' '.join([COPYRIGHT, YEAR_RANGE, HOLDER]))
 
 def get_updatable_copyright_line(file_lines):
@@ -409,18 +409,18 @@ def exec_update_header_year(base_directory):
 ################################################################################
 
 UPDATE_USAGE = """
-Updates all the copyright headers of "The redecoin Core developers" which were
+Updates all the copyright headers of "The shahepay Core developers" which were
 changed in a year more recent than is listed. For example:
 
 // Copyright (c) <firstYear>-<lastYear> The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 
 will be updated to:
 
 // Copyright (c) <firstYear>-<lastModifiedYear> The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 
 where <lastModifiedYear> is obtained from the 'git log' history.
 
@@ -428,13 +428,13 @@ This subcommand also handles copyright headers that have only a single year. In 
 
 // Copyright (c) <year> The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 
 will be updated to:
 
 // Copyright (c) <year>-<lastModifiedYear> The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 
 where the update is appropriate.
 
@@ -442,7 +442,7 @@ Usage:
     $ ./copyright_header.py update <base_directory>
 
 Arguments:
-    <base_directory> - The base directory of a redecoin source code repository.
+    <base_directory> - The base directory of a shahepay source code repository.
 """
 
 def print_file_action_message(filename, action):
@@ -469,7 +469,7 @@ def get_header_lines(header, start_year, end_year):
 CPP_HEADER = '''
 // Copyright (c) %s The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 '''
@@ -546,7 +546,7 @@ def exec_insert_header(filename, style):
 ################################################################################
 
 INSERT_USAGE = """
-Inserts a copyright header for "The redecoin Core developers" at the top of the
+Inserts a copyright header for "The shahepay Core developers" at the top of the
 file in either Python or C++ style as determined by the file extension. If the
 file is a Python file and it has a '#!' starting the first line, the header is
 inserted in the line below it.
@@ -560,14 +560,14 @@ where <year_introduced> is according to the 'git log' history. If
 
 "<current_year>"
 
-If the file already has a copyright for "The redecoin Core developers", the
+If the file already has a copyright for "The shahepay Core developers", the
 script will exit.
 
 Usage:
     $ ./copyright_header.py insert <file>
 
 Arguments:
-    <file> - A source file in the redecoin repository.
+    <file> - A source file in the shahepay repository.
 """
 
 def insert_cmd(argv):
@@ -592,7 +592,7 @@ def insert_cmd(argv):
 ################################################################################
 
 USAGE = """
-copyright_header.py - utilities for managing copyright headers of 'The redecoin
+copyright_header.py - utilities for managing copyright headers of 'The shahepay
 Core developers' in repository source files.
 
 Usage:

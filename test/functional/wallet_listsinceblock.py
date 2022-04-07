@@ -6,10 +6,10 @@
 
 """Test the listsincelast RPC."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal
 
-class ListSinceBlockTest (redecoinTestFramework):
+class ListSinceBlockTest (shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.setup_clean_chain = True
@@ -93,8 +93,8 @@ class ListSinceBlockTest (redecoinTestFramework):
 
         Problematic case:
 
-        1. User 1 receives REDE in tx1 from utxo1 in block aa1.
-        2. User 2 receives REDE in tx2 from utxo1 (same) in block bb1
+        1. User 1 receives SHAHE in tx1 from utxo1 in block aa1.
+        2. User 2 receives SHAHE in tx2 from utxo1 (same) in block bb1
         3. User 1 sees 2 confirmations at block aa3.
         4. Reorg into bb chain.
         5. User 1 asks `listsinceblock aa3` and does not see that tx1 is now

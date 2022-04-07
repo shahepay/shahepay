@@ -12,10 +12,10 @@ filters are not enabled.
 """
 
 from test_framework.mininode import NodeConn, NodeConnCB, NetworkThread, MsgMempool
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import p2p_port, assert_equal
 
-class P2PMempoolTests(redecoinTestFramework):
+class P2PMempoolTests(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

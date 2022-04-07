@@ -6,10 +6,10 @@
 
 """Test transferring assets rpc calls"""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import connect_all_nodes_bi, assert_equal, assert_raises_rpc_error
 
-class AssetTransferTest(redecoinTestFramework):
+class AssetTransferTest(shahepayTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

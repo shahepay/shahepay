@@ -1,6 +1,6 @@
 // Automatically generated file. Do not modify.
-#ifndef REDECOIN_UNIVALUE_UNIVALUE_ESCAPES_H
-#define REDECOIN_UNIVALUE_UNIVALUE_ESCAPES_H
+#ifndef SHAHEPAY_UNIVALUE_UNIVALUE_ESCAPES_H
+#define SHAHEPAY_UNIVALUE_UNIVALUE_ESCAPES_H
 static const char *escapes[256] = {
 	"\\u0000",
 	"\\u0001",
@@ -259,4 +259,4 @@ static const char *escapes[256] = {
 	NULL,
 	NULL,
 };
-#endif // REDECOIN_UNIVALUE_UNIVALUE_ESCAPES_H
+#endif // SHAHEPAY_UNIVALUE_UNIVALUE_ESCAPES_H

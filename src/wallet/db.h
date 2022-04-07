@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_WALLET_DB_H
-#define REDECOIN_WALLET_DB_H
+#ifndef SHAHEPAY_WALLET_DB_H
+#define SHAHEPAY_WALLET_DB_H
 
 #include "clientversion.h"
 #include "fs.h"
@@ -370,4 +370,4 @@ public:
     bool static Rewrite(CWalletDBWrapper& dbw, const char* pszSkip = nullptr);
 };
 
-#endif // REDECOIN_WALLET_DB_H
+#endif // SHAHEPAY_WALLET_DB_H

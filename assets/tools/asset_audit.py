@@ -13,8 +13,8 @@ import subprocess
 import json
 
 
-#Set this to your redecoin-cli program
-cli = "./src/redecoin-cli"
+#Set this to your shahepay-cli program
+cli = "./src/shahepay-cli"
 
 mode = "-main"
 rpc_port = 8767
@@ -23,7 +23,7 @@ rpc_port = 8767
 #mode =  "-regtest"
 #rpc_port = 18444
 
-#Set this information in your redecoin.conf file (in datadir, not testnet6)
+#Set this information in your shahepay.conf file (in datadir, not testnet6)
 rpc_user = 'rpcuser'
 rpc_pass = 'rpcpass555'
 

@@ -1,10 +1,10 @@
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_ASSETDB_H
-#define REDECOIN_ASSETDB_H
+#ifndef SHAHEPAY_ASSETDB_H
+#define SHAHEPAY_ASSETDB_H
 
 #include "fs.h"
 #include "serialize.h"
@@ -96,4 +96,4 @@ public:
 };
 
 
-#endif //REDECOIN_ASSETDB_H
+#endif //SHAHEPAY_ASSETDB_H

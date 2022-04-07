@@ -1,5 +1,5 @@
-#ifndef REDECOIN_QT_TEST_WALLETTESTS_H
-#define REDECOIN_QT_TEST_WALLETTESTS_H
+#ifndef SHAHEPAY_QT_TEST_WALLETTESTS_H
+#define SHAHEPAY_QT_TEST_WALLETTESTS_H
 
 #include <QObject>
 #include <QTest>
@@ -12,4 +12,4 @@ private Q_SLOTS:
     void walletTests();
 };
 
-#endif // REDECOIN_QT_TEST_WALLETTESTS_H
+#endif // SHAHEPAY_QT_TEST_WALLETTESTS_H

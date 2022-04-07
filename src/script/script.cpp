@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "streams.h"
@@ -144,9 +144,9 @@ const char* GetOpName(opcodetype opcode)
     case OP_NOP9                   : return "OP_NOP9";
     case OP_NOP10                  : return "OP_NOP10";
 
-    /** REDE START */
-    case OP_REDE_ASSET              : return "OP_REDE_ASSET";
-    /** REDE END */
+    /** SHAHE START */
+    case OP_SHAHE_ASSET              : return "OP_SHAHE_ASSET";
+    /** SHAHE END */
 
     case OP_INVALIDOPCODE          : return "OP_INVALIDOPCODE";
 
@@ -228,7 +228,7 @@ bool CScript::IsPayToScriptHash() const
             (*this)[22] == OP_EQUAL);
 }
 
-/** REDE START */
+/** SHAHE START */
 bool CScript::IsAssetScript() const
 {
     int nType = 0;
@@ -246,33 +246,33 @@ bool CScript::IsAssetScript(int& nType, bool& isOwner) const
 bool CScript::IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) const
 {
     if (this->size() > 31) {
-        if ((*this)[25] == OP_REDE_ASSET) { // OP_REDE_ASSET is always in the 25 index of the script if it exists
+        if ((*this)[25] == OP_SHAHE_ASSET) { // OP_SHAHE_ASSET is always in the 25 index of the script if it exists
             int index = -1;
-            if ((*this)[27] == REDE_R) { // Check to see if REDE starts at 27 ( this->size() < 105)
-                if ((*this)[28] == REDE_V)
-                    if ((*this)[29] == REDE_N)
+            if ((*this)[27] == SHAHE_R) { // Check to see if SHAHE starts at 27 ( this->size() < 105)
+                if ((*this)[28] == SHAHE_V)
+                    if ((*this)[29] == SHAHE_N)
                         index = 30;
             } else {
-                if ((*this)[28] == REDE_R) // Check to see if REDE starts at 28 ( this->size() >= 105)
-                    if ((*this)[29] == REDE_V)
-                        if ((*this)[30] == REDE_N)
+                if ((*this)[28] == SHAHE_R) // Check to see if SHAHE starts at 28 ( this->size() >= 105)
+                    if ((*this)[29] == SHAHE_V)
+                        if ((*this)[30] == SHAHE_N)
                             index = 31;
             }
 
             if (index > 0) {
                 nStartingIndex = index + 1; // Set the index where the asset data begins. Use to serialize the asset data into asset objects
-                if ((*this)[index] == REDE_T) { // Transfer first anticipating more transfers than other assets operations
+                if ((*this)[index] == SHAHE_T) { // Transfer first anticipating more transfers than other assets operations
                     nType = TX_TRANSFER_ASSET;
                     return true;
-                } else if ((*this)[index] == REDE_Q && this->size() > 39) {
+                } else if ((*this)[index] == SHAHE_Q && this->size() > 39) {
                     nType = TX_NEW_ASSET;
                     fIsOwner = false;
                     return true;
-                } else if ((*this)[index] == REDE_O) {
+                } else if ((*this)[index] == SHAHE_O) {
                     nType = TX_NEW_ASSET;
                     fIsOwner = true;
                     return true;
-                } else if ((*this)[index] == REDE_R) {
+                } else if ((*this)[index] == SHAHE_R) {
                     nType = TX_REISSUE_ASSET;
                     return true;
                 }
@@ -332,15 +332,15 @@ bool CScript::IsNullAsset() const
 bool CScript::IsNullAssetTxDataScript() const
 {
     return (this->size() > 23 &&
-            (*this)[0] == OP_REDE_ASSET &&
+            (*this)[0] == OP_SHAHE_ASSET &&
             (*this)[1] == 0x14);
 }
 
 bool CScript::IsNullGlobalRestrictionAssetTxDataScript() const
 {
-    // 1 OP_REDE_ASSET followed by two OP_RESERVED + atleast 4 characters for the restricted name $ABC
+    // 1 OP_SHAHE_ASSET followed by two OP_RESERVED + atleast 4 characters for the restricted name $ABC
     return (this->size() > 6 &&
-            (*this)[0] == OP_REDE_ASSET &&
+            (*this)[0] == OP_SHAHE_ASSET &&
             (*this)[1] == OP_RESERVED &&
             (*this)[2] == OP_RESERVED);
 }
@@ -348,13 +348,13 @@ bool CScript::IsNullGlobalRestrictionAssetTxDataScript() const
 
 bool CScript::IsNullAssetVerifierTxDataScript() const
 {
-    // 1 OP_REDE_ASSET followed by one OP_RESERVED
+    // 1 OP_SHAHE_ASSET followed by one OP_RESERVED
     return (this->size() > 3 &&
-            (*this)[0] == OP_REDE_ASSET &&
+            (*this)[0] == OP_SHAHE_ASSET &&
             (*this)[1] == OP_RESERVED &&
             (*this)[2] != OP_RESERVED);
 }
-/** REDE END */
+/** SHAHE END */
 
 bool CScript::IsPayToWitnessScriptHash() const
 {
@@ -450,7 +450,7 @@ bool CScript::HasValidOps() const
 bool CScript::IsUnspendable() const
 {
     CAmount nAmount;
-    return (size() > 0 && *begin() == OP_RETURN) || (size() > 0 && *begin() == OP_REDE_ASSET) || (size() > MAX_SCRIPT_SIZE) || (GetAssetAmountFromScript(*this, nAmount) && nAmount == 0);
+    return (size() > 0 && *begin() == OP_RETURN) || (size() > 0 && *begin() == OP_SHAHE_ASSET) || (size() > MAX_SCRIPT_SIZE) || (GetAssetAmountFromScript(*this, nAmount) && nAmount == 0);
 }
 
 //!--------------------------------------------------------------------------------------------------------------------------!//

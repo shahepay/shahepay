@@ -1,14 +1,14 @@
 // Copyright (c) 2014-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_COMPAT_BYTESWAP_H
-#define REDECOIN_COMPAT_BYTESWAP_H
+#ifndef SHAHEPAY_COMPAT_BYTESWAP_H
+#define SHAHEPAY_COMPAT_BYTESWAP_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/redecoin-config.h"
+#include "config/shahepay-config.h"
 #endif
 
 #include <stdint.h>
@@ -65,4 +65,4 @@ inline uint64_t bswap_64(uint64_t x)
 
 #endif // defined(__APPLE__)
 
-#endif // REDECOIN_COMPAT_BYTESWAP_H
+#endif // SHAHEPAY_COMPAT_BYTESWAP_H

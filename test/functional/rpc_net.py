@@ -11,10 +11,10 @@ Tests correspond to code in rpc/net.cpp.
 """
 
 import time
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, connect_nodes_bi, p2p_port
 
-class NetTest(redecoinTestFramework):
+class NetTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

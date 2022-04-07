@@ -1,12 +1,12 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "data/tx_invalid.json.h"
 #include "data/tx_valid.json.h"
-#include "test/test_redecoin.h"
+#include "test/test_shahepay.h"
 
 #include "clientversion.h"
 #include "checkqueue.h"
@@ -763,14 +763,14 @@ BOOST_FIXTURE_TEST_SUITE(transaction_tests, BasicTestingSetup)
         BOOST_CHECK(!IsStandardTx(t, reason));
 
         // MAX_OP_RETURN_RELAY-byte TX_RESTRICTED_ASSET_DATA(standard)
-        // The text after OP_REDE_ASSET, will be an address if it isn't another OP_REDE_ASSET
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET
+        // The text after OP_SHAHE_ASSET, will be an address if it isn't another OP_SHAHE_ASSET
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET
                                            << ParseHex("04678fdab0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef3804678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38");
         BOOST_CHECK_EQUAL(MAX_OP_RETURN_RELAY, t.vout[0].scriptPubKey.size());
         BOOST_CHECK(IsStandardTx(t, reason));
 
         // MAX_OP_RETURN_RELAY+1-byte TX_RESTRICTED_ASSET_DATA (non-standard)
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET
                                            << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef3804678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef3800");
         BOOST_CHECK_EQUAL(MAX_OP_RETURN_RELAY + 1, t.vout[0].scriptPubKey.size());
         BOOST_CHECK(!IsStandardTx(t, reason));
@@ -817,51 +817,51 @@ BOOST_FIXTURE_TEST_SUITE(transaction_tests, BasicTestingSetup)
 
         // Asset data checks
         // Data payload can be encoded in any way...
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET << ParseHex("");
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET << ParseHex("");
         BOOST_CHECK(IsStandardTx(t, reason));
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET << ParseHex("00") << ParseHex("01");
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET << ParseHex("00") << ParseHex("01");
         BOOST_CHECK(IsStandardTx(t, reason));
         // OP_RESERVED *is* considered to be a PUSHDATA type opcode by IsPushOnly()!
         t.vout[0].scriptPubKey =
-                CScript() << OP_REDE_ASSET << OP_RESERVED << -1 << 0 << ParseHex("01") << 2 << 3 << 4 << 5 << 6 << 7 << 8
+                CScript() << OP_SHAHE_ASSET << OP_RESERVED << -1 << 0 << ParseHex("01") << 2 << 3 << 4 << 5 << 6 << 7 << 8
                           << 9 << 10 << 11 << 12 << 13 << 14 << 15 << 16;
         BOOST_CHECK(IsStandardTx(t, reason));
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET << 0 << ParseHex("01") << 2
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET << 0 << ParseHex("01") << 2
                                            << ParseHex("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         BOOST_CHECK(IsStandardTx(t, reason));
 
-        // ...so long as it only contains PUSHDATA's don't check the first three bytes on OP_REDE_ASSET TX's
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET << OP_RESERVED;
+        // ...so long as it only contains PUSHDATA's don't check the first three bytes on OP_SHAHE_ASSET TX's
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET << OP_RESERVED;
         BOOST_CHECK(IsStandardTx(t, reason));
 
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET << OP_RESERVED << OP_RESERVED << OP_REDE_ASSET;
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET << OP_RESERVED << OP_RESERVED << OP_SHAHE_ASSET;
         BOOST_CHECK(!IsStandardTx(t, reason));
 
         // TX_RESTRICTED_ASSET_DATA w/o PUSHDATA
         t.vout.resize(1);
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET;
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET;
         BOOST_CHECK(IsStandardTx(t, reason));
 
         // Only one hundred TX_RESTRICTED_ASSET_DATA permitted in all cases
         t.vout.resize(101);
         for (int i = 0; i < 101; i++) {
-            t.vout[i].scriptPubKey = CScript() << OP_REDE_ASSET
+            t.vout[i].scriptPubKey = CScript() << OP_SHAHE_ASSET
                                                << ParseHex(
                                                        "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38");
         }
         BOOST_CHECK(!IsStandardTx(t, reason));
 
-        t.vout[0].scriptPubKey = CScript() << OP_REDE_ASSET
+        t.vout[0].scriptPubKey = CScript() << OP_SHAHE_ASSET
                                            << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38");
         for (int i = 1; i < 101; i++) {
-            t.vout[i].scriptPubKey = CScript() << OP_REDE_ASSET;
+            t.vout[i].scriptPubKey = CScript() << OP_SHAHE_ASSET;
         }
         BOOST_CHECK(!IsStandardTx(t, reason));
 
         t.vout.clear();
         t.vout.resize(99);
         for (int i = 0; i < 99; i++)
-            t.vout[i].scriptPubKey = CScript() << OP_REDE_ASSET;
+            t.vout[i].scriptPubKey = CScript() << OP_SHAHE_ASSET;
         BOOST_CHECK(IsStandardTx(t, reason));
     }
 

@@ -1,6 +1,6 @@
 // Copyright (c) 2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -54,7 +54,7 @@ SetupDummyInputs(CBasicKeyStore& keystoreRet, CCoinsViewCache& coinsRet)
 // many times micro-benchmarks of the database showed completely different
 // characteristics than e.g. reindex timings. But that's not a requirement of
 // every benchmark."
-// (https://github.com/redecoinProject/redecoin/issues/7883#issuecomment-224807484)
+// (https://github.com/shahepayProject/shahepay/issues/7883#issuecomment-224807484)
 static void CCoinsCaching(benchmark::State& state)
 {
     CBasicKeyStore keystore;

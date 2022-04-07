@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_ADDRDB_H
-#define REDECOIN_ADDRDB_H
+#ifndef SHAHEPAY_ADDRDB_H
+#define SHAHEPAY_ADDRDB_H
 
 #include "fs.h"
 #include "serialize.h"
@@ -101,4 +101,4 @@ public:
     bool Read(banmap_t& banSet);
 };
 
-#endif // REDECOIN_ADDRDB_H
+#endif // SHAHEPAY_ADDRDB_H

@@ -1,5 +1,5 @@
-#ifndef REDECOIN_QT_CALLBACK_H
-#define REDECOIN_QT_CALLBACK_H
+#ifndef SHAHEPAY_QT_CALLBACK_H
+#define SHAHEPAY_QT_CALLBACK_H
 
 #include <QObject>
 
@@ -27,4 +27,4 @@ FunctionCallback<F>* makeCallback(F f)
     return new FunctionCallback<F>(std::move(f));
 }
 
-#endif // REDECOIN_QT_CALLBACK_H
+#endif // SHAHEPAY_QT_CALLBACK_H

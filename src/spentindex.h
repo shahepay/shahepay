@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_SPENTINDEX_H
-#define REDECOIN_SPENTINDEX_H
+#ifndef SHAHEPAY_SPENTINDEX_H
+#define SHAHEPAY_SPENTINDEX_H
 
 #include "uint256.h"
 #include "amount.h"
@@ -95,4 +95,4 @@ struct CSpentIndexKeyCompare
     }
 };
 
-#endif // REDECOIN_SPENTINDEX_H
+#endif // SHAHEPAY_SPENTINDEX_H

@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_SPLASHSCREEN_H
-#define REDECOIN_QT_SPLASHSCREEN_H
+#ifndef SHAHEPAY_QT_SPLASHSCREEN_H
+#define SHAHEPAY_QT_SPLASHSCREEN_H
 
 #include <functional>
 #include <QSplashScreen>
@@ -15,7 +15,7 @@ class NetworkStyle;
 
 /** Class for the splashscreen with information of the running client.
  *
- * @note this is intentionally not a QSplashScreen. redecoin Core initialization
+ * @note this is intentionally not a QSplashScreen. shahepay Core initialization
  * can take a long time, and in that case a progress window that cannot be
  * moved around and minimized has turned out to be frustrating to the user.
  */
@@ -57,4 +57,4 @@ private:
     QList<CWallet*> connectedWallets;
 };
 
-#endif // REDECOIN_QT_SPLASHSCREEN_H
+#endif // SHAHEPAY_QT_SPLASHSCREEN_H

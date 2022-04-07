@@ -62,15 +62,15 @@ work on its chain).
 
 import time
 from test_framework.mininode import NodeConn, NodeConnCB, NetworkThread, MsgBlock, MsgHeaders, CBlockHeader, mininode_lock, MsgInv, CInv
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import os, p2p_port, assert_equal, assert_raises_rpc_error, connect_nodes, sync_blocks
 from test_framework.blocktools import create_block, create_coinbase
 
-class AcceptBlockTest(redecoinTestFramework):
+class AcceptBlockTest(shahepayTestFramework):
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("REDECOIND", "redecoind"),
-                          help="redecoind binary to test")
+                          default=os.getenv("SHAHEPAYD", "shahepayd"),
+                          help="shahepayd binary to test")
 
     def set_test_params(self):
         self.setup_clean_chain = True

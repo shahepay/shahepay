@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018-2019 The Bitcoin Core developers
-# Copyright (c) 2017-2018 The redecoin Core developers
+# Copyright (c) 2017-2018 The shahepay Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +8,7 @@
 
 import os
 from test_framework.authproxy import JSONRPCException
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_greater_than_or_equal
 
 
@@ -21,7 +21,7 @@ def expect_http_status(expected_http_status, expected_rpc_code, fcn, *args):
         assert_equal(exc.http_status, expected_http_status)
 
 
-class RPCInterfaceTest(redecoinTestFramework):
+class RPCInterfaceTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.setup_clean_chain = True

@@ -4,17 +4,17 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-"""Test redecoind shutdown."""
+"""Test shahepayd shutdown."""
 
 from threading import Thread
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, get_rpc_proxy, wait_until
 
 def test_long_call(node):
     block = node.waitfornewblock()
     assert_equal(block['height'], 0)
 
-class ShutdownTest(redecoinTestFramework):
+class ShutdownTest(shahepayTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

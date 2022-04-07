@@ -1,17 +1,17 @@
 dist_man1_MANS=
 
-if BUILD_REDECOIND
-  dist_man1_MANS+=redecoind.1
+if BUILD_SHAHEPAYD
+  dist_man1_MANS+=shahepayd.1
 endif
 
 if ENABLE_QT
-  dist_man1_MANS+=redecoin-qt.1
+  dist_man1_MANS+=shahepay-qt.1
 endif
 
-if BUILD_REDECOIN_CLI
-  dist_man1_MANS+=redecoin-cli.1
+if BUILD_SHAHEPAY_CLI
+  dist_man1_MANS+=shahepay-cli.1
 endif
 
-if BUILD_REDECOIN_TX
-  dist_man1_MANS+=redecoin-tx.1
+if BUILD_SHAHEPAY_TX
+  dist_man1_MANS+=shahepay-tx.1
 endif

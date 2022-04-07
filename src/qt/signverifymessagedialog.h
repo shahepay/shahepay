@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_SIGNVERIFYMESSAGEDIALOG_H
-#define REDECOIN_QT_SIGNVERIFYMESSAGEDIALOG_H
+#ifndef SHAHEPAY_QT_SIGNVERIFYMESSAGEDIALOG_H
+#define SHAHEPAY_QT_SIGNVERIFYMESSAGEDIALOG_H
 
 #include <QDialog>
 
@@ -52,4 +52,4 @@ private Q_SLOTS:
     void on_clearButton_VM_clicked();
 };
 
-#endif // REDECOIN_QT_SIGNVERIFYMESSAGEDIALOG_H
+#endif // SHAHEPAY_QT_SIGNVERIFYMESSAGEDIALOG_H

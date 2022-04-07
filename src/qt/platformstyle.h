@@ -1,11 +1,11 @@
 // Copyright (c) 2015 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_PLATFORMSTYLE_H
-#define REDECOIN_QT_PLATFORMSTYLE_H
+#ifndef SHAHEPAY_QT_PLATFORMSTYLE_H
+#define SHAHEPAY_QT_PLATFORMSTYLE_H
 
 #include <QIcon>
 #include <QPixmap>
@@ -80,5 +80,5 @@ private:
     /* ... more to come later */
 };
 
-#endif // REDECOIN_QT_PLATFORMSTYLE_H
+#endif // SHAHEPAY_QT_PLATFORMSTYLE_H
 

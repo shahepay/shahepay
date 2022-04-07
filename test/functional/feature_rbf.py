@@ -6,7 +6,7 @@
 
 """Test the RBF code."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import satoshi_round, assert_raises_rpc_error, assert_equal, Decimal
 from test_framework.script import CScript
 from test_framework.mininode import bytes_to_hex_str, COIN, CTransaction, CTxIn, COutPoint, CTxOut
@@ -61,7 +61,7 @@ def make_utxo(node, amount, confirmed=True, script_pub_key=CScript([1])):
 
     return COutPoint(int(txid, 16), 0)
 
-class ReplaceByFeeTest(redecoinTestFramework):
+class ReplaceByFeeTest(shahepayTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 2
@@ -142,7 +142,7 @@ class ReplaceByFeeTest(redecoinTestFramework):
         # This will raise an exception due to transaction replacement being disabled
         assert_raises_rpc_error(-26, "txn-mempool-conflict", self.nodes[1].sendrawtransaction, tx1b_hex, True)
 
-        # Extra 0.1 REDE fee
+        # Extra 0.1 SHAHE fee
         tx1b = CTransaction()
         tx1b.vin = [CTxIn(tx0_outpoint, n_sequence=0)]
         tx1b.vout = [CTxOut(int(0.9*COIN), CScript([b'b']))]
@@ -184,7 +184,7 @@ class ReplaceByFeeTest(redecoinTestFramework):
             prevout = COutPoint(int(txid, 16), 0)
 
         # Whether the double-spend is allowed is evaluated by including all
-        # child fees - 40 REDE - so this attempt is rejected.
+        # child fees - 40 SHAHE - so this attempt is rejected.
         dbl_tx = CTransaction()
         dbl_tx.vin = [CTxIn(tx0_outpoint, n_sequence=0)]
         dbl_tx.vout = [CTxOut(initial_n_value - 30*COIN, CScript([1]))]
@@ -254,7 +254,7 @@ class ReplaceByFeeTest(redecoinTestFramework):
         # This will raise an exception due to insufficient fee
         assert_raises_rpc_error(-26, "insufficient fee", self.nodes[0].sendrawtransaction, dbl_tx_hex, True)
 
-        # 1 REDE fee is enough
+        # 1 SHAHE fee is enough
         dbl_tx = CTransaction()
         dbl_tx.vin = [CTxIn(tx0_outpoint, n_sequence=0)]
         dbl_tx.vout = [CTxOut(initial_n_value - fee*n - 1*COIN, CScript([1]))]

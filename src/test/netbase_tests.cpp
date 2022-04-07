@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "netbase.h"
-#include "test/test_redecoin.h"
+#include "test/test_shahepay.h"
 #include "utilstrencodings.h"
 
 #include <string>
@@ -90,10 +90,10 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
     {
         BOOST_TEST_MESSAGE("Running NetBase SplitHost Test");
 
-        BOOST_CHECK(TestSplitHost("www.redecoin.org", "www.redecoin.org", -1));
-        BOOST_CHECK(TestSplitHost("[www.redecoin.org]", "www.redecoin.org", -1));
-        BOOST_CHECK(TestSplitHost("www.redecoin.org:80", "www.redecoin.org", 80));
-        BOOST_CHECK(TestSplitHost("[www.redecoin.org]:80", "www.redecoin.org", 80));
+        BOOST_CHECK(TestSplitHost("www.shahepay.com", "www.shahepay.com", -1));
+        BOOST_CHECK(TestSplitHost("[www.shahepay.com]", "www.shahepay.com", -1));
+        BOOST_CHECK(TestSplitHost("www.shahepay.com:80", "www.shahepay.com", 80));
+        BOOST_CHECK(TestSplitHost("[www.shahepay.com]:80", "www.shahepay.com", 80));
         BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
         BOOST_CHECK(TestSplitHost("127.0.0.1:8767", "127.0.0.1", 8767));
         BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));

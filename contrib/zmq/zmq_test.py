@@ -7,8 +7,8 @@
 """
     ZMQ example using python3's asyncio
 
-    redecoin should be started with the command line arguments:
-        redecoind -testnet -daemon \
+    shahepay should be started with the command line arguments:
+        shahepayd -testnet -daemon \
                 -zmqpubhashblock=tcp://127.0.0.1:28766 \
                 -zmqpubrawtx=tcp://127.0.0.1:28766 \
                 -zmqpubhashtx=tcp://127.0.0.1:28766 \
@@ -25,7 +25,7 @@ import codecs
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
-print("Getting redecoin msgs")
+print("Getting shahepay msgs")
 socket.connect("tcp://localhost:28766")
 
 socket.setsockopt_string(zmq.SUBSCRIBE, "hashtx")
@@ -58,8 +58,8 @@ while True:
 		while(pos != -1):
 			pos = astr.find('72766e', start)
 			if (pos > -1):
-				print("FOUND REDE issuance at " + str(pos))
-				print("After REDE: " + astr[pos+6:pos+8])
+				print("FOUND SHAHE issuance at " + str(pos))
+				print("After SHAHE: " + astr[pos+6:pos+8])
 				sizestr = astr[pos+8:pos+10]
 				print("sizestr: " + sizestr)
 				#print(str(astr[pos+8:pos+10]))
@@ -68,7 +68,7 @@ while True:
 				print("Name: " + bytes.fromhex(astr[pos+10:pos+10+size*2]).decode('utf-8'))
 			pos = astr.find('72766e', start)
 			if (pos > -1):
-				print("FOUND REDE something at " + str(pos))
+				print("FOUND SHAHE something at " + str(pos))
 			start += pos+8
 			print(astr)
 

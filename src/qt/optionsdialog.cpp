@@ -1,17 +1,17 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/redecoin-config.h"
+#include "config/shahepay-config.h"
 #endif
 
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
-#include "redecoinunits.h"
+#include "shahepayunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 
@@ -75,10 +75,10 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     /* Display elements init */
     QDir translations(":translations");
 
-    ui->redecoinAtStartup->setToolTip(ui->redecoinAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
-    ui->redecoinAtStartup->setText(ui->redecoinAtStartup->text().arg(tr(PACKAGE_NAME)));
+    ui->shahepayAtStartup->setToolTip(ui->shahepayAtStartup->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->shahepayAtStartup->setText(ui->shahepayAtStartup->text().arg(tr(PACKAGE_NAME)));
 
-    ui->openredecoinConfButton->setToolTip(ui->openredecoinConfButton->toolTip().arg(tr(PACKAGE_NAME)));
+    ui->openshahepayConfButton->setToolTip(ui->openshahepayConfButton->toolTip().arg(tr(PACKAGE_NAME)));
 
     ui->lang->setToolTip(ui->lang->toolTip().arg(tr(PACKAGE_NAME)));
     ui->lang->addItem(QString("(") + tr("default") + QString(")"), QVariant(""));
@@ -112,7 +112,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
 #endif
 
-    ui->unit->setModel(new redecoinUnits(this));
+    ui->unit->setModel(new shahepayUnits(this));
 
     /* Widget-to-option mapper */
     mapper = new QDataWidgetMapper(this);
@@ -175,7 +175,7 @@ void OptionsDialog::setModel(OptionsModel *_model)
 void OptionsDialog::setMapper()
 {
     /* Main */
-    mapper->addMapping(ui->redecoinAtStartup, OptionsModel::StartAtStartup);
+    mapper->addMapping(ui->shahepayAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
 
@@ -233,7 +233,7 @@ void OptionsDialog::on_resetButton_clicked()
     }
 }
 
-void OptionsDialog::on_openredecoinConfButton_clicked()
+void OptionsDialog::on_openshahepayConfButton_clicked()
 {
     /* explain the purpose of the config file */
     QMessageBox::information(this, tr("Configuration options"),
@@ -241,7 +241,7 @@ void OptionsDialog::on_openredecoinConfButton_clicked()
            "Additionally, any command-line options will override this configuration file."));
 
     /* show an error if there was some problem opening the file */
-    if (!GUIUtil::openredecoinConf())
+    if (!GUIUtil::openshahepayConf())
         QMessageBox::critical(this, tr("Error"), tr("The configuration file could not be opened."));
 }
 

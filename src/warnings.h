@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_WARNINGS_H
-#define REDECOIN_WARNINGS_H
+#ifndef SHAHEPAY_WARNINGS_H
+#define SHAHEPAY_WARNINGS_H
 
 #include <stdlib.h>
 #include <string>
@@ -26,4 +26,4 @@ std::string GetWarnings(const std::string& strFor);
 
 static const bool DEFAULT_TESTSAFEMODE = false;
 
-#endif //  REDECOIN_WARNINGS_H
+#endif //  SHAHEPAY_WARNINGS_H

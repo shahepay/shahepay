@@ -4,15 +4,15 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-"""Test running redecoind with the -rpcbind and -rpcallowip options."""
+"""Test running shahepayd with the -rpcbind and -rpcallowip options."""
 
 import socket
 import sys
-from test_framework.test_framework import redecoinTestFramework, SkipTest
+from test_framework.test_framework import shahepayTestFramework, SkipTest
 from test_framework.util import assert_equal, get_rpc_proxy, rpc_url, get_datadir_path, rpc_port, assert_raises_rpc_error
 from test_framework.netutil import addr_to_hex, get_bind_addrs, all_interfaces
 
-class RPCBindTest(redecoinTestFramework):
+class RPCBindTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

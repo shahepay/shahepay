@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "restrictedassetsdialog.h"
 #include "ui_restrictedassetsdialog.h"
 
-#include "redecoinunits.h"
+#include "shahepayunits.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -173,7 +173,7 @@ void RestrictedAssetsDialog::setBalance(const CAmount& balance, const CAmount& u
 
     if(model && model->getOptionsModel())
     {
-        ui->labelBalance->setText(redecoinUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
+        ui->labelBalance->setText(shahepayUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
     }
 }
 
@@ -291,7 +291,7 @@ void RestrictedAssetsDialog::freezeAddressClicked()
     {
         // append fee string if a fee is required
         questionString.append("<hr /><span style='color:#aa0000;'>");
-        questionString.append(redecoinUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), nRequiredFee));
+        questionString.append(shahepayUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), nRequiredFee));
         questionString.append("</span> ");
         questionString.append(tr("added as transaction fee"));
 
@@ -303,13 +303,13 @@ void RestrictedAssetsDialog::freezeAddressClicked()
     questionString.append("<hr />");
     CAmount totalAmount =  nRequiredFee;
     QStringList alternativeUnits;
-    for (redecoinUnits::Unit u : redecoinUnits::availableUnits())
+    for (shahepayUnits::Unit u : shahepayUnits::availableUnits())
     {
         if(u != model->getOptionsModel()->getDisplayUnit())
-            alternativeUnits.append(redecoinUnits::formatHtmlWithUnit(u, totalAmount));
+            alternativeUnits.append(shahepayUnits::formatHtmlWithUnit(u, totalAmount));
     }
     questionString.append(tr("Total Amount %1")
-                                  .arg(redecoinUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
+                                  .arg(shahepayUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
     questionString.append(QString("<span style='font-size:10pt;font-weight:normal;'><br />(=%2)</span>")
                                   .arg(alternativeUnits.join(" " + tr("or") + "<br />")));
 
@@ -410,7 +410,7 @@ void RestrictedAssetsDialog::assignQualifierClicked()
     {
         // append fee string if a fee is required
         questionString.append("<hr /><span style='color:#aa0000;'>");
-        questionString.append(redecoinUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), nRequiredFee));
+        questionString.append(shahepayUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), nRequiredFee));
         questionString.append("</span> ");
         questionString.append(tr("added as transaction fee"));
 
@@ -422,13 +422,13 @@ void RestrictedAssetsDialog::assignQualifierClicked()
     questionString.append("<hr />");
     CAmount totalAmount =  nRequiredFee;
     QStringList alternativeUnits;
-    for (redecoinUnits::Unit u : redecoinUnits::availableUnits())
+    for (shahepayUnits::Unit u : shahepayUnits::availableUnits())
     {
         if(u != model->getOptionsModel()->getDisplayUnit())
-            alternativeUnits.append(redecoinUnits::formatHtmlWithUnit(u, totalAmount));
+            alternativeUnits.append(shahepayUnits::formatHtmlWithUnit(u, totalAmount));
     }
     questionString.append(tr("Total Amount %1")
-                                  .arg(redecoinUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
+                                  .arg(shahepayUnits::formatHtmlWithUnit(model->getOptionsModel()->getDisplayUnit(), totalAmount)));
     questionString.append(QString("<span style='font-size:10pt;font-weight:normal;'><br />(=%2)</span>")
                                   .arg(alternativeUnits.join(" " + tr("or") + "<br />")));
 

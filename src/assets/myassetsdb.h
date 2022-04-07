@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The redecoin Core developers
+// Copyright (c) 2019 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_MYASSETSDB_H
-#define REDECOIN_MYASSETSDB_H
+#ifndef SHAHEPAY_MYASSETSDB_H
+#define SHAHEPAY_MYASSETSDB_H
 
 #include <dbwrapper.h>
 
@@ -79,4 +79,4 @@ public:
 };
 
 
-#endif //REDECOIN_MYASSETSDB_H
+#endif //SHAHEPAY_MYASSETSDB_H

@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_RECEIVECOINSDIALOG_H
-#define REDECOIN_QT_RECEIVECOINSDIALOG_H
+#ifndef SHAHEPAY_QT_RECEIVECOINSDIALOG_H
+#define SHAHEPAY_QT_RECEIVECOINSDIALOG_H
 
 #include "guiutil.h"
 
@@ -28,7 +28,7 @@ QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** Dialog for requesting payment of redecoins */
+/** Dialog for requesting payment of shahepays */
 class ReceiveCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -81,4 +81,4 @@ private Q_SLOTS:
     void copyAmount();
 };
 
-#endif // REDECOIN_QT_RECEIVECOINSDIALOG_H
+#endif // SHAHEPAY_QT_RECEIVECOINSDIALOG_H

@@ -15,11 +15,11 @@ Test the following RPCs:
    - getrawtransaction
 """
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import connect_nodes_bi, assert_raises_rpc_error, assert_equal, Decimal
 
 # Create one-input, one-output, no-fee transaction:
-class RawTransactionsTest(redecoinTestFramework):
+class RawTransactionsTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
@@ -68,7 +68,7 @@ class RawTransactionsTest(redecoinTestFramework):
         #use balance deltas instead of absolute values
         bal = self.nodes[2].getbalance()
 
-        # send 1.2 REDE to msig adr
+        # send 1.2 SHAHE to msig adr
         self.nodes[0].sendtoaddress(mSigObj, 1.2)
         self.sync_all()
         self.nodes[0].generate(1)

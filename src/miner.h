@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_MINER_H
-#define REDECOIN_MINER_H
+#ifndef SHAHEPAY_MINER_H
+#define SHAHEPAY_MINER_H
 
 #include "primitives/block.h"
 #include "txmempool.h"
@@ -207,5 +207,5 @@ private:
 void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned int& nExtraNonce);
 int64_t UpdateTime(CBlockHeader* pblock, const Consensus::Params& consensusParams, const CBlockIndex* pindexPrev);
 
-int Generateredecoins(bool fGenerate, int nThreads, const CChainParams& chainparams);
-#endif // REDECOIN_MINER_H
+int Generateshahepays(bool fGenerate, int nThreads, const CChainParams& chainparams);
+#endif // SHAHEPAY_MINER_H

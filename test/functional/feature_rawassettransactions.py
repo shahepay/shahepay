@@ -10,7 +10,7 @@ Test the rawtransaction RPCs for asset transactions.
 
 import math
 from io import BytesIO
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, assert_is_hash_string, assert_does_not_contain_key, assert_contains_key, assert_contains_pair
 from test_framework.mininode import CTransaction, hex_str_to_bytes, bytes_to_hex_str, CScriptReissue, CScriptOwner, CScriptTransfer, CTxOut, CScriptIssue
 
@@ -56,13 +56,13 @@ def get_tx_issue_hex(self, node, asset_name, asset_quantity, asset_units=0):
 
 
 # noinspection PyTypeChecker
-class RawAssetTransactionsTest(redecoinTestFramework):
+class RawAssetTransactionsTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3
 
     def activate_assets(self):
-        self.log.info("Generating REDE for node[0] and activating assets...")
+        self.log.info("Generating SHAHE for node[0] and activating assets...")
         n0 = self.nodes[0]
 
         n0.generate(1)
@@ -264,13 +264,13 @@ class RawAssetTransactionsTest(redecoinTestFramework):
         f = BytesIO(hex_str_to_bytes(tx_issue_hex))
         tx.deserialize(f)
         rvno = '72766e6f'  # rvno
-        REDEO = '52564e4f'  # REDEO
+        SHAHEO = '52564e4f'  # SHAHEO
         # change the owner output script type to be invalid
         for n in range(0, len(tx.vout)):
             out = tx.vout[n]
             if rvno in bytes_to_hex_str(out.scriptPubKey):
                 owner_script_hex = bytes_to_hex_str(out.scriptPubKey)
-                tampered_script = owner_script_hex.replace(rvno, REDEO)
+                tampered_script = owner_script_hex.replace(rvno, SHAHEO)
                 tx.vout[n].scriptPubKey = hex_str_to_bytes(tampered_script)
         tx_bad_issue = bytes_to_hex_str(tx.serialize())
         tx_bad_issue_signed = n0.signrawtransaction(tx_bad_issue)['hex']
@@ -1498,7 +1498,7 @@ class RawAssetTransactionsTest(redecoinTestFramework):
         ########################################
         # rvn for assets
 
-        # n1 buys 400 ANDUIN from n2 for 4000 REDE
+        # n1 buys 400 ANDUIN from n2 for 4000 SHAHE
         price = 4000
         amount = 400
         fee = 0.01
@@ -1547,7 +1547,7 @@ class RawAssetTransactionsTest(redecoinTestFramework):
         ########################################
         # rvn for owner
 
-        # n2 buys JAINA! from n1 for 20000 REDE
+        # n2 buys JAINA! from n1 for 20000 SHAHE
         price = 20000
         amount = 1
         balance1 = newbalance1
@@ -1740,7 +1740,7 @@ class RawAssetTransactionsTest(redecoinTestFramework):
         self.log.info("Testing fundrawtransaction with transfer outputs...")
         n0 = self.nodes[0]
         n2 = self.nodes[2]
-        asset_name = "DONT_FUND_REDE"
+        asset_name = "DONT_FUND_SHAHE"
         asset_amount = 100
         rvn_amount = 100
 

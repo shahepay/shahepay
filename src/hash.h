@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_HASH_H
-#define REDECOIN_HASH_H
+#ifndef SHAHEPAY_HASH_H
+#define SHAHEPAY_HASH_H
 #include <iostream>
 #include <chrono>
 #include "crypto/ripemd160.h"
@@ -309,5 +309,5 @@ extern double algoHashTotal[16];
 extern int algoHashHits[16];
 
 
-#endif // REDECOIN_HASH_H
+#endif // SHAHEPAY_HASH_H
 

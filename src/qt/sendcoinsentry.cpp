@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,9 +42,9 @@ SendCoinsEntry::SendCoinsEntry(const PlatformStyle *_platformStyle, QWidget *par
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
 
-    // normal redecoin address field
+    // normal shahepay address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying redecoin address(es)
+    // just a label for displaying shahepay address(es)
     ui->payTo_is->setFont(GUIUtil::getSubLabelFont());
 
     // Connect signals
@@ -135,7 +135,7 @@ void SendCoinsEntry::clear()
     ui->memoTextLabel_s->clear();
     ui->payAmount_s->clear();
 
-    // update the display unit, to not use the default ("REDE")
+    // update the display unit, to not use the default ("SHAHE")
     updateDisplayUnit();
 }
 

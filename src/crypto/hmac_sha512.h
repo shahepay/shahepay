@@ -1,11 +1,11 @@
 // Copyright (c) 2014 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CRYPTO_HMAC_SHA512_H
-#define REDECOIN_CRYPTO_HMAC_SHA512_H
+#ifndef SHAHEPAY_CRYPTO_HMAC_SHA512_H
+#define SHAHEPAY_CRYPTO_HMAC_SHA512_H
 
 #include "crypto/sha512.h"
 
@@ -31,4 +31,4 @@ public:
     void Finalize(unsigned char hash[OUTPUT_SIZE]);
 };
 
-#endif // REDECOIN_CRYPTO_HMAC_SHA512_H
+#endif // SHAHEPAY_CRYPTO_HMAC_SHA512_H

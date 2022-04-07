@@ -18,12 +18,12 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/redecoinProject/redecoin
+url=https://github.com/shahepayProject/shahepay
 proc=2
 mem=2000
 lxc=true
 osslTarUrl=http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
-osslPatchUrl=https://redecoin.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+osslPatchUrl=https://shahepay.com/cfields/osslsigncode-Backports-to-1.7.1.patch
 scriptName=$(basename -- "$0")
 signProg="gpg --detach-sign"
 commitFiles=true
@@ -32,7 +32,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the redecoin, gitian-builder, gitian.sigs, and redecoin-detached-sigs.
+Run this script from the directory containing the shahepay, gitian-builder, gitian.sigs, and shahepay-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -40,7 +40,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/redecoinProject/redecoin
+-u|--url	Specify the URL of the repository. Default is https://github.com/shahepayProject/shahepay
 -v|--verify 	Verify the Gitian build
 -b|--build	Do a Gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -231,8 +231,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/redecoin-core/gitian.sigs.git
-    git clone https://github.com/redecoin-core/redecoin-detached-sigs.git
+    git clone https://github.com/shahepay-core/gitian.sigs.git
+    git clone https://github.com/shahepay-core/shahepay-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -246,7 +246,7 @@ then
 fi
 
 # Set up build
-pushd ./redecoin
+pushd ./shahepay
 git fetch
 git checkout ${COMMIT}
 popd
@@ -255,7 +255,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./redecoin-binaries/${VERSION}
+	mkdir -p ./shahepay-binaries/${VERSION}
 	
 	# Build Dependencies
 	echo ""
@@ -265,7 +265,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../redecoin/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../shahepay/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -273,9 +273,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit redecoin=${COMMIT} --url redecoin=${url} ../redecoin/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../redecoin/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/redecoin-*.tar.gz build/out/src/redecoin-*.tar.gz ../redecoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit shahepay=${COMMIT} --url shahepay=${url} ../shahepay/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../shahepay/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/shahepay-*.tar.gz build/out/src/shahepay-*.tar.gz ../shahepay-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -283,10 +283,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit redecoin=${COMMIT} --url redecoin=${url} ../redecoin/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../redecoin/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/redecoin-*-win-unsigned.tar.gz inputs/redecoin-win-unsigned.tar.gz
-	    mv build/out/redecoin-*.zip build/out/redecoin-*.exe ../redecoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit shahepay=${COMMIT} --url shahepay=${url} ../shahepay/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../shahepay/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/shahepay-*-win-unsigned.tar.gz inputs/shahepay-win-unsigned.tar.gz
+	    mv build/out/shahepay-*.zip build/out/shahepay-*.exe ../shahepay-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -294,10 +294,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit redecoin=${COMMIT} --url redecoin=${url} ../redecoin/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../redecoin/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/redecoin-*-osx-unsigned.tar.gz inputs/redecoin-osx-unsigned.tar.gz
-	    mv build/out/redecoin-*.tar.gz build/out/redecoin-*.dmg ../redecoin-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit shahepay=${COMMIT} --url shahepay=${url} ../shahepay/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../shahepay/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/shahepay-*-osx-unsigned.tar.gz inputs/shahepay-osx-unsigned.tar.gz
+	    mv build/out/shahepay-*.tar.gz build/out/shahepay-*.dmg ../shahepay-binaries/${VERSION}
 	fi
 	popd
 
@@ -324,27 +324,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../redecoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../shahepay/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../redecoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../shahepay/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../redecoin/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../shahepay/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../redecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../shahepay/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../redecoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../shahepay/contrib/gitian-descriptors/gitian-osx-signer.yml	
 	popd
 fi
 
@@ -359,10 +359,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../redecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../redecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/redecoin-*win64-setup.exe ../redecoin-binaries/${VERSION}
-	    mv build/out/redecoin-*win32-setup.exe ../redecoin-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../shahepay/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../shahepay/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/shahepay-*win64-setup.exe ../shahepay-binaries/${VERSION}
+	    mv build/out/shahepay-*win32-setup.exe ../shahepay-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -370,9 +370,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../redecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../redecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/redecoin-osx-signed.dmg ../redecoin-binaries/${VERSION}/redecoin-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../shahepay/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../shahepay/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/shahepay-osx-signed.dmg ../shahepay-binaries/${VERSION}/shahepay-${VERSION}-osx.dmg
 	fi
 	popd
 

@@ -1,4 +1,4 @@
-#include "redecoinunits.h"
+#include "shahepayunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>
@@ -53,7 +53,7 @@ public:
                 TxPlainTextRole,
         /** Unprocessed icon */
                 RawDecorationRole,
-        /** REDE or name of an asset */
+        /** SHAHE or name of an asset */
                 AssetNameRole,
     };
 

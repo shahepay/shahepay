@@ -11,8 +11,8 @@
 ###############################################################################
 */
 
-#ifndef REDECOIN_DARKSTYLE_H
-#define REDECOIN_DARKSTYLE_H
+#ifndef SHAHEPAY_DARKSTYLE_H
+#define SHAHEPAY_DARKSTYLE_H
 
 #include <QApplication>
 #include <QProxyStyle>
@@ -37,4 +37,4 @@ private:
     QStyle *styleBase(QStyle *style = Q_NULLPTR) const;
 };
 
-#endif //REDECOIN_DARKSTYLE_H
+#endif //SHAHEPAY_DARKSTYLE_H

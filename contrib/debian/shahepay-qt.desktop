@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=shahepay Core
+Comment=Connect to the shahepay P2P Network
+Comment[de]=Verbinde mit dem shahepay peer-to-peer Netzwerk
+Comment[fr]=shahepay, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=shahepay, eşten eşe kriptografik sanal para birimi
+Exec=shahepay-qt %u
+Terminal=false
+Type=Application
+Icon=shahepay128
+MimeType=x-scheme-handler/shahepay;
+Categories=Office;Finance;

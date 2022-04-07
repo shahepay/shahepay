@@ -1,11 +1,11 @@
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef REDECOIN_ASSET_PROTOCOL_H
-#define REDECOIN_ASSET_PROTOCOL_H
+#ifndef SHAHEPAY_ASSET_PROTOCOL_H
+#define SHAHEPAY_ASSET_PROTOCOL_H
 
 #include "amount.h"
 #include "tinyformat.h"
@@ -17,12 +17,12 @@
 #include <unordered_map>
 #include <list>
 
-#define REDE_R 114
-#define REDE_V 118
-#define REDE_N 110
-#define REDE_Q 113
-#define REDE_T 116
-#define REDE_O 111
+#define SHAHE_R 114
+#define SHAHE_V 118
+#define SHAHE_N 110
+#define SHAHE_Q 113
+#define SHAHE_T 116
+#define SHAHE_O 111
 
 #define DEFAULT_UNITS 0
 #define DEFAULT_REISSUABLE 1
@@ -464,10 +464,10 @@ bool CheckIssueBurnTx(const CTxOut& txOut, const AssetType& type);
 bool CheckReissueBurnTx(const CTxOut& txOut);
 
 //! issue asset scripts to make sure script meets the standards
-bool CheckIssueDataTx(const CTxOut& txOut); // OP_REDECOIN_ASSET REDEQ (That is a Q as in Que not an O)
-bool CheckOwnerDataTx(const CTxOut& txOut);// OP_REDECOIN_ASSET REDEO
-bool CheckReissueDataTx(const CTxOut& txOut);// OP_REDECOIN_ASSET REDER
-bool CheckTransferOwnerTx(const CTxOut& txOut);// OP_REDECOIN_ASSET REDET
+bool CheckIssueDataTx(const CTxOut& txOut); // OP_SHAHEPAY_ASSET SHAHEQ (That is a Q as in Que not an O)
+bool CheckOwnerDataTx(const CTxOut& txOut);// OP_SHAHEPAY_ASSET SHAHEO
+bool CheckReissueDataTx(const CTxOut& txOut);// OP_SHAHEPAY_ASSET SHAHER
+bool CheckTransferOwnerTx(const CTxOut& txOut);// OP_SHAHEPAY_ASSET SHAHET
 
 //! Check the Encoded hash and make sure it is either an IPFS hash or a OIP hash
 bool CheckEncoded(const std::string& hash, std::string& strError);
@@ -580,4 +580,4 @@ bool ContextualCheckReissueAsset(CAssetsCache* assetCache, const CReissueAsset& 
 bool ContextualCheckUniqueAssetTx(CAssetsCache* assetCache, std::string& strError, const CTransaction& tx);
 bool ContextualCheckUniqueAsset(CAssetsCache* assetCache, const CNewAsset& unique_asset, std::string& strError);
 
-#endif //REDECOIN_ASSET_PROTOCOL_H
+#endif //SHAHEPAY_ASSET_PROTOCOL_H

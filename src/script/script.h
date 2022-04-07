@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_SCRIPT_SCRIPT_H
-#define REDECOIN_SCRIPT_SCRIPT_H
+#ifndef SHAHEPAY_SCRIPT_SCRIPT_H
+#define SHAHEPAY_SCRIPT_SCRIPT_H
 
 #include "crypto/common.h"
 #include "prevector.h"
@@ -185,9 +185,9 @@ enum opcodetype
     OP_NOP9 = 0xb8,
     OP_NOP10 = 0xb9,
 
-    /** REDE START */
-    OP_REDE_ASSET = 0xc0,
-    /** REDE END */
+    /** SHAHE START */
+    OP_SHAHE_ASSET = 0xc0,
+    /** SHAHE END */
 
 
     // template matching params
@@ -578,7 +578,7 @@ public:
 
         // If we see an op rvn asset, we consider all data after it has data, and not op codes
         // Move the pc to the end of the script
-        if (opcode == OP_REDE_ASSET) {
+        if (opcode == OP_SHAHE_ASSET) {
             unsigned int nSize = end() - pc;
             if (pvchRet)
                 pvchRet->assign(pc, pc + nSize);
@@ -643,7 +643,7 @@ public:
     }
 
     /**
-     * Pre-version-0.6, redecoin always counted CHECKMULTISIGs
+     * Pre-version-0.6, shahepay always counted CHECKMULTISIGs
      * as 20 sigops. With pay-to-script-hash, that changed:
      * CHECKMULTISIGs serialized in scriptSigs are
      * counted more accurately, assuming they are of the form
@@ -663,7 +663,7 @@ public:
     bool IsPayToWitnessScriptHash() const;
     bool IsWitnessProgram(int& version, std::vector<unsigned char>& program) const;
 
-    /** REDE START */
+    /** SHAHE START */
     enum class txnouttype;
     bool IsAssetScript(int& nType, bool& fIsOwner, int& nStartingIndex) const;
     bool IsAssetScript(int& nType, bool& fIsOwner) const;
@@ -677,7 +677,7 @@ public:
     bool IsNullAssetTxDataScript() const;
     bool IsNullAssetVerifierTxDataScript() const;
     bool IsNullGlobalRestrictionAssetTxDataScript() const;
-    /** REDE END */
+    /** SHAHE END */
 
     /** Used for obsolete pay-to-pubkey addresses indexing. */
     bool IsPayToPublicKey() const;
@@ -740,4 +740,4 @@ bool ScriptNewAsset(const CScript& scriptPubKey, int& nStartingIndex);
 bool ScriptTransferAsset(const CScript& scriptPubKey, int& nStartingIndex);
 bool ScriptReissueAsset(const CScript& scriptPubKey, int& nStartingIndex);
 
-#endif // REDECOIN_SCRIPT_SCRIPT_H
+#endif // SHAHEPAY_SCRIPT_SCRIPT_H

@@ -15,10 +15,10 @@ RPCs tested are:
     - move (with account arguments)
 """
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal
 
-class WalletAccountsTest(redecoinTestFramework):
+class WalletAccountsTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
@@ -36,7 +36,7 @@ class WalletAccountsTest(redecoinTestFramework):
         assert_equal(node.getbalance(), 10000)
 
         # there should be 2 address groups
-        # each with 1 address with a balance of 50 redecoins
+        # each with 1 address with a balance of 50 shahepays
         address_groups = node.listaddressgroupings()
         assert_equal(len(address_groups), 2)
         # the addresses aren't linked now, but will be after we send to the

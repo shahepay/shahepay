@@ -1,28 +1,28 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to
 release-notes at release time)
 
-redecoin Core version *version* is now available from:
+shahepay Core version *version* is now available from:
 
-  <https://redecoin.org/bin/redecoin-core-*version*/>
+  <https://shahepay.com/bin/shahepay-core-*version*/>
 
 This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/redecoinProject/redecoin/issues>
+  <https://github.com/shahepayProject/shahepay/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://redecoin.org/en/list/announcements/join/>
+  <https://shahepay.com/en/list/announcements/join/>
 
 How to Upgrade
 ==============
 
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the 
-installer (on Windows) or just copy over `/Applications/redecoin-Qt` (on Mac)
-or `redecoind`/`redecoin-qt` (on Linux).
+installer (on Windows) or just copy over `/Applications/shahepay-Qt` (on Mac)
+or `shahepayd`/`shahepay-qt` (on Linux).
 
 The first time you run version 0.15.0, your chainstate database will be converted to a
 new format, which will take anywhere from a few minutes to half an hour,
@@ -47,10 +47,10 @@ processing the entire blockchain.
 Compatibility
 ==============
 
-redecoin Core is extensively tested on multiple operating systems using
+shahepay Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later. Windows XP is not supported.
 
-redecoin Core should also work on most other Unix-like systems but is not
+shahepay Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable changes
@@ -92,4 +92,4 @@ Credits
 Thanks to everyone who directly contributed to this release:
 
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/redecoin/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/shahepay/).

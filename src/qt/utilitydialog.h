@@ -1,16 +1,16 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_UTILITYDIALOG_H
-#define REDECOIN_QT_UTILITYDIALOG_H
+#ifndef SHAHEPAY_QT_UTILITYDIALOG_H
+#define SHAHEPAY_QT_UTILITYDIALOG_H
 
 #include <QDialog>
 #include <QObject>
 
-class redecoinGUI;
+class shahepayGUI;
 
 namespace Ui {
     class HelpMessageDialog;
@@ -44,11 +44,11 @@ class ShutdownWindow : public QWidget
 
 public:
     explicit ShutdownWindow(QWidget *parent=0, Qt::WindowFlags f=0);
-    static QWidget *showShutdownWindow(redecoinGUI *window);
+    static QWidget *showShutdownWindow(shahepayGUI *window);
 
 protected:
     void closeEvent(QCloseEvent *event);
 };
 
 
-#endif // REDECOIN_QT_UTILITYDIALOG_H
+#endif // SHAHEPAY_QT_UTILITYDIALOG_H

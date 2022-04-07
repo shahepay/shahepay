@@ -1,11 +1,11 @@
 // Copyright (c) 2014-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CRYPTO_SHA256_H
-#define REDECOIN_CRYPTO_SHA256_H
+#ifndef SHAHEPAY_CRYPTO_SHA256_H
+#define SHAHEPAY_CRYPTO_SHA256_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -33,4 +33,4 @@ public:
  */
 std::string SHA256AutoDetect();
 
-#endif // REDECOIN_CRYPTO_SHA256_H
+#endif // SHAHEPAY_CRYPTO_SHA256_H

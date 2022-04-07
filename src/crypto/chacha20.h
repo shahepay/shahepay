@@ -1,11 +1,11 @@
 // Copyright (c) 2017 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CRYPTO_CHACHA20_H
-#define REDECOIN_CRYPTO_CHACHA20_H
+#ifndef SHAHEPAY_CRYPTO_CHACHA20_H
+#define SHAHEPAY_CRYPTO_CHACHA20_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -25,4 +25,4 @@ public:
     void Output(unsigned char* output, size_t bytes);
 };
 
-#endif // REDECOIN_CRYPTO_CHACHA20_H
+#endif // SHAHEPAY_CRYPTO_CHACHA20_H

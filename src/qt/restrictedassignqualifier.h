@@ -1,9 +1,9 @@
-// Copyright (c) 2019 The redecoin Core developers
+// Copyright (c) 2019 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_ASSIGNQUALIFIER_H
-#define REDECOIN_QT_ASSIGNQUALIFIER_H
+#ifndef SHAHEPAY_QT_ASSIGNQUALIFIER_H
+#define SHAHEPAY_QT_ASSIGNQUALIFIER_H
 
 #include "amount.h"
 
@@ -64,4 +64,4 @@ private Q_SLOTS:
     void changeAddressChanged(int);
 };
 
-#endif // REDECOIN_QT_ASSIGNQUALIFIER_H
+#endif // SHAHEPAY_QT_ASSIGNQUALIFIER_H

@@ -7,12 +7,12 @@
 """Test RPC misc output."""
 
 import xml.etree.ElementTree as ElementTree
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_raises_rpc_error, assert_equal, assert_greater_than, assert_greater_than_or_equal
 from test_framework.authproxy import JSONRPCException
 
 
-class RpcMiscTest(redecoinTestFramework):
+class RpcMiscTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

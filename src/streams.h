@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_STREAMS_H
-#define REDECOIN_STREAMS_H
+#ifndef SHAHEPAY_STREAMS_H
+#define SHAHEPAY_STREAMS_H
 
 #include "support/allocators/zeroafterfree.h"
 #include "serialize.h"
@@ -708,4 +708,4 @@ public:
     }
 };
 
-#endif // REDECOIN_STREAMS_H
+#endif // SHAHEPAY_STREAMS_H

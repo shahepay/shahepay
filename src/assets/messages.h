@@ -1,10 +1,10 @@
-// Copyright (c) 2018 The redecoin Core developers
+// Copyright (c) 2018 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
-#ifndef REDECOIN_MESSAGES_H
-#define REDECOIN_MESSAGES_H
+#ifndef SHAHEPAY_MESSAGES_H
+#define SHAHEPAY_MESSAGES_H
 
 #include <uint256.h>
 #include <serialize.h>
@@ -140,4 +140,4 @@ public:
     std::string createJsonString();
 };
 
-#endif //REDECOIN_MESSAGES_H
+#endif //SHAHEPAY_MESSAGES_H

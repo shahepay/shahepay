@@ -6,11 +6,11 @@
 
 """Test resurrection of mined transactions when the blockchain is re-organized."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import create_tx, assert_equal
 
 # Create one-input, one-output, no-fee transaction:
-class MempoolCoinbaseTest(redecoinTestFramework):
+class MempoolCoinbaseTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
         self.extra_args = [["-checkmempool"]]

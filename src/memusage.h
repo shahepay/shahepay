@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_MEMUSAGE_H
-#define REDECOIN_MEMUSAGE_H
+#ifndef SHAHEPAY_MEMUSAGE_H
+#define SHAHEPAY_MEMUSAGE_H
 
 #include "indirectmap.h"
 
@@ -168,4 +168,4 @@ static inline size_t DynamicUsage(const std::unordered_map<X, Y, Z>& m)
 
 }
 
-#endif // REDECOIN_MEMUSAGE_H
+#endif // SHAHEPAY_MEMUSAGE_H

@@ -6,10 +6,10 @@
 
 """Test the wallet keypool and interaction with wallet encryption/locking."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, time
 
-class KeyPoolTest(redecoinTestFramework):
+class KeyPoolTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

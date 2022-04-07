@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: redecoin
+Upstream-Name: shahepay
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#redecoin@freenode.net
-Source: https://github.com/redecoinProject/redecoin
+ irc://#shahepay@freenode.net
+Source: https://github.com/shahepayProject/shahepay
 
 Files: *
-Copyright: 2009-2017, redecoin Core Developers
+Copyright: 2009-2017, shahepay Core Developers
 License: Expat
-Comment: The redecoin Core Developers encompasses the current developers listed on redecoin.org,
+Comment: The shahepay Core Developers encompasses the current developers listed on shahepay.com,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -78,12 +78,12 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/redecoin.*
-       share/pixmaps/redecoin*
-       src/qt/res/src/redecoin.svg
+       src/qt/res/icons/shahepay.*
+       share/pixmaps/shahepay*
+       src/qt/res/src/shahepay.svg
 Copyright: Bitboy, Jonas Schnelli
 License: public-domain
-Comment: Site: https://redecointalk.org/?topic=1756.0
+Comment: Site: https://shahepaytalk.org/?topic=1756.0
 
 
 License: Expat

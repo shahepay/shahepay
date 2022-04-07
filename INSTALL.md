@@ -1,5 +1,5 @@
-Building redecoin
+Building shahepay
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the redecoin Core reference implementation of redecoin.
+elements of the shahepay Core reference implementation of shahepay.

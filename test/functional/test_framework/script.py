@@ -7,7 +7,7 @@
 """
 Functionality to build scripts, as well as signature_hash().
 
-This file is modified from python-redecoinlib.
+This file is modified from python-shahepaylib.
 """
 
 from .mininode import CTransaction, CTxOut, sha256, hash256, uint256_from_str, ser_uint256, ser_string
@@ -236,7 +236,7 @@ OP_NOP8 = CScriptOp(0xb7)
 OP_NOP9 = CScriptOp(0xb8)
 OP_NOP10 = CScriptOp(0xb9)
 
-OP_REDE_ASSET = CScriptOp(0xc0)
+OP_SHAHE_ASSET = CScriptOp(0xc0)
 
 # template matching params
 OP_SMALLINTEGER = CScriptOp(0xfa)
@@ -358,7 +358,7 @@ OPCODE_NAMES.update({
     OP_NOP8 : 'OP_NOP8',
     OP_NOP9 : 'OP_NOP9',
     OP_NOP10 : 'OP_NOP10',
-    OP_REDE_ASSET : 'OP_REDE_ASSET',
+    OP_SHAHE_ASSET : 'OP_SHAHE_ASSET',
     OP_SMALLINTEGER : 'OP_SMALLINTEGER',
     OP_PUBKEYS : 'OP_PUBKEYS',
     OP_PUBKEYHASH : 'OP_PUBKEYHASH',

@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,11 +14,11 @@
 #include "script/sign.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_redecoin.h"
+#include "test/test_shahepay.h"
 #include "rpc/server.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
-#include "script/redecoinconsensus.h"
+#include "script/shahepayconsensus.h"
 #endif
 
 #include <fstream>
@@ -173,13 +173,13 @@ BOOST_FIXTURE_TEST_SUITE(script_tests, BasicTestingSetup)
 #if defined(HAVE_CONSENSUS_LIB)
         CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);
         stream << tx2;
-        int libconsensus_flags = flags & redecoinconsensus_SCRIPT_FLAGS_VERIFY_ALL;
+        int libconsensus_flags = flags & shahepayconsensus_SCRIPT_FLAGS_VERIFY_ALL;
         if (libconsensus_flags == flags) {
-            if (flags & redecoinconsensus_SCRIPT_FLAGS_VERIFY_WITNESS) {
-                BOOST_CHECK_MESSAGE(redecoinconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), txCredit.vout[0].nValue, (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect, message);
+            if (flags & shahepayconsensus_SCRIPT_FLAGS_VERIFY_WITNESS) {
+                BOOST_CHECK_MESSAGE(shahepayconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), txCredit.vout[0].nValue, (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect, message);
             } else {
-                BOOST_CHECK_MESSAGE(redecoinconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), 0, (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect, message);
-                BOOST_CHECK_MESSAGE(redecoinconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect,message);
+                BOOST_CHECK_MESSAGE(shahepayconsensus_verify_script_with_amount(scriptPubKey.data(), scriptPubKey.size(), 0, (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect, message);
+                BOOST_CHECK_MESSAGE(shahepayconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, nullptr) == expect,message);
             }
         }
 #endif

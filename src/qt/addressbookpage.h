@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_ADDRESSBOOKPAGE_H
-#define REDECOIN_QT_ADDRESSBOOKPAGE_H
+#ifndef SHAHEPAY_QT_ADDRESSBOOKPAGE_H
+#define SHAHEPAY_QT_ADDRESSBOOKPAGE_H
 
 #include <QDialog>
 
@@ -85,4 +85,4 @@ Q_SIGNALS:
     void sendCoins(QString addr);
 };
 
-#endif // REDECOIN_QT_ADDRESSBOOKPAGE_H
+#endif // SHAHEPAY_QT_ADDRESSBOOKPAGE_H

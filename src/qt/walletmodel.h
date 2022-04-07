@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_WALLETMODEL_H
-#define REDECOIN_QT_WALLETMODEL_H
+#ifndef SHAHEPAY_QT_WALLETMODEL_H
+#define SHAHEPAY_QT_WALLETMODEL_H
 
 #include "paymentrequestplus.h"
 #include "walletmodeltransaction.h"
@@ -163,7 +163,7 @@ public:
     }
 };
 
-/** Interface to redecoin wallet from Qt view code. */
+/** Interface to shahepay wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -268,10 +268,10 @@ public:
     void getOutputs(const std::vector<COutPoint>& vOutpoints, std::vector<COutput>& vOutputs);
     bool isSpent(const COutPoint& outpoint) const;
     void listCoins(std::map<QString, std::vector<COutput> >& mapCoins) const;
-    /** REDE START */
+    /** SHAHE START */
     // Map of asset name to map of address to CTxOut
     void listAssets(std::map<QString, std::map<QString, std::vector<COutput> > >& mapCoins) const;
-    /** REDE END */
+    /** SHAHE END */
     bool isLockedCoin(uint256 hash, unsigned int n) const;
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
@@ -368,4 +368,4 @@ public Q_SLOTS:
     void pollBalanceChanged();
 };
 
-#endif // REDECOIN_QT_WALLETMODEL_H
+#endif // SHAHEPAY_QT_WALLETMODEL_H

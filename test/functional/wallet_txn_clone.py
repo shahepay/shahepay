@@ -6,10 +6,10 @@
 
 """Test the wallet accounts properly when there are cloned transactions with malleated scriptsigs."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import disconnect_nodes, assert_equal, sync_blocks, connect_nodes
 
-class TxnMallTest(redecoinTestFramework):
+class TxnMallTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 4
         self.extra_args = [["-maxreorg=10000".format(i)] for i in range(self.num_nodes)]
@@ -26,7 +26,7 @@ class TxnMallTest(redecoinTestFramework):
         disconnect_nodes(self.nodes[2], 1)
 
     def run_test(self):
-        # All nodes should start with 1,250 REDE:
+        # All nodes should start with 1,250 SHAHE:
         starting_balance = 125000
         for i in range(4):
             assert_equal(self.nodes[i].getbalance(), starting_balance)
@@ -63,7 +63,7 @@ class TxnMallTest(redecoinTestFramework):
 
         # createrawtransaction randomizes the order of its outputs, so swap them if necessary.
         # output 0 is at version+#inputs+input+sigstub+sequence+#outputs
-        # 40 REDE serialized is 00286bee00000000
+        # 40 SHAHE serialized is 00286bee00000000
         pos0 = 2*(4+1+36+1+4+1)
         hex40 = "00286bee00000000"
         output_len = 16 + 2 + 2 * int("0x" + clone_raw[pos0 + 16 : pos0 + 16 + 2], 0)
@@ -86,7 +86,7 @@ class TxnMallTest(redecoinTestFramework):
         tx1 = self.nodes[0].gettransaction(txid1)
         tx2 = self.nodes[0].gettransaction(txid2)
 
-        # Node0's balance should be starting balance, plus 50REDE for another
+        # Node0's balance should be starting balance, plus 50SHAHE for another
         # matured block, minus tx1 and tx2 amounts, and minus transaction fees:
         expected = starting_balance + fund_foo_tx["fee"] + fund_bar_tx["fee"]
         if self.options.mine_block: expected += 5000
@@ -130,7 +130,7 @@ class TxnMallTest(redecoinTestFramework):
         assert_equal(tx1_clone["confirmations"], 2)
         assert_equal(tx2["confirmations"], 1)
 
-        # Check node0's total balance; should be same as before the clone, + 100 REDE for 2 matured,
+        # Check node0's total balance; should be same as before the clone, + 100 SHAHE for 2 matured,
         # less possible orphaned matured subsidy
         expected += 10000
         if self.options.mine_block:

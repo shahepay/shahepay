@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -266,7 +266,7 @@ TransactionTableModel::~TransactionTableModel()
 /** Updates the column title to "Amount (DisplayUnit)" and emits headerDataChanged() signal for table headers to react. */
 //void TransactionTableModel::updateAmountColumnTitle()
 //{
-//    columns[Amount] = redecoinUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit());
+//    columns[Amount] = shahepayUnits::getAmountColumnTitle(walletModel->getOptionsModel()->getDisplayUnit());
 //    Q_EMIT headerDataChanged(Qt::Horizontal,Amount,Amount);
 //}
 
@@ -472,7 +472,7 @@ QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
     return QVariant();
 }
 
-QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed, redecoinUnits::SeparatorStyle separators) const
+QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed, shahepayUnits::SeparatorStyle separators) const
 {
     QString str;
     switch(wtx->type) {
@@ -485,7 +485,7 @@ QString TransactionTableModel::formatTxAmount(const TransactionRecord *wtx, bool
             } break;
         default:
             {
-            str = redecoinUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit,
+            str = shahepayUnits::format(walletModel->getOptionsModel()->getDisplayUnit(), wtx->credit + wtx->debit,
                                              false, separators);
             } break;
     }
@@ -591,12 +591,12 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case ToAddress:
             return formatTxToAddress(rec, false);
         case Amount:
-            return formatTxAmount(rec, true, redecoinUnits::separatorAlways);
+            return formatTxAmount(rec, true, shahepayUnits::separatorAlways);
         case AssetName:
-            if (rec->assetName != "REDE")
+            if (rec->assetName != "SHAHE")
                return QString::fromStdString(rec->assetName);
             else
-               return QString(redecoinUnits::name(walletModel->getOptionsModel()->getDisplayUnit()));
+               return QString(shahepayUnits::name(walletModel->getOptionsModel()->getDisplayUnit()));
         }
         break;
     case Qt::EditRole:
@@ -644,7 +644,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         }
         if(index.column() == AssetName)
         {
-            if (rec->assetName != "REDE")
+            if (rec->assetName != "SHAHE")
                return platformStyle->AssetTxColor();
         }
         break;
@@ -695,21 +695,21 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
                 details.append(QString::fromStdString(rec->address));
                 details.append(" ");
             }
-            details.append(formatTxAmount(rec, false, redecoinUnits::separatorNever));
+            details.append(formatTxAmount(rec, false, shahepayUnits::separatorNever));
             return details;
         }
     case ConfirmedRole:
         return rec->status.countsForBalance;
     case FormattedAmountRole:
         // Used for copy/export, so don't include separators
-        return formatTxAmount(rec, false, redecoinUnits::separatorNever);
+        return formatTxAmount(rec, false, shahepayUnits::separatorNever);
     case AssetNameRole:
         {
             QString assetName;
-            if (rec->assetName != "REDE")
+            if (rec->assetName != "SHAHE")
                assetName.append(QString::fromStdString(rec->assetName));
             else
-               assetName.append(QString(redecoinUnits::name(walletModel->getOptionsModel()->getDisplayUnit())));
+               assetName.append(QString(shahepayUnits::name(walletModel->getOptionsModel()->getDisplayUnit())));
             return assetName;
         }
     case StatusRole:
@@ -746,7 +746,7 @@ QVariant TransactionTableModel::headerData(int section, Qt::Orientation orientat
             case Amount:
                 return tr("Amount removed from or added to balance.");
             case AssetName:
-                return tr("The asset (or REDE) removed or added to balance.");
+                return tr("The asset (or SHAHE) removed or added to balance.");
             }
         }
     }

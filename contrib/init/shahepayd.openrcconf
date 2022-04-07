@@ -1,0 +1,33 @@
+# /etc/conf.d/shahepayd: config file for /etc/init.d/shahepayd
+
+# Config file location
+#SHAHEPAYD_CONFIGFILE="/etc/shahepay/shahepay.conf"
+
+# What directory to write pidfile to?  (created and owned by $SHAHEPAYD_USER)
+#SHAHEPAYD_PIDDIR="/var/run/shahepayd"
+
+# What filename to give the pidfile
+#SHAHEPAYD_PIDFILE="${SHAHEPAYD_PIDDIR}/shahepayd.pid"
+
+# Where to write shahepayd data (be mindful that the blockchain is large)
+#SHAHEPAYD_DATADIR="/var/lib/shahepayd"
+
+# User and group to own shahepayd process
+#SHAHEPAYD_USER="shahepay"
+#SHAHEPAYD_GROUP="shahepay"
+
+# Path to shahepayd executable
+#SHAHEPAYD_BIN="/usr/bin/shahepayd"
+
+# Nice value to run shahepayd under
+#SHAHEPAYD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#SHAHEPAYD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for shahepayd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+SHAHEPAYD_SIGTERM_TIMEOUT=60

@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_SUPPORT_ALLOCATORS_SECURE_H
-#define REDECOIN_SUPPORT_ALLOCATORS_SECURE_H
+#ifndef SHAHEPAY_SUPPORT_ALLOCATORS_SECURE_H
+#define SHAHEPAY_SUPPORT_ALLOCATORS_SECURE_H
 
 #include "support/lockedpool.h"
 #include "support/cleanse.h"
@@ -57,4 +57,4 @@ struct secure_allocator : public std::allocator<T> {
 // This is exactly like std::string, but with a custom allocator.
 typedef std::basic_string<char, std::char_traits<char>, secure_allocator<char> > SecureString;
 
-#endif // REDECOIN_SUPPORT_ALLOCATORS_SECURE_H
+#endif // SHAHEPAY_SUPPORT_ALLOCATORS_SECURE_H

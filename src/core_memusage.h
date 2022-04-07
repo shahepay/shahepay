@@ -1,11 +1,11 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CORE_MEMUSAGE_H
-#define REDECOIN_CORE_MEMUSAGE_H
+#ifndef SHAHEPAY_CORE_MEMUSAGE_H
+#define SHAHEPAY_CORE_MEMUSAGE_H
 
 #include "primitives/transaction.h"
 #include "primitives/block.h"
@@ -70,4 +70,4 @@ static inline size_t RecursiveDynamicUsage(const std::shared_ptr<X>& p) {
     return p ? memusage::DynamicUsage(p) + RecursiveDynamicUsage(*p) : 0;
 }
 
-#endif // REDECOIN_CORE_MEMUSAGE_H
+#endif // SHAHEPAY_CORE_MEMUSAGE_H

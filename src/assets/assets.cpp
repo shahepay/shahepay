@@ -1,5 +1,5 @@
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -78,7 +78,7 @@ static const std::regex QUALIFIER_INDICATOR("^[#][A-Z0-9._]{3,}$"); // Starts wi
 static const std::regex SUB_QUALIFIER_INDICATOR("^#[A-Z0-9._]+\\/#[A-Z0-9._]+$"); // Starts with #
 static const std::regex RESTRICTED_INDICATOR("^[\\$][A-Z0-9._]{3,}$"); // Starts with $
 
-static const std::regex REDECOIN_NAMES("^REDE$|^REDECOIN$|^REDECOIN$|^#REDE$|^#REDECOIN$|^#REDECOIN$");
+static const std::regex SHAHEPAY_NAMES("^SHAHE$|^SHAHEPAY$|^SHAHEPAY$|^#SHAHE$|^#SHAHEPAY$|^#SHAHEPAY$");
 
 bool IsRootNameValid(const std::string& name)
 {
@@ -86,7 +86,7 @@ bool IsRootNameValid(const std::string& name)
         && !std::regex_match(name, DOUBLE_PUNCTUATION)
         && !std::regex_match(name, LEADING_PUNCTUATION)
         && !std::regex_match(name, TRAILING_PUNCTUATION)
-        && !std::regex_match(name, REDECOIN_NAMES);
+        && !std::regex_match(name, SHAHEPAY_NAMES);
 }
 
 bool IsQualifierNameValid(const std::string& name)
@@ -95,7 +95,7 @@ bool IsQualifierNameValid(const std::string& name)
            && !std::regex_match(name, DOUBLE_PUNCTUATION)
            && !std::regex_match(name, QUALIFIER_LEADING_PUNCTUATION)
            && !std::regex_match(name, TRAILING_PUNCTUATION)
-           && !std::regex_match(name, REDECOIN_NAMES);
+           && !std::regex_match(name, SHAHEPAY_NAMES);
 }
 
 bool IsRestrictedNameValid(const std::string& name)
@@ -104,7 +104,7 @@ bool IsRestrictedNameValid(const std::string& name)
            && !std::regex_match(name, DOUBLE_PUNCTUATION)
            && !std::regex_match(name, LEADING_PUNCTUATION)
            && !std::regex_match(name, TRAILING_PUNCTUATION)
-           && !std::regex_match(name, REDECOIN_NAMES);
+           && !std::regex_match(name, SHAHEPAY_NAMES);
 }
 
 bool IsSubQualifierNameValid(const std::string& name)
@@ -525,13 +525,13 @@ void CNewAsset::ConstructTransaction(CScript& script) const
     ssAsset << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(REDE_R); // r
-    vchMessage.push_back(REDE_V); // v
-    vchMessage.push_back(REDE_N); // n
-    vchMessage.push_back(REDE_Q); // q
+    vchMessage.push_back(SHAHE_R); // r
+    vchMessage.push_back(SHAHE_V); // v
+    vchMessage.push_back(SHAHE_N); // n
+    vchMessage.push_back(SHAHE_Q); // q
 
     vchMessage.insert(vchMessage.end(), ssAsset.begin(), ssAsset.end());
-    script << OP_REDE_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_SHAHE_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 void CNewAsset::ConstructOwnerTransaction(CScript& script) const
@@ -540,13 +540,13 @@ void CNewAsset::ConstructOwnerTransaction(CScript& script) const
     ssOwner << std::string(this->strName + OWNER_TAG);
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(REDE_R); // r
-    vchMessage.push_back(REDE_V); // v
-    vchMessage.push_back(REDE_N); // n
-    vchMessage.push_back(REDE_O); // o
+    vchMessage.push_back(SHAHE_R); // r
+    vchMessage.push_back(SHAHE_V); // v
+    vchMessage.push_back(SHAHE_N); // n
+    vchMessage.push_back(SHAHE_O); // o
 
     vchMessage.insert(vchMessage.end(), ssOwner.begin(), ssOwner.end());
-    script << OP_REDE_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_SHAHE_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool AssetFromTransaction(const CTransaction& tx, CNewAsset& asset, std::string& strAddress)
@@ -909,7 +909,7 @@ bool CTransaction::IsNewAsset() const
     // New Asset transaction will always have at least three outputs.
     // 1. Owner Token output
     // 2. Issue Asset output
-    // 3. REDE Burn Fee
+    // 3. SHAHE Burn Fee
     if (vout.size() < 3) {
         return false;
     }
@@ -946,7 +946,7 @@ bool CTransaction::IsNewUniqueAsset() const
 //! Call this function after IsNewUniqueAsset
 bool CTransaction::VerifyNewUniqueAsset(std::string& strError) const
 {
-    // Must contain at least 3 outpoints (REDE burn, owner change and one or more new unique assets that share a root (should be in trailing position))
+    // Must contain at least 3 outpoints (SHAHE burn, owner change and one or more new unique assets that share a root (should be in trailing position))
     if (vout.size() < 3) {
         strError  = "bad-txns-unique-vout-size-to-small";
         return false;
@@ -1038,7 +1038,7 @@ bool CTransaction::VerifyNewUniqueAsset(std::string& strError) const
 
 //! To be called on CTransactions where IsNewAsset returns true
 bool CTransaction::VerifyNewAsset(std::string& strError) const {
-    // Issuing an Asset must contain at least 3 CTxOut( redecoin Burn Tx, Any Number of other Outputs ..., Owner Asset Tx, New Asset Tx)
+    // Issuing an Asset must contain at least 3 CTxOut( shahepay Burn Tx, Any Number of other Outputs ..., Owner Asset Tx, New Asset Tx)
     if (vout.size() < 3) {
         strError = "bad-txns-issue-vout-size-to-small";
         return false;
@@ -1143,7 +1143,7 @@ bool CTransaction::IsNewMsgChannelAsset() const
 //! To be called on CTransactions where IsNewAsset returns true
 bool CTransaction::VerifyNewMsgChannelAsset(std::string &strError) const
 {
-    // Issuing an Asset must contain at least 3 CTxOut( redecoin Burn Tx, Any Number of other Outputs ..., Owner Asset Tx, New Asset Tx)
+    // Issuing an Asset must contain at least 3 CTxOut( shahepay Burn Tx, Any Number of other Outputs ..., Owner Asset Tx, New Asset Tx)
     if (vout.size() < 3) {
         strError  = "bad-txns-issue-msgchannel-vout-size-to-small";
         return false;
@@ -1230,7 +1230,7 @@ bool CTransaction::IsNewQualifierAsset() const
 //! To be called on CTransactions where IsNewQualifierAsset returns true
 bool CTransaction::VerifyNewQualfierAsset(std::string &strError) const
 {
-    // Issuing an Asset must contain at least 2 CTxOut( redecoin Burn Tx, New Asset Tx, Any Number of other Outputs...)
+    // Issuing an Asset must contain at least 2 CTxOut( shahepay Burn Tx, New Asset Tx, Any Number of other Outputs...)
     if (vout.size() < 2) {
         strError  = "bad-txns-issue-qualifier-vout-size-to-small";
         return false;
@@ -1318,7 +1318,7 @@ bool CTransaction::IsNewRestrictedAsset() const
 
 //! To be called on CTransactions where IsNewRestrictedAsset returns true
 bool CTransaction::VerifyNewRestrictedAsset(std::string& strError) const {
-    // Issuing a restricted asset must cointain at least 4 CTxOut(redecoin Burn Tx, Asset Creation, Root Owner Token Transfer, and CNullAssetTxVerifierString)
+    // Issuing a restricted asset must cointain at least 4 CTxOut(shahepay Burn Tx, Asset Creation, Root Owner Token Transfer, and CNullAssetTxVerifierString)
     if (vout.size() < 4) {
         strError = "bad-txns-issue-restricted-vout-size-to-small";
         return false;
@@ -1447,7 +1447,7 @@ bool CTransaction::IsReissueAsset() const
 //! To be called on CTransactions where IsReissueAsset returns true
 bool CTransaction::VerifyReissueAsset(std::string& strError) const
 {
-    // Reissuing an Asset must contain at least 3 CTxOut ( redecoin Burn Tx, Any Number of other Outputs ..., Reissue Asset Tx, Owner Asset Change Tx)
+    // Reissuing an Asset must contain at least 3 CTxOut ( shahepay Burn Tx, Any Number of other Outputs ..., Reissue Asset Tx, Owner Asset Change Tx)
     if (vout.size() < 3) {
         strError  = "bad-txns-vout-size-to-small";
         return false;
@@ -1612,13 +1612,13 @@ void CAssetTransfer::ConstructTransaction(CScript& script) const
     ssTransfer << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(REDE_R); // r
-    vchMessage.push_back(REDE_V); // v
-    vchMessage.push_back(REDE_N); // n
-    vchMessage.push_back(REDE_T); // t
+    vchMessage.push_back(SHAHE_R); // r
+    vchMessage.push_back(SHAHE_V); // v
+    vchMessage.push_back(SHAHE_N); // n
+    vchMessage.push_back(SHAHE_T); // t
 
     vchMessage.insert(vchMessage.end(), ssTransfer.begin(), ssTransfer.end());
-    script << OP_REDE_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_SHAHE_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 CReissueAsset::CReissueAsset(const std::string &strAssetName, const CAmount &nAmount, const int &nUnits, const int &nReissuable,
@@ -1638,13 +1638,13 @@ void CReissueAsset::ConstructTransaction(CScript& script) const
     ssReissue << *this;
 
     std::vector<unsigned char> vchMessage;
-    vchMessage.push_back(REDE_R); // r
-    vchMessage.push_back(REDE_V); // v
-    vchMessage.push_back(REDE_N); // n
-    vchMessage.push_back(REDE_R); // r
+    vchMessage.push_back(SHAHE_R); // r
+    vchMessage.push_back(SHAHE_V); // v
+    vchMessage.push_back(SHAHE_N); // n
+    vchMessage.push_back(SHAHE_R); // r
 
     vchMessage.insert(vchMessage.end(), ssReissue.begin(), ssReissue.end());
-    script << OP_REDE_ASSET << ToByteVector(vchMessage) << OP_DROP;
+    script << OP_SHAHE_ASSET << ToByteVector(vchMessage) << OP_DROP;
 }
 
 bool CReissueAsset::IsNull() const
@@ -3099,7 +3099,7 @@ bool CheckIssueBurnTx(const CTxOut& txOut, const AssetType& type)
 
 bool CheckReissueBurnTx(const CTxOut& txOut)
 {
-    // Check the first transaction and verify that the correct REDE Amount
+    // Check the first transaction and verify that the correct SHAHE Amount
     if (txOut.nValue != GetReissueAssetBurnAmount())
         return false;
 
@@ -3864,7 +3864,7 @@ bool CreateAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, const s
     if (!change_address.empty()) {
         CTxDestination destination = DecodeDestination(change_address);
         if (!IsValidDestination(destination)) {
-            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid redecoin address: ") + change_address);
+            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid shahepay address: ") + change_address);
             return false;
         }
     } else {
@@ -3906,7 +3906,7 @@ bool CreateAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, const s
 
     CAmount curBalance = pwallet->GetBalance();
 
-    // Check to make sure the wallet has the REDE required by the burnAmount
+    // Check to make sure the wallet has the SHAHE required by the burnAmount
     if (curBalance < burnAmount) {
         error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
         return false;
@@ -4030,7 +4030,7 @@ bool CreateReissueAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, 
 
     // Check that validitity of the address
     if (!IsValidDestinationString(address)) {
-        error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid redecoin address: ") + address);
+        error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid shahepay address: ") + address);
         return false;
     }
 
@@ -4038,7 +4038,7 @@ bool CreateReissueAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, 
     if (!change_address.empty()) {
         CTxDestination destination = DecodeDestination(change_address);
         if (!IsValidDestination(destination)) {
-            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid redecoin address: ") + change_address);
+            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid shahepay address: ") + change_address);
             return false;
         }
     } else {
@@ -4109,7 +4109,7 @@ bool CreateReissueAssetTransaction(CWallet* pwallet, CCoinControl& coinControl, 
     // Get the current burn amount for issuing an asset
     CAmount burnAmount = GetReissueAssetBurnAmount();
 
-    // Check to make sure the wallet has the REDE required by the burnAmount
+    // Check to make sure the wallet has the SHAHE required by the burnAmount
     if (curBalance < burnAmount) {
         error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, "Insufficient funds");
         return false;
@@ -4209,7 +4209,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
     // Check for a balance before processing transfers
     CAmount curBalance = pwallet->GetBalance();
     if (curBalance == 0) {
-        error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, std::string("This wallet doesn't contain any REDE, transfering an asset requires a network fee"));
+        error = std::make_pair(RPC_WALLET_INSUFFICIENT_FUNDS, std::string("This wallet doesn't contain any SHAHE, transfering an asset requires a network fee"));
         return false;
     }
 
@@ -4228,7 +4228,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         int64_t expireTime = transfer.first.nExpireTime;
 
         if (!IsValidDestinationString(address)) {
-            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid redecoin address: ") + address);
+            error = std::make_pair(RPC_INVALID_ADDRESS_OR_KEY, std::string("Invalid shahepay address: ") + address);
             return false;
         }
         auto currentActiveAssetCache = GetCurrentAssetCache();
@@ -4291,7 +4291,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         vecSend.push_back(recipient);
     }
 
-    // If assetTxData is not nullptr, the user wants to add some OP_REDE_ASSET data transactions into the transaction
+    // If assetTxData is not nullptr, the user wants to add some OP_SHAHE_ASSET data transactions into the transaction
     if (nullAssetTxData) {
         std::string strError = "";
         int nAddTagCount = 0;
@@ -4326,7 +4326,7 @@ bool CreateTransferAssetTransaction(CWallet* pwallet, const CCoinControl& coinCo
         }
     }
 
-    // nullGlobalRestiotionData, the user wants to add OP_REDE_ASSET OP_REDE_ASSET OP_REDE_ASSETS data transaction to the transaction
+    // nullGlobalRestiotionData, the user wants to add OP_SHAHE_ASSET OP_SHAHE_ASSET OP_SHAHE_ASSETS data transaction to the transaction
     if (nullGlobalRestrictionData) {
         std::string strError = "";
         for (auto dataObject : *nullGlobalRestrictionData) {
@@ -4540,7 +4540,7 @@ void CNullAssetTxData::ConstructGlobalRestrictionTransaction(CScript &script) co
 
     std::vector<unsigned char> vchMessage;
     vchMessage.insert(vchMessage.end(), ssAssetTxData.begin(), ssAssetTxData.end());
-    script << OP_REDE_ASSET << OP_RESERVED << OP_RESERVED << ToByteVector(vchMessage);
+    script << OP_SHAHE_ASSET << OP_RESERVED << OP_RESERVED << ToByteVector(vchMessage);
 }
 
 CNullAssetTxVerifierString::CNullAssetTxVerifierString(const std::string &verifier)
@@ -4556,7 +4556,7 @@ void CNullAssetTxVerifierString::ConstructTransaction(CScript &script) const
 
     std::vector<unsigned char> vchMessage;
     vchMessage.insert(vchMessage.end(), ssAssetTxData.begin(), ssAssetTxData.end());
-    script << OP_REDE_ASSET << OP_RESERVED << ToByteVector(vchMessage);
+    script << OP_SHAHE_ASSET << OP_RESERVED << ToByteVector(vchMessage);
 }
 
 bool CAssetsCache::GetAssetVerifierStringIfExists(const std::string &name, CNullAssetTxVerifierString& verifierString, bool fSkipTempCache)

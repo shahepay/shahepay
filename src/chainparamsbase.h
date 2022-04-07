@@ -1,19 +1,19 @@
 // Copyright (c) 2014-2015 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CHAINPARAMSBASE_H
-#define REDECOIN_CHAINPARAMSBASE_H
+#ifndef SHAHEPAY_CHAINPARAMSBASE_H
+#define SHAHEPAY_CHAINPARAMSBASE_H
 
 #include <memory>
 #include <string>
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between redecoin-cli and redecoind)
- * of a given instance of the redecoin system.
+ * CBaseChainParams defines the base parameters (shared between shahepay-cli and shahepayd)
+ * of a given instance of the shahepay system.
  */
 class CBaseChainParams
 {
@@ -62,4 +62,4 @@ void SelectBaseParams(const std::string& chain);
  */
 std::string ChainNameFromCommandLine();
 
-#endif // REDECOIN_CHAINPARAMSBASE_H
+#endif // SHAHEPAY_CHAINPARAMSBASE_H

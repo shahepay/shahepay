@@ -5,7 +5,7 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 """
-Test running redecoind with -reindex and -reindex-chainstate options.
+Test running shahepayd with -reindex and -reindex-chainstate options.
 
 - Start a single node and generate 3 blocks.
 - Stop the node and restart it with -reindex. Verify that the node has re-indexed up to block 3.
@@ -13,10 +13,10 @@ Test running redecoind with -reindex and -reindex-chainstate options.
 """
 
 import time
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal
 
-class ReindexTest(redecoinTestFramework):
+class ReindexTest(shahepayTestFramework):
 
     def set_test_params(self):
         self.setup_clean_chain = True

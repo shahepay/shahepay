@@ -14,10 +14,10 @@ the node should pretend that it does not have it to avoid fingerprinting.
 import time
 from test_framework.blocktools import create_block, create_coinbase
 from test_framework.mininode import CInv, NetworkThread, NodeConn, NodeConnCB, MsgHeaders, MsgBlock, MsgGetdata, MsgGetHeaders, wait_until
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, p2p_port
 
-class P2PFingerprintTest(redecoinTestFramework):
+class P2PFingerprintTest(shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

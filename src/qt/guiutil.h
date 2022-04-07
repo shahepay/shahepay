@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_QT_GUIUTIL_H
-#define REDECOIN_QT_GUIUTIL_H
+#ifndef SHAHEPAY_QT_GUIUTIL_H
+#define SHAHEPAY_QT_GUIUTIL_H
 
 #include "amount.h"
 #include "fs.h"
@@ -32,7 +32,7 @@ class QWidget;
 class QGraphicsDropShadowEffect;
 QT_END_NAMESPACE
 
-/** Utility functions used by the redecoin Qt UI.
+/** Utility functions used by the shahepay Qt UI.
  */
 namespace GUIUtil
 {
@@ -58,10 +58,10 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "redecoin:" URI into recipient object, return true on successful parsing
-    bool parseredecoinURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseredecoinURI(QString uri, SendCoinsRecipient *out);
-    QString formatredecoinURI(const SendCoinsRecipient &info);
+    // Parse "shahepay:" URI into recipient object, return true on successful parsing
+    bool parseshahepayURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseshahepayURI(QString uri, SendCoinsRecipient *out);
+    QString formatshahepayURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -128,7 +128,7 @@ namespace GUIUtil
     void openDebugLogfile();
 
     // Open the config file
-    bool openredecoinConf();
+    bool openshahepayConf();
 
     // Replace invalid default fonts with known good ones
     void SubstituteFonts(const QString& language);
@@ -273,4 +273,4 @@ namespace GUIUtil
 
 } // namespace GUIUtil
 
-#endif // REDECOIN_QT_GUIUTIL_H
+#endif // SHAHEPAY_QT_GUIUTIL_H

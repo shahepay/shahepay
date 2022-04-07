@@ -1,0 +1,6 @@
+usr/local/bin/shahepay-qt usr/bin
+share/pixmaps/shahepay32.xpm usr/share/pixmaps
+share/pixmaps/shahepay16.xpm usr/share/pixmaps
+share/pixmaps/shahepay128.png usr/share/pixmaps
+debian/shahepay-qt.desktop usr/share/applications
+debian/shahepay-qt.protocol usr/share/kde4/services/

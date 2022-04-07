@@ -6,7 +6,7 @@
 """
 Big number routines.
 
-This file is copied from python-redecoinlib.
+This file is copied from python-shahepaylib.
 """
 
 import struct
@@ -49,7 +49,7 @@ def bn2mpi(v):
             v_bin[0] |= 0x80
     return s + ext + v_bin
 
-# redecoin-specific little endian format, with implicit size
+# shahepay-specific little endian format, with implicit size
 def mpi2vch(s):
     r = s[4:]           # strip size
     r = r[::-1]         # reverse string, converting BE->LE

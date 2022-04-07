@@ -7,7 +7,7 @@
 """
 Test the zapwallettxes functionality.
 
-- start two redecoind nodes
+- start two shahepayd nodes
 - create two transactions on node 0 - one is confirmed and one is unconfirmed.
 - restart node 0 and verify that both the confirmed and the unconfirmed
   transactions are still available.
@@ -18,10 +18,10 @@ Test the zapwallettxes functionality.
   been zapped.
 """
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error, wait_until
 
-class ZapWalletTXesTest (redecoinTestFramework):
+class ZapWalletTXesTest (shahepayTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 2

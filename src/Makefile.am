@@ -19,28 +19,28 @@ else
 LIBUNIVALUE = $(UNIVALUE_LIBS)
 endif
 
-REDECOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+SHAHEPAY_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
-REDECOIN_INCLUDES += -I$(srcdir)/secp256k1/include
-REDECOIN_INCLUDES += $(UNIVALUE_CFLAGS)
+SHAHEPAY_INCLUDES += -I$(srcdir)/secp256k1/include
+SHAHEPAY_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBREDECOIN_SERVER=libredecoin_server.a
-LIBREDECOIN_COMMON=libredecoin_common.a
-LIBREDECOIN_CONSENSUS=libredecoin_consensus.a
-LIBREDECOIN_CLI=libredecoin_cli.a
-LIBREDECOIN_UTIL=libredecoin_util.a
-LIBREDECOIN_CRYPTO=crypto/libredecoin_crypto.a
-LIBREDECOINQT=qt/libredecoinqt.a
+LIBSHAHEPAY_SERVER=libshahepay_server.a
+LIBSHAHEPAY_COMMON=libshahepay_common.a
+LIBSHAHEPAY_CONSENSUS=libshahepay_consensus.a
+LIBSHAHEPAY_CLI=libshahepay_cli.a
+LIBSHAHEPAY_UTIL=libshahepay_util.a
+LIBSHAHEPAY_CRYPTO=crypto/libshahepay_crypto.a
+LIBSHAHEPAYQT=qt/libshahepayqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBREDECOIN_ZMQ=libredecoin_zmq.a
+LIBSHAHEPAY_ZMQ=libshahepay_zmq.a
 endif
-if BUILD_REDECOIN_LIBS
-LIBREDECOINCONSENSUS=libredecoinconsensus.la
+if BUILD_SHAHEPAY_LIBS
+LIBSHAHEPAYCONSENSUS=libshahepayconsensus.la
 endif
 if ENABLE_WALLET
-LIBREDECOIN_WALLET=libredecoin_wallet.a
+LIBSHAHEPAY_WALLET=libshahepay_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -49,37 +49,37 @@ $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
 # Make is not made aware of per-object dependencies to avoid limiting building parallelization
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
-  $(LIBREDECOIN_CRYPTO) \
-  $(LIBREDECOIN_UTIL) \
-  $(LIBREDECOIN_COMMON) \
-  $(LIBREDECOIN_CONSENSUS) \
-  $(LIBREDECOIN_SERVER) \
-  $(LIBREDECOIN_CLI) \
-  $(LIBREDECOIN_WALLET) \
-  $(LIBREDECOIN_ZMQ)
+  $(LIBSHAHEPAY_CRYPTO) \
+  $(LIBSHAHEPAY_UTIL) \
+  $(LIBSHAHEPAY_COMMON) \
+  $(LIBSHAHEPAY_CONSENSUS) \
+  $(LIBSHAHEPAY_SERVER) \
+  $(LIBSHAHEPAY_CLI) \
+  $(LIBSHAHEPAY_WALLET) \
+  $(LIBSHAHEPAY_ZMQ)
 
-lib_LTLIBRARIES = $(LIBREDECOINCONSENSUS)
+lib_LTLIBRARIES = $(LIBSHAHEPAYCONSENSUS)
 
 bin_PROGRAMS =
 noinst_PROGRAMS =
 TESTS =
 BENCHMARKS =
 
-if BUILD_REDECOIND
-  bin_PROGRAMS += redecoind
+if BUILD_SHAHEPAYD
+  bin_PROGRAMS += shahepayd
 endif
 
-if BUILD_REDECOIN_CLI
-  bin_PROGRAMS += redecoin-cli
+if BUILD_SHAHEPAY_CLI
+  bin_PROGRAMS += shahepay-cli
 endif
 
-if BUILD_REDECOIN_TX
-  bin_PROGRAMS += redecoin-tx
+if BUILD_SHAHEPAY_TX
+  bin_PROGRAMS += shahepay-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# redecoin core #
-REDECOIN_CORE_H = \
+# shahepay core #
+SHAHEPAY_CORE_H = \
   addrdb.h \
   addressindex.h \
   algo/sph_groestl.h \
@@ -239,12 +239,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh "$(abs_top_builddir)/src/obj/build.h" \
 	  "$(abs_top_srcdir)"
-libredecoin_util_a-clientversion.$(OBJEXT): obj/build.h
+libshahepay_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between redecoind and redecoin-qt
-libredecoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libredecoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_server_a_SOURCES = \
+# server: shared between shahepayd and shahepay-qt
+libshahepay_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libshahepay_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_server_a_SOURCES = \
   addrdb.cpp \
   addrman.cpp \
   bloom.cpp \
@@ -296,23 +296,23 @@ libredecoin_server_a_SOURCES = \
   validation.cpp \
   validationinterface.cpp \
   versionbits.cpp \
-  $(REDECOIN_CORE_H)
+  $(SHAHEPAY_CORE_H)
 
 if ENABLE_ZMQ
-libredecoin_zmq_a_CPPFLAGS = $(REDECOIN_INCLUDES) $(ZMQ_CFLAGS)
-libredecoin_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_zmq_a_SOURCES = \
+libshahepay_zmq_a_CPPFLAGS = $(SHAHEPAY_INCLUDES) $(ZMQ_CFLAGS)
+libshahepay_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between redecoind and redecoin-qt, but only linked
+# wallet: shared between shahepayd and shahepay-qt, but only linked
 # when wallet enabled
-libredecoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-libredecoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_wallet_a_SOURCES = \
+libshahepay_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+libshahepay_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_wallet_a_SOURCES = \
   wallet/crypter.cpp \
   wallet/db.cpp \
   wallet/feebumper.cpp \
@@ -322,12 +322,12 @@ libredecoin_wallet_a_SOURCES = \
   wallet/rpcwallet.cpp \
   wallet/wallet.cpp \
   wallet/walletdb.cpp \
-  $(REDECOIN_CORE_H)
+  $(SHAHEPAY_CORE_H)
 
 # crypto primitives library
-crypto_libredecoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
-crypto_libredecoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-crypto_libredecoin_crypto_a_SOURCES = \
+crypto_libshahepay_crypto_a_CPPFLAGS = $(AM_CPPFLAGS)
+crypto_libshahepay_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+crypto_libshahepay_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/chacha20.h \
@@ -346,13 +346,13 @@ crypto_libredecoin_crypto_a_SOURCES = \
   crypto/sha512.cpp
 
 if USE_ASM
-crypto_libredecoin_crypto_a_SOURCES += crypto/sha256_sse4.cpp
+crypto_libshahepay_crypto_a_SOURCES += crypto/sha256_sse4.cpp
 endif
 
 # consensus: shared between all executables that validate any consensus rules.
-libredecoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-libredecoin_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_consensus_a_SOURCES = \
+libshahepay_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+libshahepay_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -369,7 +369,7 @@ libredecoin_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/redecoinconsensus.cpp \
+  script/shahepayconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -387,12 +387,12 @@ libredecoin_consensus_a_SOURCES = \
   version.h \
   LibBoolEE.cpp \
   LibBoolEE.h \
-  $(REDECOIN_CORE_H)
+  $(SHAHEPAY_CORE_H)
 
-# common: shared between redecoind, and redecoin-qt and non-server tools
-libredecoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-libredecoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_common_a_SOURCES = \
+# common: shared between shahepayd, and shahepay-qt and non-server tools
+libshahepay_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+libshahepay_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_common_a_SOURCES = \
   base58.cpp \
   chainparams.cpp \
   coins.cpp \
@@ -409,14 +409,14 @@ libredecoin_common_a_SOURCES = \
   script/sign.cpp \
   script/standard.cpp \
   warnings.cpp \
-  $(REDECOIN_CORE_H)
+  $(SHAHEPAY_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libredecoin_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-libredecoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_util_a_SOURCES = \
+libshahepay_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+libshahepay_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -432,102 +432,102 @@ libredecoin_util_a_SOURCES = \
   utilmoneystr.cpp \
   utilstrencodings.cpp \
   utiltime.cpp \
-  $(REDECOIN_CORE_H)
+  $(SHAHEPAY_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libredecoin_util_a_SOURCES += compat/glibc_compat.cpp
+libshahepay_util_a_SOURCES += compat/glibc_compat.cpp
 AM_LDFLAGS += $(COMPAT_LDFLAGS)
 endif
 
-# cli: shared between redecoin-cli and redecoin-qt
-libredecoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-libredecoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libredecoin_cli_a_SOURCES = \
+# cli: shared between shahepay-cli and shahepay-qt
+libshahepay_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+libshahepay_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay_cli_a_SOURCES = \
   rpc/client.cpp \
-  $(REDECOIN_CORE_H)
+  $(SHAHEPAY_CORE_H)
 
-nodist_libredecoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libshahepay_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# redecoind binary #
-redecoind_SOURCES = redecoind.cpp
-redecoind_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-redecoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-redecoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# shahepayd binary #
+shahepayd_SOURCES = shahepayd.cpp
+shahepayd_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+shahepayd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+shahepayd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-redecoind_SOURCES += redecoind-res.rc
+shahepayd_SOURCES += shahepayd-res.rc
 endif
 
-redecoind_LDADD = \
-  $(LIBREDECOIN_SERVER) \
-  $(LIBREDECOIN_COMMON) \
+shahepayd_LDADD = \
+  $(LIBSHAHEPAY_SERVER) \
+  $(LIBSHAHEPAY_COMMON) \
   $(LIBUNIVALUE) \
-  $(LIBREDECOIN_UTIL) \
-  $(LIBREDECOIN_WALLET) \
-  $(LIBREDECOIN_ZMQ) \
-  $(LIBREDECOIN_CONSENSUS) \
-  $(LIBREDECOIN_CRYPTO) \
+  $(LIBSHAHEPAY_UTIL) \
+  $(LIBSHAHEPAY_WALLET) \
+  $(LIBSHAHEPAY_ZMQ) \
+  $(LIBSHAHEPAY_CONSENSUS) \
+  $(LIBSHAHEPAY_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBLEVELDB_SSE42) \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-redecoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+shahepayd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# redecoin-cli binary #
-redecoin_cli_SOURCES = redecoin-cli.cpp
-redecoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES) $(EVENT_CFLAGS)
-redecoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-redecoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# shahepay-cli binary #
+shahepay_cli_SOURCES = shahepay-cli.cpp
+shahepay_cli_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES) $(EVENT_CFLAGS)
+shahepay_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+shahepay_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-redecoin_cli_SOURCES += redecoin-cli-res.rc
+shahepay_cli_SOURCES += shahepay-cli-res.rc
 endif
 
-redecoin_cli_LDADD = \
-  $(LIBREDECOIN_CLI) \
+shahepay_cli_LDADD = \
+  $(LIBSHAHEPAY_CLI) \
   $(LIBUNIVALUE) \
-  $(LIBREDECOIN_UTIL) \
-  $(LIBREDECOIN_CRYPTO)
+  $(LIBSHAHEPAY_UTIL) \
+  $(LIBSHAHEPAY_CRYPTO)
 
-redecoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+shahepay_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# redecoin-tx binary #
-redecoin_tx_SOURCES = redecoin-tx.cpp
-redecoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES)
-redecoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-redecoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# shahepay-tx binary #
+shahepay_tx_SOURCES = shahepay-tx.cpp
+shahepay_tx_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+shahepay_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+shahepay_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-redecoin_tx_SOURCES += redecoin-tx-res.rc
+shahepay_tx_SOURCES += shahepay-tx-res.rc
 endif
 
-redecoin_tx_LDADD = \
+shahepay_tx_LDADD = \
   $(LIBUNIVALUE) \
-  $(LIBREDECOIN_COMMON) \
-  $(LIBREDECOIN_UTIL) \
-  $(LIBREDECOIN_CONSENSUS) \
-  $(LIBREDECOIN_CRYPTO) \
+  $(LIBSHAHEPAY_COMMON) \
+  $(LIBSHAHEPAY_UTIL) \
+  $(LIBSHAHEPAY_CONSENSUS) \
+  $(LIBSHAHEPAY_CRYPTO) \
   $(LIBSECP256K1)
 
-redecoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+shahepay_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# redecoinconsensus library #
-if BUILD_REDECOIN_LIBS
-include_HEADERS = script/redecoinconsensus.h
-libredecoinconsensus_la_SOURCES = $(crypto_libredecoin_crypto_a_SOURCES) $(libredecoin_consensus_a_SOURCES)
+# shahepayconsensus library #
+if BUILD_SHAHEPAY_LIBS
+include_HEADERS = script/shahepayconsensus.h
+libshahepayconsensus_la_SOURCES = $(crypto_libshahepay_crypto_a_SOURCES) $(libshahepay_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libredecoinconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libshahepayconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libredecoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libredecoinconsensus_la_LIBADD = $(LIBSECP256K1)
-libredecoinconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_REDECOIN_INTERNAL
-libredecoinconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepayconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libshahepayconsensus_la_LIBADD = $(LIBSECP256K1)
+libshahepayconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_SHAHEPAY_INTERNAL
+libshahepayconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -557,12 +557,12 @@ CLEANFILES += obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/redecoin-config.h: config/stamp-h1
+config/shahepay-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/redecoin-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/shahepay-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/redecoin-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/redecoin-config.h.in
+$(top_srcdir)/$(subdir)/config/shahepay-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/shahepay-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

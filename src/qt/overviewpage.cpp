@@ -1,13 +1,13 @@
 // Copyright (c) 2011-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "redecoinunits.h"
+#include "shahepayunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -42,7 +42,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     explicit TxViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(redecoinUnits::REDE),
+        QAbstractItemDelegate(parent), unit(shahepayUnits::SHAHE),
         platformStyle(_platformStyle)
     {
 
@@ -151,7 +151,7 @@ class AssetViewDelegate : public QAbstractItemDelegate
 Q_OBJECT
 public:
     explicit AssetViewDelegate(const PlatformStyle *_platformStyle, QObject *parent=nullptr):
-            QAbstractItemDelegate(parent), unit(redecoinUnits::REDE),
+            QAbstractItemDelegate(parent), unit(shahepayUnits::SHAHE),
             platformStyle(_platformStyle)
     {
 
@@ -290,7 +290,7 @@ public:
 
 };
 #include "overviewpage.moc"
-#include "redecoingui.h"
+#include "shahepaygui.h"
 #include <QFontDatabase>
 
 OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -504,14 +504,14 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchOnlyBalance = watchOnlyBalance;
     currentWatchUnconfBalance = watchUnconfBalance;
     currentWatchImmatureBalance = watchImmatureBalance;
-    ui->labelBalance->setText(redecoinUnits::formatWithUnit(unit, balance, false, redecoinUnits::separatorAlways));
-    ui->labelUnconfirmed->setText(redecoinUnits::formatWithUnit(unit, unconfirmedBalance, false, redecoinUnits::separatorAlways));
-    ui->labelImmature->setText(redecoinUnits::formatWithUnit(unit, immatureBalance, false, redecoinUnits::separatorAlways));
-    ui->labelTotal->setText(redecoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, redecoinUnits::separatorAlways));
-    ui->labelWatchAvailable->setText(redecoinUnits::formatWithUnit(unit, watchOnlyBalance, false, redecoinUnits::separatorAlways));
-    ui->labelWatchPending->setText(redecoinUnits::formatWithUnit(unit, watchUnconfBalance, false, redecoinUnits::separatorAlways));
-    ui->labelWatchImmature->setText(redecoinUnits::formatWithUnit(unit, watchImmatureBalance, false, redecoinUnits::separatorAlways));
-    ui->labelWatchTotal->setText(redecoinUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, redecoinUnits::separatorAlways));
+    ui->labelBalance->setText(shahepayUnits::formatWithUnit(unit, balance, false, shahepayUnits::separatorAlways));
+    ui->labelUnconfirmed->setText(shahepayUnits::formatWithUnit(unit, unconfirmedBalance, false, shahepayUnits::separatorAlways));
+    ui->labelImmature->setText(shahepayUnits::formatWithUnit(unit, immatureBalance, false, shahepayUnits::separatorAlways));
+    ui->labelTotal->setText(shahepayUnits::formatWithUnit(unit, balance + unconfirmedBalance + immatureBalance, false, shahepayUnits::separatorAlways));
+    ui->labelWatchAvailable->setText(shahepayUnits::formatWithUnit(unit, watchOnlyBalance, false, shahepayUnits::separatorAlways));
+    ui->labelWatchPending->setText(shahepayUnits::formatWithUnit(unit, watchUnconfBalance, false, shahepayUnits::separatorAlways));
+    ui->labelWatchImmature->setText(shahepayUnits::formatWithUnit(unit, watchImmatureBalance, false, shahepayUnits::separatorAlways));
+    ui->labelWatchTotal->setText(shahepayUnits::formatWithUnit(unit, watchOnlyBalance + watchUnconfBalance + watchImmatureBalance, false, shahepayUnits::separatorAlways));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -587,7 +587,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("REDE")
+    // update the display unit, to not use the default ("SHAHE")
     updateDisplayUnit();
 }
 
@@ -636,7 +636,7 @@ void OverviewPage::showAssets()
         ui->assetBalanceLabel->hide();
         ui->labelAssetStatus->hide();
 
-        // This keeps the REDE balance grid from expanding and looking terrible when asset balance is hidden
+        // This keeps the SHAHE balance grid from expanding and looking terrible when asset balance is hidden
         ui->assetVerticalSpaceWidget->show();
         ui->assetVerticalSpaceWidget2->show();
     }

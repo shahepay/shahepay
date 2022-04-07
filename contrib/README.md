@@ -13,7 +13,7 @@ Construct a linear, no-fork, best version of the blockchain.
 
 ### [Qos](/contrib/qos) ###
 
-A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the redecoin network. This means one can have an always-on redecoind instance running, and another local redecoind/redecoin-qt instance which connects to this node and receives blocks from it.
+A Linux bash script that will set up traffic control (tc) to limit the outgoing bandwidth for connections to the shahepay network. This means one can have an always-on shahepayd instance running, and another local shahepayd/shahepay-qt instance which connects to this node and receives blocks from it.
 
 ### [Seeds](/contrib/seeds) ###
 Utility to generate the pnSeed[] array that is compiled into the client.
@@ -22,20 +22,20 @@ Build Tools and Keys
 ---------------------
 
 ### [Debian](/contrib/debian) ###
-Contains files used to package redecoind/redecoin-qt
-for Debian-based Linux systems. If you compile redecoind/redecoin-qt yourself, there are some useful files here.
+Contains files used to package shahepayd/shahepay-qt
+for Debian-based Linux systems. If you compile shahepayd/shahepay-qt yourself, there are some useful files here.
 
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
-Files used during the gitian build process. For more information about gitian, see the [the redecoin Core documentation repository](https://github.com/redecoin-core/docs).
+Files used during the gitian build process. For more information about gitian, see the [the shahepay Core documentation repository](https://github.com/shahepay-core/docs).
 
 ### [Gitian-keys](/contrib/gitian-keys)
-PGP keys used for signing redecoin Core [Gitian release](/doc/release-process.md) results.
+PGP keys used for signing shahepay Core [Gitian release](/doc/release-process.md) results.
 
 ### [MacDeploy](/contrib/macdeploy) ###
 Scripts and notes for Mac builds. 
 
 ### [RPM](/contrib/rpm) ###
-RPM spec file for building redecoin-core on RPM based distributions.
+RPM spec file for building shahepay-core on RPM based distributions.
 
 ### [Gitian-build](/contrib/gitian-build.sh) ###
 Script for running full Gitian builds.
@@ -44,7 +44,7 @@ Test and Verify Tools
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###
-Utilities to generate test vectors for the data-driven redecoin tests.
+Utilities to generate test vectors for the data-driven shahepay tests.
 
 ### [Verify Binaries](/contrib/verifybinaries) ###
-This script attempts to download and verify the signature file SHA256SUMS.asc from redecoin.org.
+This script attempts to download and verify the signature file SHA256SUMS.asc from shahepay.com.

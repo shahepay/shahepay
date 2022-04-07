@@ -20,7 +20,7 @@ from collections import defaultdict
 
 # Avoid wildcard * imports if possible
 from test_framework.mininode import CInv, NetworkThread, NodeConn, NodeConnCB, mininode_lock, MsgGetdata
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, connect_nodes, p2p_port
 
 # NodeConnCB is a class containing callbacks to be executed when a P2P
@@ -58,11 +58,11 @@ def custom_function():
 
     If this function is more generally useful for other tests, consider
     moving it to a module in test_framework."""
-    # self.log.info("running custom_function")  # Oops! Can't run self.log outside the redecoinTestFramework
+    # self.log.info("running custom_function")  # Oops! Can't run self.log outside the shahepayTestFramework
     pass
 
-class ExampleTest(redecoinTestFramework):
-    # Each functional test is a subclass of the redecoinTestFramework class.
+class ExampleTest(shahepayTestFramework):
+    # Each functional test is a subclass of the shahepayTestFramework class.
 
     # Override the set_test_params(), add_options(), setup_chain(), setup_network()
     # and setup_nodes() methods to customize the test setup as required.
@@ -117,7 +117,7 @@ class ExampleTest(redecoinTestFramework):
 
         Define it in a method here because you're going to use it repeatedly.
         If you think it's useful in general, consider moving it to the base
-        redecoinTestFramework class so other tests can use it."""
+        shahepayTestFramework class so other tests can use it."""
 
         self.log.info("Running custom_method")
 

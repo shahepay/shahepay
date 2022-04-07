@@ -7,8 +7,8 @@
 """
     ZMQ example using python3's asyncio
 
-    redecoin should be started with the command line arguments:
-        redecoind -testnet -daemon \
+    shahepay should be started with the command line arguments:
+        shahepayd -testnet -daemon \
                 -zmqpubhashblock=tcp://127.0.0.1:28766 \
                 -zmqpubrawtx=tcp://127.0.0.1:28766 \
                 -zmqpubhashtx=tcp://127.0.0.1:28766 \
@@ -20,7 +20,7 @@
     alternative is to wrap the contents of `handle` inside `while True`.
 
     A blocking example using python 2.7 can be obtained from the git history:
-    https://github.com/redecoinProject/redecoin/blob/37a7fe9e440b83e2364d5498931253937abe9294/contrib/zmq/zmq_sub.py
+    https://github.com/shahepayProject/shahepay/blob/37a7fe9e440b83e2364d5498931253937abe9294/contrib/zmq/zmq_sub.py
 """
 
 import binascii

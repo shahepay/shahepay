@@ -1,11 +1,11 @@
 // Copyright (c) 2017-2017 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_CONSENSUS_TX_VERIFY_H
-#define REDECOIN_CONSENSUS_TX_VERIFY_H
+#ifndef SHAHEPAY_CONSENSUS_TX_VERIFY_H
+#define SHAHEPAY_CONSENSUS_TX_VERIFY_H
 
 #include "amount.h"
 
@@ -38,9 +38,9 @@ namespace Consensus {
  */
 bool CheckTxInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, int nSpendHeight, CAmount& txfee);
 
-/** REDE START */
+/** SHAHE START */
 bool CheckTxAssets(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, CAssetsCache* assetCache, bool fCheckMempool, std::vector<std::pair<std::string, uint256> >& vPairReissueAssets, const bool fRunningUnitTests = false, std::set<CMessage>* setMessages = nullptr, int64_t nBlocktime = 0,  std::vector<std::pair<std::string, CNullAssetTxData>>* myNullAssetData = nullptr);
-/** REDE END */
+/** SHAHE END */
 } // namespace Consensus
 
 /** Auxiliary functions for transaction validation (ideally should not be exposed) */
@@ -91,4 +91,4 @@ bool EvaluateSequenceLocks(const CBlockIndex& block, std::pair<int, int64_t> loc
  */
 bool SequenceLocks(const CTransaction &tx, int flags, std::vector<int>* prevHeights, const CBlockIndex& block);
 
-#endif // REDECOIN_CONSENSUS_TX_VERIFY_H
+#endif // SHAHEPAY_CONSENSUS_TX_VERIFY_H

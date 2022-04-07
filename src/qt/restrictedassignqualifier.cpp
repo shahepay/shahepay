@@ -1,11 +1,11 @@
-// Copyright (c) 2019 The redecoin Core developers
+// Copyright (c) 2019 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "restrictedassignqualifier.h"
 #include "ui_restrictedassignqualifier.h"
 
-#include "redecoinunits.h"
+#include "shahepayunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"

@@ -6,12 +6,12 @@
 
 """Test using named arguments for RPCs."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_raises_rpc_error
 
 
 # noinspection PyTypeChecker
-class NamedArgumentTest(redecoinTestFramework):
+class NamedArgumentTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

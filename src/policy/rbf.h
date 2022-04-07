@@ -1,11 +1,11 @@
 // Copyright (c) 2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_POLICY_RBF_H
-#define REDECOIN_POLICY_RBF_H
+#ifndef SHAHEPAY_POLICY_RBF_H
+#define SHAHEPAY_POLICY_RBF_H
 
 #include "txmempool.h"
 
@@ -27,4 +27,4 @@ bool SignalsOptInRBF(const CTransaction &tx);
 // as the sequence numbers of all in-mempool ancestors.
 RBFTransactionState IsRBFOptIn(const CTransaction &tx, CTxMemPool &pool);
 
-#endif // REDECOIN_POLICY_RBF_H
+#endif // SHAHEPAY_POLICY_RBF_H

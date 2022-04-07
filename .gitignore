@@ -3,14 +3,14 @@ Jenkinsfile
 *.tar.gz
 
 *.exe
-src/redecoin
-src/redecoind
-src/redecoin-cli
-src/redecoin-tx
-src/test/test_redecoin
-src/test/test_redecoin_fuzzy
-src/test/test_redecoin_hash
-src/qt/test/test_redecoin-qt
+src/shahepay
+src/shahepayd
+src/shahepay-cli
+src/shahepay-tx
+src/test/test_shahepay
+src/test/test_shahepay_fuzzy
+src/test/test_shahepay_hash
+src/qt/test/test_shahepay-qt
 .vscode
 output.txt
 
@@ -35,8 +35,8 @@ config.log
 config.status
 configure
 libtool
-src/config/redecoin-config.h
-src/config/redecoin-config.h.in
+src/config/shahepay-config.h
+src/config/shahepay-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -82,12 +82,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-redecoin-qt
-redecoin-Qt.app
+shahepay-qt
+shahepay-Qt.app
 
 # Unit-tests
 Makefile.test
-redecoin-qt_test
+shahepay-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -100,7 +100,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_redecoin.coverage/
+test_shahepay.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -115,7 +115,7 @@ test/cache/*
 
 /doc/doxygen/
 
-libredecoinconsensus.pc
+libshahepayconsensus.pc
 contrib/devtools/split-debug.sh
 .idea
 cmake-build-debug

@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_PRIMITIVES_TRANSACTION_H
-#define REDECOIN_PRIMITIVES_TRANSACTION_H
+#ifndef SHAHEPAY_PRIMITIVES_TRANSACTION_H
+#define SHAHEPAY_PRIMITIVES_TRANSACTION_H
 
 #include <stdint.h>
 #include "amount.h"
@@ -330,7 +330,7 @@ public:
     // GetValueIn() is a method on CCoinsViewCache, because
     // inputs must be known to compute value in.
 
-    /** REDE START */
+    /** SHAHE START */
     bool IsNewAsset() const;
     bool VerifyNewAsset(std::string& strError) const;
     bool IsNewUniqueAsset() const;
@@ -349,7 +349,7 @@ public:
     bool GetVerifierStringFromTx(CNullAssetTxVerifierString& verifier, std::string& strError) const;
     bool GetVerifierStringFromTx(CNullAssetTxVerifierString& verifier, std::string& strError, bool& fNotFound) const;
 
-    /** REDE END */
+    /** SHAHE END */
 
     /**
      * Get the total transaction size in bytes, including witness data.
@@ -438,4 +438,4 @@ typedef std::shared_ptr<const CTransaction> CTransactionRef;
 static inline CTransactionRef MakeTransactionRef() { return std::make_shared<const CTransaction>(); }
 template <typename Tx> static inline CTransactionRef MakeTransactionRef(Tx&& txIn) { return std::make_shared<const CTransaction>(std::forward<Tx>(txIn)); }
 
-#endif // REDECOIN_PRIMITIVES_TRANSACTION_H
+#endif // SHAHEPAY_PRIMITIVES_TRANSACTION_H

@@ -7,7 +7,7 @@
 """Test that we don't leak txs to inbound peers that we haven't yet announced to"""
 
 from test_framework.mininode import MsgGetdata, CInv, NetworkThread, NodeConn, NodeConnCB
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, p2p_port
 
 class TestNode(NodeConnCB):
@@ -15,7 +15,7 @@ class TestNode(NodeConnCB):
         pass
 
 
-class P2PLeakTxTest(redecoinTestFramework):
+class P2PLeakTxTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 1
 

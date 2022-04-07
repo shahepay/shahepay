@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_POLICY_POLICY_H
-#define REDECOIN_POLICY_POLICY_H
+#ifndef SHAHEPAY_POLICY_POLICY_H
+#define SHAHEPAY_POLICY_POLICY_H
 
 #include "consensus/consensus.h"
 #include "feerate.h"
@@ -106,4 +106,4 @@ extern unsigned int nBytesPerSigOp;
 int64_t GetVirtualTransactionSize(int64_t nWeight, int64_t nSigOpCost);
 int64_t GetVirtualTransactionSize(const CTransaction& tx, int64_t nSigOpCost = 0);
 
-#endif // REDECOIN_POLICY_POLICY_H
+#endif // SHAHEPAY_POLICY_POLICY_H

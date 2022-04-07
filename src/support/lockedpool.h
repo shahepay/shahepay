@@ -1,11 +1,11 @@
 // Copyright (c) 2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_SUPPORT_LOCKEDPOOL_H
-#define REDECOIN_SUPPORT_LOCKEDPOOL_H
+#ifndef SHAHEPAY_SUPPORT_LOCKEDPOOL_H
+#define SHAHEPAY_SUPPORT_LOCKEDPOOL_H
 
 #include <stdint.h>
 #include <list>
@@ -230,4 +230,4 @@ private:
     static std::once_flag init_flag;
 };
 
-#endif // REDECOIN_SUPPORT_LOCKEDPOOL_H
+#endif // SHAHEPAY_SUPPORT_LOCKEDPOOL_H

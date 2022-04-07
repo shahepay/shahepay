@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_TIMESTAMPINDEX_H
-#define REDECOIN_TIMESTAMPINDEX_H
+#ifndef SHAHEPAY_TIMESTAMPINDEX_H
+#define SHAHEPAY_TIMESTAMPINDEX_H
 
 #include "uint256.h"
 
@@ -128,4 +128,4 @@ struct CTimestampBlockIndexValue {
     }
 };
 
-#endif // REDECOIN_TIMESTAMPINDEX_H
+#endif // SHAHEPAY_TIMESTAMPINDEX_H

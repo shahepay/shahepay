@@ -1,11 +1,11 @@
 Sample configuration files for:
 ```
-SystemD: redecoind.service
-Upstart: redecoind.conf
-OpenRC:  redecoind.openrc
-         redecoind.openrcconf
-CentOS:  redecoind.init
-OS X:    org.redecoin.redecoind.plist
+SystemD: shahepayd.service
+Upstart: shahepayd.conf
+OpenRC:  shahepayd.openrc
+         shahepayd.openrcconf
+CentOS:  shahepayd.init
+OS X:    org.shahepay.shahepayd.plist
 ```
 have been made available to assist packagers in creating node packages here.
 

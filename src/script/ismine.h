@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_SCRIPT_ISMINE_H
-#define REDECOIN_SCRIPT_ISMINE_H
+#ifndef SHAHEPAY_SCRIPT_ISMINE_H
+#define SHAHEPAY_SCRIPT_ISMINE_H
 
 #include "script/standard.h"
 
@@ -40,4 +40,4 @@ isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey, SigVer
 isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest, bool& isInvalid, SigVersion = SIGVERSION_BASE);
 isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest, SigVersion = SIGVERSION_BASE);
 
-#endif // REDECOIN_SCRIPT_ISMINE_H
+#endif // SHAHEPAY_SCRIPT_ISMINE_H

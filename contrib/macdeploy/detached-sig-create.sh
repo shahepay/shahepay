@@ -7,7 +7,7 @@
 set -e
 
 ROOTDIR=dist
-BUNDLE="${ROOTDIR}/redecoin-Qt.app"
+BUNDLE="${ROOTDIR}/shahepay-Qt.app"
 CODESIGN=codesign
 TEMPDIR=sign.temp
 TEMPLIST=${TEMPDIR}/signatures.txt

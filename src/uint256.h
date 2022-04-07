@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_UINT256_H
-#define REDECOIN_UINT256_H
+#ifndef SHAHEPAY_UINT256_H
+#define SHAHEPAY_UINT256_H
 
 #include <assert.h>
 #include <cstring>
@@ -177,4 +177,4 @@ public:
         return result;
     }
 };
-#endif // REDECOIN_UINT256_H
+#endif // SHAHEPAY_UINT256_H

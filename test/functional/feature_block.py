@@ -7,7 +7,7 @@
 """
 Test block processing.
 
-This reimplements tests from the redecoinj/FullBlockTestGenerator used
+This reimplements tests from the shahepayj/FullBlockTestGenerator used
 by the pull-tester.
 
 We use the testing framework in which we expect a particular answer from
@@ -405,7 +405,7 @@ class FullBlockTest(ComparisonTestFramework):
         update_block(26, [])
         yield rejected(RejectResult(16, b'bad-cb-length'))
 
-        # Extend the b26 chain to make sure redecoind isn't accepting b26
+        # Extend the b26 chain to make sure shahepayd isn't accepting b26
         block(27, spend=out[7])
         yield rejected(False)
 
@@ -417,7 +417,7 @@ class FullBlockTest(ComparisonTestFramework):
         update_block(28, [])
         yield rejected(RejectResult(16, b'bad-cb-length'))
 
-        # Extend the b28 chain to make sure redecoind isn't accepting b28
+        # Extend the b28 chain to make sure shahepayd isn't accepting b28
         block(29, spend=out[7])
         yield rejected(False)
 
@@ -1130,7 +1130,7 @@ class FullBlockTest(ComparisonTestFramework):
         #
         #    The tx'es must be unsigned and pass the node's mempool policy.  It is unsigned for the
         #    rather obscure reason that the Python signature code does not distinguish between
-        #    Low-S and High-S values (whereas the redecoin code has custom code which does so);
+        #    Low-S and High-S values (whereas the shahepay code has custom code which does so);
         #    as a result of which, the odds are 50% that the python code will use the right
         #    value and the transaction will be accepted into the mempool. Until we modify the
         #    test framework to support low-S signing, we are out of luck.

@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/redecoin-config.h"
+#include "config/shahepay-config.h"
 #endif
 
 #include "util.h"
@@ -89,8 +89,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char *const REDECOIN_CONF_FILENAME = "shahepay.conf";
-const char *const REDECOIN_PID_FILENAME = "shahepay.pid";
+const char *const SHAHEPAY_CONF_FILENAME = "shahepay.conf";
+const char *const SHAHEPAY_PID_FILENAME = "shahepay.pid";
 
 ArgsManager gArgs;
 bool fPrintToConsole = false;
@@ -531,7 +531,7 @@ static std::string FormatException(const std::exception *pex, const char *pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char *pszModule = "redecoin";
+    const char *pszModule = "shahepay";
 #endif
     if (pex)
         return strprintf(
@@ -657,7 +657,7 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
 
 fs::path GetPidFile()
 {
-    fs::path pathPidFile(gArgs.GetArg("-pid", REDECOIN_PID_FILENAME));
+    fs::path pathPidFile(gArgs.GetArg("-pid", SHAHEPAY_PID_FILENAME));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
@@ -927,7 +927,7 @@ std::string CopyrightHolders(const std::string &strPrefix)
 {
     std::string strCopyrightHolders = strPrefix + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
 
-    // Check for untranslated substitution to make sure redecoin Core copyright is not removed by accident
+    // Check for untranslated substitution to make sure shahepay Core copyright is not removed by accident
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Bitcoin Core") == std::string::npos)
     {
         strCopyrightHolders += "\n" + strPrefix + "The Bitcoin Core developers";

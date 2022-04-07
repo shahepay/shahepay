@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_WALLET_CRYPTER_H
-#define REDECOIN_WALLET_CRYPTER_H
+#ifndef SHAHEPAY_WALLET_CRYPTER_H
+#define SHAHEPAY_WALLET_CRYPTER_H
 
 #include "keystore.h"
 #include "serialize.h"
@@ -195,4 +195,4 @@ public:
     boost::signals2::signal<void (CCryptoKeyStore* wallet)> NotifyStatusChanged;
 };
 
-#endif // REDECOIN_WALLET_CRYPTER_H
+#endif // SHAHEPAY_WALLET_CRYPTER_H

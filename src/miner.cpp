@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,7 +42,7 @@
 extern std::vector<CWalletRef> vpwallets;
 //////////////////////////////////////////////////////////////////////////////
 //
-// redecoinMiner
+// shahepayMiner
 //
 
 //
@@ -534,11 +534,11 @@ CWallet *GetFirstWallet() {
     return(NULL);
 }
 
-void static redecoinMiner(const CChainParams& chainparams)
+void static shahepayMiner(const CChainParams& chainparams)
 {
-    LogPrintf("redecoinMiner -- started\n");
+    LogPrintf("shahepayMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("redecoin-miner");
+    RenameThread("shahepay-miner");
 
     unsigned int nExtraNonce = 0;
 
@@ -550,7 +550,7 @@ void static redecoinMiner(const CChainParams& chainparams)
 
 
     if (!EnsureWalletIsAvailable(pWallet, false)) {
-        LogPrintf("redecoinMiner -- Wallet not available\n");
+        LogPrintf("shahepayMiner -- Wallet not available\n");
     }
 #endif
 
@@ -612,13 +612,13 @@ void static redecoinMiner(const CChainParams& chainparams)
 
             if (!pblocktemplate.get())
             {
-                LogPrintf("redecoinMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                LogPrintf("shahepayMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
                 return;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            LogPrintf("redecoinMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("shahepayMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                 ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //
@@ -637,7 +637,7 @@ void static redecoinMiner(const CChainParams& chainparams)
                     {
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("redecoinMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrintf("shahepayMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -684,17 +684,17 @@ void static redecoinMiner(const CChainParams& chainparams)
     }
     catch (const boost::thread_interrupted&)
     {
-        LogPrintf("redecoinMiner -- terminated\n");
+        LogPrintf("shahepayMiner -- terminated\n");
         throw;
     }
     catch (const std::runtime_error &e)
     {
-        LogPrintf("redecoinMiner -- runtime error: %s\n", e.what());
+        LogPrintf("shahepayMiner -- runtime error: %s\n", e.what());
         return;
     }
 }
 
-int Generateredecoins(bool fGenerate, int nThreads, const CChainParams& chainparams)
+int Generateshahepays(bool fGenerate, int nThreads, const CChainParams& chainparams)
 {
 
     static boost::thread_group* minerThreads = NULL;
@@ -721,7 +721,7 @@ int Generateredecoins(bool fGenerate, int nThreads, const CChainParams& chainpar
     nHashesPerSec = 0;
 
     for (int i = 0; i < nThreads; i++){
-        minerThreads->create_thread(boost::bind(&redecoinMiner, boost::cref(chainparams)));
+        minerThreads->create_thread(boost::bind(&shahepayMiner, boost::cref(chainparams)));
     }
 
     return(numCores);

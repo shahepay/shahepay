@@ -6,10 +6,10 @@
 
 """Test the importmulti RPC."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_equal, assert_greater_than, assert_raises_rpc_error
 
-class ImportMultiTest (redecoinTestFramework):
+class ImportMultiTest (shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True
@@ -39,7 +39,7 @@ class ImportMultiTest (redecoinTestFramework):
 
         # RPC importmulti -----------------------------------------------
 
-        # redecoin Address
+        # shahepay Address
         self.log.info("Should import an address")
         address = self.nodes[0].validateaddress(self.nodes[0].getnewaddress())
         result = self.nodes[1].importmulti([{

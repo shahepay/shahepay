@@ -6,10 +6,10 @@
 
 """Test deprecation of RPC calls."""
 
-from test_framework.test_framework import redecoinTestFramework
+from test_framework.test_framework import shahepayTestFramework
 from test_framework.util import assert_raises_rpc_error
 
-class DeprecatedRpcTest(redecoinTestFramework):
+class DeprecatedRpcTest(shahepayTestFramework):
     def set_test_params(self):
         self.num_nodes = 2
         self.setup_clean_chain = True

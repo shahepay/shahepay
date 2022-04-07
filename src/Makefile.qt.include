@@ -3,96 +3,96 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/redecoin-qt
-EXTRA_LIBRARIES += qt/libredecoinqt.a
+bin_PROGRAMS += qt/shahepay-qt
+EXTRA_LIBRARIES += qt/libshahepayqt.a
 
-# redecoin qt core #
+# shahepay qt core #
 QT_TS = \
-  qt/locale/redecoin_af.ts \
-  qt/locale/redecoin_af_ZA.ts \
-  qt/locale/redecoin_ar.ts \
-  qt/locale/redecoin_be_BY.ts \
-  qt/locale/redecoin_bg_BG.ts \
-  qt/locale/redecoin_bg.ts \
-  qt/locale/redecoin_ca_ES.ts \
-  qt/locale/redecoin_ca.ts \
-  qt/locale/redecoin_ca@valencia.ts \
-  qt/locale/redecoin_cs.ts \
-  qt/locale/redecoin_cy.ts \
-  qt/locale/redecoin_da.ts \
-  qt/locale/redecoin_de.ts \
-  qt/locale/redecoin_el_GR.ts \
-  qt/locale/redecoin_el.ts \
-  qt/locale/redecoin_en_GB.ts \
-  qt/locale/redecoin_en.ts \
-  qt/locale/redecoin_eo.ts \
-  qt/locale/redecoin_es_AR.ts \
-  qt/locale/redecoin_es_CL.ts \
-  qt/locale/redecoin_es_CO.ts \
-  qt/locale/redecoin_es_DO.ts \
-  qt/locale/redecoin_es_ES.ts \
-  qt/locale/redecoin_es_MX.ts \
-  qt/locale/redecoin_es.ts \
-  qt/locale/redecoin_es_UY.ts \
-  qt/locale/redecoin_es_VE.ts \
-  qt/locale/redecoin_et_EE.ts \
-  qt/locale/redecoin_et.ts \
-  qt/locale/redecoin_eu_ES.ts \
-  qt/locale/redecoin_fa_IR.ts \
-  qt/locale/redecoin_fa.ts \
-  qt/locale/redecoin_fi.ts \
-  qt/locale/redecoin_fr_CA.ts \
-  qt/locale/redecoin_fr_FR.ts \
-  qt/locale/redecoin_fr.ts \
-  qt/locale/redecoin_gl.ts \
-  qt/locale/redecoin_he.ts \
-  qt/locale/redecoin_hi_IN.ts \
-  qt/locale/redecoin_hr.ts \
-  qt/locale/redecoin_hu.ts \
-  qt/locale/redecoin_id_ID.ts \
-  qt/locale/redecoin_it_IT.ts \
-  qt/locale/redecoin_it.ts \
-  qt/locale/redecoin_ja.ts \
-  qt/locale/redecoin_ka.ts \
-  qt/locale/redecoin_kk_KZ.ts \
-  qt/locale/redecoin_ko_KR.ts \
-  qt/locale/redecoin_ku_IQ.ts \
-  qt/locale/redecoin_ky.ts \
-  qt/locale/redecoin_la.ts \
-  qt/locale/redecoin_lt.ts \
-  qt/locale/redecoin_lv_LV.ts \
-  qt/locale/redecoin_mk_MK.ts \
-  qt/locale/redecoin_mn.ts \
-  qt/locale/redecoin_ms_MY.ts \
-  qt/locale/redecoin_nb.ts \
-  qt/locale/redecoin_ne.ts \
-  qt/locale/redecoin_nl.ts \
-  qt/locale/redecoin_pl.ts \
-  qt/locale/redecoin_pt_BR.ts \
-  qt/locale/redecoin_pt_PT.ts \
-  qt/locale/redecoin_ro_RO.ts \
-  qt/locale/redecoin_ro.ts \
-  qt/locale/redecoin_ru_RU.ts \
-  qt/locale/redecoin_ru.ts \
-  qt/locale/redecoin_sk.ts \
-  qt/locale/redecoin_sl_SI.ts \
-  qt/locale/redecoin_sq.ts \
-  qt/locale/redecoin_sr@latin.ts \
-  qt/locale/redecoin_sr.ts \
-  qt/locale/redecoin_sv.ts \
-  qt/locale/redecoin_ta.ts \
-  qt/locale/redecoin_th_TH.ts \
-  qt/locale/redecoin_tr_TR.ts \
-  qt/locale/redecoin_tr.ts \
-  qt/locale/redecoin_uk.ts \
-  qt/locale/redecoin_ur_PK.ts \
-  qt/locale/redecoin_uz@Cyrl.ts \
-  qt/locale/redecoin_vi.ts \
-  qt/locale/redecoin_vi_VN.ts \
-  qt/locale/redecoin_zh_CN.ts \
-  qt/locale/redecoin_zh_HK.ts \
-  qt/locale/redecoin_zh.ts \
-  qt/locale/redecoin_zh_TW.ts
+  qt/locale/shahepay_af.ts \
+  qt/locale/shahepay_af_ZA.ts \
+  qt/locale/shahepay_ar.ts \
+  qt/locale/shahepay_be_BY.ts \
+  qt/locale/shahepay_bg_BG.ts \
+  qt/locale/shahepay_bg.ts \
+  qt/locale/shahepay_ca_ES.ts \
+  qt/locale/shahepay_ca.ts \
+  qt/locale/shahepay_ca@valencia.ts \
+  qt/locale/shahepay_cs.ts \
+  qt/locale/shahepay_cy.ts \
+  qt/locale/shahepay_da.ts \
+  qt/locale/shahepay_de.ts \
+  qt/locale/shahepay_el_GR.ts \
+  qt/locale/shahepay_el.ts \
+  qt/locale/shahepay_en_GB.ts \
+  qt/locale/shahepay_en.ts \
+  qt/locale/shahepay_eo.ts \
+  qt/locale/shahepay_es_AR.ts \
+  qt/locale/shahepay_es_CL.ts \
+  qt/locale/shahepay_es_CO.ts \
+  qt/locale/shahepay_es_DO.ts \
+  qt/locale/shahepay_es_ES.ts \
+  qt/locale/shahepay_es_MX.ts \
+  qt/locale/shahepay_es.ts \
+  qt/locale/shahepay_es_UY.ts \
+  qt/locale/shahepay_es_VE.ts \
+  qt/locale/shahepay_et_EE.ts \
+  qt/locale/shahepay_et.ts \
+  qt/locale/shahepay_eu_ES.ts \
+  qt/locale/shahepay_fa_IR.ts \
+  qt/locale/shahepay_fa.ts \
+  qt/locale/shahepay_fi.ts \
+  qt/locale/shahepay_fr_CA.ts \
+  qt/locale/shahepay_fr_FR.ts \
+  qt/locale/shahepay_fr.ts \
+  qt/locale/shahepay_gl.ts \
+  qt/locale/shahepay_he.ts \
+  qt/locale/shahepay_hi_IN.ts \
+  qt/locale/shahepay_hr.ts \
+  qt/locale/shahepay_hu.ts \
+  qt/locale/shahepay_id_ID.ts \
+  qt/locale/shahepay_it_IT.ts \
+  qt/locale/shahepay_it.ts \
+  qt/locale/shahepay_ja.ts \
+  qt/locale/shahepay_ka.ts \
+  qt/locale/shahepay_kk_KZ.ts \
+  qt/locale/shahepay_ko_KR.ts \
+  qt/locale/shahepay_ku_IQ.ts \
+  qt/locale/shahepay_ky.ts \
+  qt/locale/shahepay_la.ts \
+  qt/locale/shahepay_lt.ts \
+  qt/locale/shahepay_lv_LV.ts \
+  qt/locale/shahepay_mk_MK.ts \
+  qt/locale/shahepay_mn.ts \
+  qt/locale/shahepay_ms_MY.ts \
+  qt/locale/shahepay_nb.ts \
+  qt/locale/shahepay_ne.ts \
+  qt/locale/shahepay_nl.ts \
+  qt/locale/shahepay_pl.ts \
+  qt/locale/shahepay_pt_BR.ts \
+  qt/locale/shahepay_pt_PT.ts \
+  qt/locale/shahepay_ro_RO.ts \
+  qt/locale/shahepay_ro.ts \
+  qt/locale/shahepay_ru_RU.ts \
+  qt/locale/shahepay_ru.ts \
+  qt/locale/shahepay_sk.ts \
+  qt/locale/shahepay_sl_SI.ts \
+  qt/locale/shahepay_sq.ts \
+  qt/locale/shahepay_sr@latin.ts \
+  qt/locale/shahepay_sr.ts \
+  qt/locale/shahepay_sv.ts \
+  qt/locale/shahepay_ta.ts \
+  qt/locale/shahepay_th_TH.ts \
+  qt/locale/shahepay_tr_TR.ts \
+  qt/locale/shahepay_tr.ts \
+  qt/locale/shahepay_uk.ts \
+  qt/locale/shahepay_ur_PK.ts \
+  qt/locale/shahepay_uz@Cyrl.ts \
+  qt/locale/shahepay_vi.ts \
+  qt/locale/shahepay_vi_VN.ts \
+  qt/locale/shahepay_zh_CN.ts \
+  qt/locale/shahepay_zh_HK.ts \
+  qt/locale/shahepay_zh.ts \
+  qt/locale/shahepay_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -129,10 +129,10 @@ QT_MOC_CPP = \
   qt/moc_assetcontroltreewidget.cpp \
   qt/moc_assetfilterproxy.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_redecoinaddressvalidator.cpp \
-  qt/moc_redecoinamountfield.cpp \
-  qt/moc_redecoingui.cpp \
-  qt/moc_redecoinunits.cpp \
+  qt/moc_shahepayaddressvalidator.cpp \
+  qt/moc_shahepayamountfield.cpp \
+  qt/moc_shahepaygui.cpp \
+  qt/moc_shahepayunits.cpp \
   qt/moc_callback.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
@@ -182,28 +182,28 @@ QT_MOC_CPP = \
   qt/moc_restrictedfreezeaddress.cpp \
   qt/moc_sendassetsentry.cpp
 
-REDECOIN_MM = \
+SHAHEPAY_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/redecoin.moc \
-  qt/redecoinamountfield.moc \
+  qt/shahepay.moc \
+  qt/shahepayamountfield.moc \
   qt/callback.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_redecoin.cpp
-QT_QRC = qt/redecoin.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_redecoin_locale.cpp
-QT_QRC_LOCALE = qt/redecoin_locale.qrc
+QT_QRC_CPP = qt/qrc_shahepay.cpp
+QT_QRC = qt/shahepay.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_shahepay_locale.cpp
+QT_QRC_LOCALE = qt/shahepay_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
 
-REDECOIN_QT_H = \
+SHAHEPAY_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
@@ -214,10 +214,10 @@ REDECOIN_QT_H = \
   qt/assetsdialog.h \
   qt/createassetdialog.h \
   qt/bantablemodel.h \
-  qt/redecoinaddressvalidator.h \
-  qt/redecoinamountfield.h \
-  qt/redecoingui.h \
-  qt/redecoinunits.h \
+  qt/shahepayaddressvalidator.h \
+  qt/shahepayamountfield.h \
+  qt/shahepaygui.h \
+  qt/shahepayunits.h \
   qt/callback.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
@@ -286,10 +286,10 @@ RES_ICONS = \
   qt/res/icons/asset_manage_selected.png \
   qt/res/icons/asset_transfer.png \
   qt/res/icons/asset_transfer_selected.png \
-  qt/res/icons/redecointext.png \
-  qt/res/icons/redecoin.ico \
-  qt/res/icons/redecoin_testnet.ico \
-  qt/res/icons/redecoin.png \
+  qt/res/icons/shahepaytext.png \
+  qt/res/icons/shahepay.ico \
+  qt/res/icons/shahepay_testnet.ico \
+  qt/res/icons/shahepay.png \
   qt/res/icons/chevron.png \
   qt/res/icons/clock1.png \
   qt/res/icons/clock2.png \
@@ -380,12 +380,12 @@ RES_ICONS = \
   qt/res/fonts/OpenSans-SemiBoldItalic.ttf
 
 
-REDECOIN_QT_BASE_CPP = \
+SHAHEPAY_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
-  qt/redecoinaddressvalidator.cpp \
-  qt/redecoinamountfield.cpp \
-  qt/redecoingui.cpp \
-  qt/redecoinunits.cpp \
+  qt/shahepayaddressvalidator.cpp \
+  qt/shahepayamountfield.cpp \
+  qt/shahepaygui.cpp \
+  qt/shahepayunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/darkstyle.cpp \
@@ -406,9 +406,9 @@ REDECOIN_QT_BASE_CPP = \
   qt/trafficgraphwidget.cpp \
   qt/utilitydialog.cpp
 
-REDECOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+SHAHEPAY_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
 
-REDECOIN_QT_WALLET_CPP = \
+SHAHEPAY_QT_WALLET_CPP = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -448,31 +448,31 @@ REDECOIN_QT_WALLET_CPP = \
   qt/walletmodeltransaction.cpp \
   qt/walletview.cpp
 
-REDECOIN_QT_CPP = $(REDECOIN_QT_BASE_CPP)
+SHAHEPAY_QT_CPP = $(SHAHEPAY_QT_BASE_CPP)
 if TARGET_WINDOWS
-REDECOIN_QT_CPP += $(REDECOIN_QT_WINDOWS_CPP)
+SHAHEPAY_QT_CPP += $(SHAHEPAY_QT_WINDOWS_CPP)
 endif
 if ENABLE_WALLET
-REDECOIN_QT_CPP += $(REDECOIN_QT_WALLET_CPP)
+SHAHEPAY_QT_CPP += $(SHAHEPAY_QT_WALLET_CPP)
 endif
 
 RES_IMAGES = 
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-REDECOIN_RC = qt/res/redecoin-qt-res.rc
+SHAHEPAY_RC = qt/res/shahepay-qt-res.rc
 
-REDECOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+SHAHEPAY_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
 
-qt_libredecoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES) $(REDECOIN_QT_INCLUDES) \
+qt_libshahepayqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES) $(SHAHEPAY_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_libredecoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libshahepayqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libredecoinqt_a_SOURCES = $(REDECOIN_QT_CPP) $(REDECOIN_QT_H) $(QT_FORMS_UI) \
+qt_libshahepayqt_a_SOURCES = $(SHAHEPAY_QT_CPP) $(SHAHEPAY_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_qt_libredecoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_qt_libshahepayqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
@@ -481,71 +481,71 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libredecoinqt_a_OBJECTS) $(qt_redecoin_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libshahepayqt_a_OBJECTS) $(qt_shahepay_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# redecoin-qt binary #
-qt_redecoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(REDECOIN_INCLUDES) $(REDECOIN_QT_INCLUDES) \
+# shahepay-qt binary #
+qt_shahepay_qt_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES) $(SHAHEPAY_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_redecoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_shahepay_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_redecoin_qt_SOURCES = qt/redecoin.cpp
+qt_shahepay_qt_SOURCES = qt/shahepay.cpp
 if TARGET_DARWIN
-  qt_redecoin_qt_SOURCES += $(REDECOIN_MM)
+  qt_shahepay_qt_SOURCES += $(SHAHEPAY_MM)
 endif
 if TARGET_WINDOWS
-  qt_redecoin_qt_SOURCES += $(REDECOIN_RC)
+  qt_shahepay_qt_SOURCES += $(SHAHEPAY_RC)
 endif
-qt_redecoin_qt_LDADD = qt/libredecoinqt.a $(LIBREDECOIN_SERVER)
+qt_shahepay_qt_LDADD = qt/libshahepayqt.a $(LIBSHAHEPAY_SERVER)
 if ENABLE_WALLET
-qt_redecoin_qt_LDADD += $(LIBREDECOIN_WALLET)
+qt_shahepay_qt_LDADD += $(LIBSHAHEPAY_WALLET)
 endif
 if ENABLE_ZMQ
-qt_redecoin_qt_LDADD += $(LIBREDECOIN_ZMQ) $(ZMQ_LIBS)
+qt_shahepay_qt_LDADD += $(LIBSHAHEPAY_ZMQ) $(ZMQ_LIBS)
 endif
-qt_redecoin_qt_LDADD += $(LIBREDECOIN_CLI) $(LIBREDECOIN_COMMON) $(LIBREDECOIN_UTIL) $(LIBREDECOIN_CONSENSUS) $(LIBREDECOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+qt_shahepay_qt_LDADD += $(LIBSHAHEPAY_CLI) $(LIBSHAHEPAY_COMMON) $(LIBSHAHEPAY_UTIL) $(LIBSHAHEPAY_CONSENSUS) $(LIBSHAHEPAY_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_redecoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_redecoin_qt_LIBTOOLFLAGS = --tag CXX
+qt_shahepay_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_shahepay_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/redecoinstrings.cpp: $(libredecoin_server_a_SOURCES) $(libredecoin_wallet_a_SOURCES) $(libredecoin_common_a_SOURCES) $(libredecoin_zmq_a_SOURCES) $(libredecoin_consensus_a_SOURCES) $(libredecoin_util_a_SOURCES)
+$(srcdir)/qt/shahepaystrings.cpp: $(libshahepay_server_a_SOURCES) $(libshahepay_wallet_a_SOURCES) $(libshahepay_common_a_SOURCES) $(libshahepay_zmq_a_SOURCES) $(libshahepay_consensus_a_SOURCES) $(libshahepay_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: $(srcdir)/qt/redecoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(REDECOIN_QT_BASE_CPP) qt/redecoin.cpp $(REDECOIN_QT_WINDOWS_CPP) $(REDECOIN_QT_WALLET_CPP) $(REDECOIN_QT_H) $(REDECOIN_MM)
+translate: $(srcdir)/qt/shahepaystrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(SHAHEPAY_QT_BASE_CPP) qt/shahepay.cpp $(SHAHEPAY_QT_WINDOWS_CPP) $(SHAHEPAY_QT_WALLET_CPP) $(SHAHEPAY_QT_H) $(SHAHEPAY_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/redecoin_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/shahepay_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@cp -f $< $(@D)/temp_$(<F)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name redecoin_locale $(@D)/temp_$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name shahepay_locale $(@D)/temp_$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 	@rm $(@D)/temp_$(<F)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name redecoin $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name shahepay $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libredecoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libshahepayqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-redecoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libredecoinqt_a_OBJECTS) $(qt_redecoin_qt_OBJECTS) qt/redecoin-qt$(EXEEXT) $(LIBREDECOINQT)
+shahepay_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libshahepayqt_a_OBJECTS) $(qt_shahepay_qt_OBJECTS) qt/shahepay-qt$(EXEEXT) $(LIBSHAHEPAYQT)
 
-redecoin_qt : qt/redecoin-qt$(EXEEXT)
+shahepay_qt : qt/shahepay-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

@@ -11,7 +11,7 @@
   </array>
 
   <key>CFBundleIconFile</key>
-  <string>redecoin.icns</string>
+  <string>shahepay.icns</string>
 
   <key>CFBundlePackageType</key>
   <string>APPL</string>
@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>redecoin-Qt</string>
+  <string>shahepay-Qt</string>
   
   <key>CFBundleName</key>
-  <string>redecoin-Qt</string>
+  <string>shahepay-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.redecoinfoundation.redecoin-Qt</string>
+  <string>org.shahepayfoundation.shahepay-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.redecoin.redecoinPayment</string>
+      <string>org.shahepay.shahepayPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>redecoin</string>
+        <string>shahepay</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.redecoin.paymentrequest</string>
+      <string>org.shahepay.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>redecoin payment request</string>
+      <string>shahepay payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-redecoin-payment-request</string>
+        <string>application/x-shahepay-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>redecoinpaymentrequest</string>
+          <string>shahepaypaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.redecoin.paymentrequest</string>
+        <string>org.shahepay.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

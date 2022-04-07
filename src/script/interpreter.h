@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
+// Copyright (c) 2020-2021 The shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef REDECOIN_SCRIPT_INTERPRETER_H
-#define REDECOIN_SCRIPT_INTERPRETER_H
+#ifndef SHAHEPAY_SCRIPT_INTERPRETER_H
+#define SHAHEPAY_SCRIPT_INTERPRETER_H
 
 #include "script_error.h"
 #include "primitives/transaction.h"
@@ -190,4 +190,4 @@ bool VerifyScript(const CScript &scriptSig, const CScript &scriptPubKey, const C
 
 size_t CountWitnessSigOps(const CScript &scriptSig, const CScript &scriptPubKey, const CScriptWitness *witness, unsigned int flags);
 
-#endif // REDECOIN_SCRIPT_INTERPRETER_H
+#endif // SHAHEPAY_SCRIPT_INTERPRETER_H

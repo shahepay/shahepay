@@ -1,4 +1,4 @@
-# REDECOIN
+# SHAHEPAY
 
 ### This coin now in here
-https://github.com/redecoinproject
+https://github.com/shahepay/shahepay

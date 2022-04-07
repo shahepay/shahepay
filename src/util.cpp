@@ -89,8 +89,8 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char *const REDECOIN_CONF_FILENAME = "redecoin.conf";
-const char *const REDECOIN_PID_FILENAME = "redecoind.pid";
+const char *const REDECOIN_CONF_FILENAME = "shahepay.conf";
+const char *const REDECOIN_PID_FILENAME = "shahepay.pid";
 
 ArgsManager gArgs;
 bool fPrintToConsole = false;
@@ -550,13 +550,13 @@ void PrintExceptionContinue(const std::exception *pex, const char *pszThread)
 
 fs::path GetDefaultDataDir()
 {
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\redecoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\redecoin
-    // Mac: ~/Library/Application Support/redecoin
-    // Unix: ~/.redecoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\shahepay
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\shahepay
+    // Mac: ~/Library/Application Support/shahepay
+    // Unix: ~/.shahepay
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "redecoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "shahepay";
 #else
     fs::path pathRet;
     char *pszHome = getenv("HOME");
@@ -566,10 +566,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/redecoin";
+    return pathRet / "Library/Application Support/shahepay";
 #else
     // Unix
-    return pathRet / ".redecoin";
+    return pathRet / ".shahepay";
 #endif
 #endif
 }
@@ -631,7 +631,7 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
 {
     fs::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good())
-        return; // No redecoin.conf file is OK
+        return; // No shahepay.conf file is OK
 
     {
         LOCK(cs_args);
@@ -640,7 +640,7 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
 
         for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
         {
-            // Don't overwrite existing settings so command line settings override redecoin.conf
+            // Don't overwrite existing settings so command line settings override shahepay.conf
             std::string strKey = std::string("-") + it->string_key;
             std::string strValue = it->value[0];
             InterpretNegativeSetting(strKey, strValue);
@@ -934,9 +934,11 @@ std::string CopyrightHolders(const std::string &strPrefix)
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Raven Core") == std::string::npos) {
         strCopyrightHolders += "\n" + strPrefix + "The Raven Core developers";
     }
-    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("redecoin Core") == std::string::npos)
+    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("The Alfariqi Crypto Core") == std::string::npos)
     {
-        strCopyrightHolders += "\n" + strPrefix + "The redecoin Core developers";
+    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("The Shahepay Core") == std::string::npos)
+    {
+        strCopyrightHolders += "\n" + strPrefix + "The Shahepay Core developers";
     }
     return strCopyrightHolders;
 }

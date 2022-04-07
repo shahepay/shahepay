@@ -1,8 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2020-2021 The redecoin Core developers
-
+// Copyright (c) 2020-2021 The Shahepay Core developers
 
 #include "chainparams.h"
 #include "consensus/merkle.h"
@@ -207,7 +206,7 @@ public:
 
         };
 
-        /** REDE Start **/
+        /** SHAHE Start **/
         // Burn Amounts
         nIssueAssetBurnAmount = 500 * COIN;
         nReissueAssetBurnAmount = 100 * COIN;
@@ -230,7 +229,7 @@ public:
         strIssueRestrictedAssetBurnAddress = "RDissueRestrictedXXXXXXXXXXXopburn";
         strAddNullQualifierTagBurnAddress = "RDaddTagBurnXXXXXXXXXXXXXXXXqrburn";
 
-            //Global Burn Address
+        //Global Burn Address
         strGlobalBurnAddress = "RDBurnXXXXXXXXXXXXXXXXXXXXXXXXburn";
 
         // DGW Activation
@@ -300,7 +299,6 @@ public:
         nDefaultPort = 16789;
         nPruneAfterHeight = 1000;
 
-
         uint32_t nGenesisTime = 1645757351;
 
         genesis = CreateGenesisBlock(1645757351, 24232574, 0x1e00ffff, 2, 500 * COIN);
@@ -309,7 +307,6 @@ public:
 
         assert(consensus.hashGenesisBlock == uint256S("0x000000308ac9641625ca3bd67b36985364c54c39c74e3b5cf9de262065b408d7"));
         assert(genesis.hashMerkleRoot == uint256S("0c402877080e148835778c5ea545748e3ac372a9afe247e866d39e2cc9265e2e"));
-
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -422,7 +419,6 @@ public:
         pchMessageStart[3] = 0x8c; // W
         nDefaultPort = 26789;
         nPruneAfterHeight = 1000;
-
 
         genesis = CreateGenesisBlock(1645757351, 24232574, 0x1e00ffff, 2, 500 * COIN);
 

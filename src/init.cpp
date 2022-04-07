@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The Raven Core developers
-// Copyright (c) 2022-2022 The Redecoin Core developers
+// Copyright (c) 2022-2022 The Shahepay Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -97,31 +97,6 @@ static CZMQNotificationInterface* pzmqNotificationInterface = nullptr;
 #endif
 
 static const char* FEE_ESTIMATES_FILENAME="fee_estimates.dat";
-
-//////////////////////////////////////////////////////////////////////////////
-//
-// Shutdown
-//
-
-//
-// Thread management and startup/shutdown:
-//
-// The network-processing threads are all part of a thread group
-// created by AppInit() or the Qt main() function.
-//
-// A clean exit happens when StartShutdown() or the SIGTERM
-// signal handler sets fRequestShutdown, which makes main thread's
-// WaitForShutdown() interrupts the thread group.
-// And then, WaitForShutdown() makes all other on-going threads
-// in the thread group join the main thread.
-// Shutdown() is then called to clean up database connections, and stop other
-// threads that should only be stopped after the main network-processing
-// threads have exited.
-//
-// Shutdown for Qt is very similar, only it uses a QTimer to detect
-// fRequestShutdown getting set, and then does the normal Qt
-// shutdown thing.
-//
 
 std::atomic<bool> fRequestShutdown(false);
 std::atomic<bool> fRequestRestart(false);
@@ -319,6 +294,7 @@ void PrepareShutdown()
 
         /** REDE END */
     }
+    
 #ifdef ENABLE_WALLET
     StopWallets();
 #endif
@@ -616,15 +592,17 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/redecoinproject/redecoin>";
-    const std::string URL_WEBSITE = "<https://www.redecoin.eu>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/shahepay/shahepay>";
+    const std::string URL_WEBSITE = "<https://www.shahepay.com>";
 
     // return FormatParagraph(strprintf(_("Copyright (C) %i-%i %s"), 2009, COPYRIGHT_YEAR, CopyrightHolders())) + "\n" +
     return FormatParagraph(strprintf("Copyright (C) %i-%i The Bitcoin Core Developers", 2009, COPYRIGHT_YEAR)) + "\n" +
            "\n" +
            FormatParagraph(strprintf("Copyright (C) %i-%i The Raven Core Developers", 2009, COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf("Copyright (C) %i The Redecoin Core Developers", 2022)) + "\n" +
+           FormatParagraph(strprintf("Copyright (C) %i-%i The Alfariqi Crypto Developers", 2022, COPYRIGHT_YEAR)) + "\n" +
+           "\n" +
+           FormatParagraph(strprintf("Copyright (C) %i The Shahepay Core Developers", 2022)) + "\n" +
            "\n" +
            FormatParagraph(strprintf(_("Please contribute if you find Redecoin useful. "
                        "Visit %s for further information about the software."),

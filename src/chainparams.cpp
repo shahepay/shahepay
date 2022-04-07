@@ -176,14 +176,12 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0c402877080e148835778c5ea545748e3ac372a9afe247e866d39e2cc9265e2e"));
 
         // Main Seeders
-	vSeeds.emplace_back("seed1.redecoin.eu", true);
-	vSeeds.emplace_back("seed2.redecoin.eu", true);
-	vSeeds.emplace_back("seed3.redecoin.eu", true);
+	vSeeds.emplace_back("dnsseed.shahepay.com", true);
 
 	// Backup Seeders
-    	vSeeds.emplace_back("146.59.80.246", true);
-	vSeeds.emplace_back("51.68.139.56", true);
-	vSeeds.emplace_back("146.59.95.189", true);
+    	vSeeds.emplace_back("135.125.225.55", true);
+	vSeeds.emplace_back("51.195.249.132", true);
+	vSeeds.emplace_back("135.125.225.55", true);
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60); // R

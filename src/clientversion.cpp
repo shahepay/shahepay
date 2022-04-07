@@ -15,7 +15,7 @@
  * for both redecoind and redecoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Redecoin");
+const std::string CLIENT_NAME("Shahepay");
 
 /**
  * Client version number

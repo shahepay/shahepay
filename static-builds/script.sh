@@ -29,7 +29,7 @@ cd ~/
 # Removes any existing builds and starts clean WARNING
 rm -rf ~/shahepay ~/sign ~/release
 
-git clone https://github.com/shahepayproject/shahepay.git
+git clone https://github.com/shahepay/shahepay.git
 cd ~/shahepay
 chmod -R +x *
 git checkout $BRANCH

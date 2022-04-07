@@ -7,17 +7,17 @@ define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2022)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Redecoin Core]])
-AC_INIT([Redecoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/redecoinProject/redecoin/issues],[redecoin],[https://www.redecoin.eu])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Shahepay Core]])
+AC_INIT([Shahepay Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/shahepay/shahepay/issues],[Shahepay],[https://www.shahepay.com])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/redecoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-REDECOIN_DAEMON_NAME=redecoind
-REDECOIN_GUI_NAME=redecoin-qt
-REDECOIN_CLI_NAME=redecoin-cli
-REDECOIN_TX_NAME=redecoin-tx
+REDECOIN_DAEMON_NAME=shahepayd
+REDECOIN_GUI_NAME=shahepay-qt
+REDECOIN_CLI_NAME=shahepay-cli
+REDECOIN_TX_NAME=shahepay-tx
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])

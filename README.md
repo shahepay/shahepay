@@ -4,7 +4,7 @@
 * Algorithm : X16Rv2
 * Block Time : 60 second
 * Block Reward : 500 SHAHE
-* Block Reward halving schedule : ~ 4 years
+* Block Reward halving schedule : ~ 4 years (210.000)
 * Total Coin Supply : 210 Million
 * Block Size : 1 MB (may increase in the future)
 * Coin Maturity : 26

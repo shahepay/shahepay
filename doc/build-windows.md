@@ -123,3 +123,4 @@ as they appear in the release `.zip` archive. This can be done in the following
 way. This will install to `c:\workspace\shahepay`, for example:
 
     make install DESTDIR=/mnt/c/local/shahepay
+    cp -r Shahepay-1.0.0-win64-setup.exe /mnt/c/local/shahepay/

@@ -15,4 +15,12 @@
 * RPC port : 45678
 * P2P port : 56789
 
-* Website : shahepay.com
+### Contact :
+#### [Website](shahepay.com)
+#### [Block Explorer](https://shahepay.alfr.xyz)
+#### [Official Mining Pool](https://minenow.ml)
+
+#### [Discord Chat](https://discord.com/invite/HavCDpdCTM)
+#### [Telegram](https://twitter.com/shahepay)
+
+

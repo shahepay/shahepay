@@ -17,7 +17,7 @@
 * P2P port : 56789
 
 ### Contact :
-#### [Website](shahepay.com)
+#### [Website](https://shahepay.github.io)
 #### [Block Explorer](https://shahepay.alfr.xyz)
 #### [Official Mining Pool](https://minenow.ml)
 

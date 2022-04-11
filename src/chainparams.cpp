@@ -143,7 +143,7 @@ public:
 	vSeeds.emplace_back("dnsseed.shahepay.com", true);
 
 	// Backup Seeders
-	vSeeds.emplace_back("41.71.223.18", true);
+	vSeeds.emplace_back("38.242.239.64", true);
     	vSeeds.emplace_back("135.125.225.55", true);
 	vSeeds.emplace_back("51.195.249.132", true);
 	vSeeds.emplace_back("51.77.48.45", true);

@@ -100,26 +100,26 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1646929722;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1677293351;
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1672617540; // Sun, 01 Jan 2023 23:59:00 +0000
+        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 3162191751; // Sun, 16 Mar 2070 10:35:51 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1814;
         consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1646929722;
-        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1677293351;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1672617540; // Sun, 01 Jan 2023 23:59:00 +0000
+        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 3162191751; // Sun, 16 Mar 2070 10:35:51 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1714;
         consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1646929722;
-        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1677293351;
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1672617540; // Sun, 01 Jan 2023 23:59:00 +0000
+        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 3162191751; // Sun, 16 Mar 2070 10:35:51 +0000
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411;
         consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.nMinimumChainWork = uint256S("0x00");
 
-        consensus.defaultAssumeValid = uint256S("0x00000087d3328011c972af5837f8b8e62f7fcbf4688cf19da12407237314e254"); // Block 1
+        consensus.defaultAssumeValid = uint256S("0x00000087d3328011c972af5837f8b8e62f7fcbf4688cf19da12407237314e254"); // Block 0
 
         pchMessageStart[0] = 0x53; // S
         pchMessageStart[1] = 0x48; // H
@@ -144,7 +144,7 @@ public:
 
 	// Backup Seeders
 	vSeeds.emplace_back("38.242.239.64", true);
-    	vSeeds.emplace_back("135.125.225.55", true);
+    vSeeds.emplace_back("135.125.225.55", true);
 	vSeeds.emplace_back("51.195.249.132", true);
 	vSeeds.emplace_back("51.77.48.45", true);
 
@@ -164,12 +164,16 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-
+                { 1, uint256S("0x0000047e6a542572ff844ee69518e7010a0767a6a54eb912b6749ae98051e9ff")},
+                { 2500, uint256S("0x0000000008d18ed22714b72696301412741d5cfda69d469d352b96f7d7abdf53")},
+                { 6439, uint256S("0x0000000039f39555f86234390724d54c870dce7feb8c7decafaf3140a5effa7a")}
             }
         };
 
         chainTxData = ChainTxData{
-
+            1649759378, // Tue, 12 Apr 2022 10:29:38 +0000
+            6400,
+            0.1 
         };
 
         /** SHAHE Start **/

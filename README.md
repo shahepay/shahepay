@@ -24,6 +24,4 @@
 #### [Discord Chat](https://discord.com/invite/HavCDpdCTM)
 #### [Telegram](https://twitter.com/shahepay)
 
-### Services :
-#### [Shahe PTCToken](https://ptcstoken.tk)
 

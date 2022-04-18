@@ -1012,7 +1012,7 @@
     </message>
     </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     <message>
         <source>shahepay Core</source>
         <translation>shahepay Kern</translation>

@@ -35,7 +35,7 @@ Build shahepay Core
         git clone https://github.com/shahepayProject/shahepay
         cd shahepay
 
-2.  Build shahepay-core:
+2.  Build shahepay:
 
     Configure and build the headless shahepay binaries as well as the GUI (if Qt is found).
 

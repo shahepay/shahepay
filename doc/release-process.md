@@ -33,8 +33,8 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/shahepay-core/gitian.sigs.git
-    git clone https://github.com/shahepay-core/shahepay-detached-sigs.git
+    git clone https://github.com/shahepay/gitian.sigs.git
+    git clone https://github.com/shahepay/shahepay-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/shahepayProject/shahepay.git
 
@@ -195,7 +195,7 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [shahepay-detached-sigs](https://github.com/shahepay-core/shahepay-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [shahepay-detached-sigs](https://github.com/shahepay/shahepay-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -262,7 +262,7 @@ rm SHA256SUMS
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
 - Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the shahepay.com server
-  into `/var/www/bin/shahepay-core-${VERSION}`
+  into `/var/www/bin/shahepay-${VERSION}`
 
 - A `.torrent` will appear in the directory after a few minutes. Optionally help seed this torrent. To get the `magnet:` URI use:
 ```bash
@@ -290,7 +290,7 @@ shahepay.com (see below for shahepay.com update instructions).
 
 - Announce the release:
 
-  - shahepay-dev and shahepay-core-dev mailing list
+  - shahepay-dev and shahepay-dev mailing list
 
   - shahepay Core announcements list https://shahepay.com/en/list/announcements/join/
 

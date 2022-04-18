@@ -507,10 +507,10 @@ Current subtrees include:
     merging upstream changes to the leveldb subtree.
 
 - src/libsecp256k1
-  - Upstream at https://github.com/shahepay-core/secp256k1/ ; actively maintaned by Core contributors.
+  - Upstream at https://github.com/shahepay/secp256k1/ ; actively maintaned by Core contributors.
 
 - src/crypto/ctaes
-  - Upstream at https://github.com/shahepay-core/ctaes ; actively maintained by Core contributors.
+  - Upstream at https://github.com/shahepay/ctaes ; actively maintained by Core contributors.
 
 - src/univalue
   - Upstream at https://github.com/jgarzik/univalue ; report important PRs to Core to avoid delay.

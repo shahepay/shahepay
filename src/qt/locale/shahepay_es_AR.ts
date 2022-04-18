@@ -172,6 +172,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     </context>
 </TS>

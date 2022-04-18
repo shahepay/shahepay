@@ -174,7 +174,7 @@ academic.
 specifying a build without the Qt GUI, or specifying which version of the Qt
 libraries to use.
 
-4. I renamed the `shahepay` package that contains the Qt GUI to `shahepay-core` as
+4. I renamed the `shahepay` package that contains the Qt GUI to `shahepay` as
 that appears to be how the general population refers to it, in contrast to
 `shahepay-xt` or `shahepay-classic`. I wanted to make sure the general population
 knows what they are getting when installing the GUI package.

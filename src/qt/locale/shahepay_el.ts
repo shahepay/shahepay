@@ -192,7 +192,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     <message>
         <source>Insufficient funds</source>
         <translation>Κεφάλαια μη επαρκή</translation>

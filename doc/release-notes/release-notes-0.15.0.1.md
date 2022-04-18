@@ -1,10 +1,10 @@
 shahepay Core version *0.15.0.1* is now available from:
 
-  <https://shahepay.com/bin/shahepay-core-0.15.0.1/>
+  <https://shahepay.com/bin/shahepay-0.15.0.1/>
 
 and
 
-  <https://shahepay.com/bin/shahepay-core-0.15.0.1/>
+  <https://shahepay.com/bin/shahepay-0.15.0.1/>
 
 This is a minor bug fix for 0.15.0.
 

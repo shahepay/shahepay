@@ -21,7 +21,7 @@ Summary:	Peer to Peer Cryptographic Currency
 Group:		Applications/System
 License:	MIT
 URL:		https://shahepay.com/
-Source0:	https://shahepay.com/bin/shahepay-core-%{version}/shahepay-%{version}.tar.gz
+Source0:	https://shahepay.com/bin/shahepay-%{version}/shahepay-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
 Source10:	https://raw.githubusercontent.com/shahepay/shahepay/v%{version}/contrib/debian/examples/shahepay.conf
@@ -124,13 +124,13 @@ BuildRequires:	checkpolicy
 BuildRequires:	%{_datadir}/selinux/devel/Makefile
 
 %description server
-This package provides a stand-alone shahepay-core daemon. For most users, this
+This package provides a stand-alone shahepay daemon. For most users, this
 package is only needed if they need a full-node without the graphical client.
 
 Some third party wallet software will want this package to provide the actual
-shahepay-core node they use to connect to the network.
+shahepay node they use to connect to the network.
 
-If you use the graphical shahepay-core client then you almost certainly do not
+If you use the graphical shahepay client then you almost certainly do not
 need this package.
 
 %package utils
@@ -139,7 +139,7 @@ Group:		Applications/System
 
 %description utils
 This package provides several command line utilities for interacting with a
-shahepay-core daemon.
+shahepay daemon.
 
 The shahepay-cli utility allows you to communicate and control a shahepay daemon
 over RPC, the shahepay-tx utility allows you to create a custom transaction, and
@@ -262,7 +262,7 @@ touch %{buildroot}%{_datadir}/pixmaps/*.xpm -r %{SOURCE100}
 
 # Desktop File - change the touch timestamp if modifying
 mkdir -p %{buildroot}%{_datadir}/applications
-cat <<EOF > %{buildroot}%{_datadir}/applications/shahepay-core.desktop
+cat <<EOF > %{buildroot}%{_datadir}/applications/shahepay.desktop
 [Desktop Entry]
 Encoding=UTF-8
 Name=shahepay
@@ -277,12 +277,12 @@ MimeType=x-scheme-handler/shahepay;
 Categories=Office;Finance;
 EOF
 # change touch date when modifying desktop
-touch -a -m -t 201511100546 %{buildroot}%{_datadir}/applications/shahepay-core.desktop
-%{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/shahepay-core.desktop
+touch -a -m -t 201511100546 %{buildroot}%{_datadir}/applications/shahepay.desktop
+%{_bindir}/desktop-file-validate %{buildroot}%{_datadir}/applications/shahepay.desktop
 
 # KDE protocol - change the touch timestamp if modifying
 mkdir -p %{buildroot}%{_datadir}/kde4/services
-cat <<EOF > %{buildroot}%{_datadir}/kde4/services/shahepay-core.protocol
+cat <<EOF > %{buildroot}%{_datadir}/kde4/services/shahepay.protocol
 [Protocol]
 exec=shahepay-qt '%u'
 protocol=shahepay
@@ -296,7 +296,7 @@ makedir=false
 deleting=false
 EOF
 # change touch date when modifying protocol
-touch -a -m -t 201511100546 %{buildroot}%{_datadir}/kde4/services/shahepay-core.protocol
+touch -a -m -t 201511100546 %{buildroot}%{_datadir}/kde4/services/shahepay.protocol
 %endif
 
 # man pages
@@ -377,8 +377,8 @@ rm -rf %{buildroot}
 %license COPYING db-%{bdbv}.NC-LICENSE
 %doc COPYING shahepay.conf.example doc/README.md doc/bips.md doc/files.md doc/multiwallet-qt.md doc/reduce-traffic.md doc/release-notes.md doc/tor.md
 %attr(0755,root,root) %{_bindir}/shahepay-qt
-%attr(0644,root,root) %{_datadir}/applications/shahepay-core.desktop
-%attr(0644,root,root) %{_datadir}/kde4/services/shahepay-core.protocol
+%attr(0644,root,root) %{_datadir}/applications/shahepay.desktop
+%attr(0644,root,root) %{_datadir}/kde4/services/shahepay.protocol
 %attr(0644,root,root) %{_datadir}/pixmaps/*.ico
 %attr(0644,root,root) %{_datadir}/pixmaps/*.bmp
 %attr(0644,root,root) %{_datadir}/pixmaps/*.svg
@@ -429,7 +429,7 @@ rm -rf %{buildroot}
 
 %changelog
 * Fri Feb 26 2016 Alice Wonder <buildmaster@librelamp.com> - 0.12.0-2
-- Rename Qt package from shahepay to shahepay-core
+- Rename Qt package from shahepay to shahepay
 - Make building of the Qt package optional
 - When building the Qt package, default to Qt5 but allow building
 -  against Qt4

@@ -502,6 +502,6 @@ Alihkan fail data ke dalam tab semasa</translation>
     </message>
     </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     </context>
 </TS>

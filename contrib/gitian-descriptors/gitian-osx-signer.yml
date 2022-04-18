@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/shahepay-core/shahepay-detached-sigs.git"
+- "url": "https://github.com/shahepay/shahepay-detached-sigs.git"
   "dir": "signature"
 files:
 - "shahepay-osx-unsigned.tar.gz"

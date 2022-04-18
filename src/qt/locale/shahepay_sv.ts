@@ -2935,7 +2935,7 @@ Var vänlig och försök igen.</translation>
     </message>
 </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     <message>
         <source>Options:</source>
         <translation>Inställningar:</translation>

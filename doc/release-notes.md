@@ -3,7 +3,7 @@ release-notes at release time)
 
 shahepay Core version *version* is now available from:
 
-  <https://shahepay.com/bin/shahepay-core-*version*/>
+  <https://shahepay.com/bin/shahepay-*version*/>
 
 This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.

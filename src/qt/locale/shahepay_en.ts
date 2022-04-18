@@ -3988,7 +3988,7 @@
     </message>
 </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     <message>
         <location filename="../shahepaystrings.cpp" line="+343"/>
         <source>Options:</source>

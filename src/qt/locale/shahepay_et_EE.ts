@@ -756,7 +756,7 @@
     </message>
     </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     <message>
         <source>Options:</source>
         <translation>Valikud:</translation>

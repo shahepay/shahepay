@@ -2863,7 +2863,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
 </context>
 <context>
-    <name>shahepay-core</name>
+    <name>shahepay</name>
     <message>
         <source>Options:</source>
         <translation>Opzioni:</translation>

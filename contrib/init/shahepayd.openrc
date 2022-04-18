@@ -85,7 +85,7 @@ checkconfig()
 		eerror "notified of problems:"
 		eerror ""
 		eerror "ie: alertnotify=echo %%s | mail -s \"shahepay Alert\"" \
-			"admin@foo.com"
+			"admin@shahepay.site"
 		eerror ""
 		return 1
 	fi

@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.shahepayfoundation.shahepay-Qt</string>
+  <string>site.shahepayfoundation.shahepay-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.shahepay.shahepayPayment</string>
+      <string>site.shahepay.shahepayPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>shahepay</string>
@@ -58,7 +58,7 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.shahepay.paymentrequest</string>
+      <string>site.shahepay.paymentrequest</string>
       <key>UTTypeDescription</key>
       <string>shahepay payment request</string>
       <key>UTTypeConformsTo</key>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.shahepay.paymentrequest</string>
+        <string>site.shahepay.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

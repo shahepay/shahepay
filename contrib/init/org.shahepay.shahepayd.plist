@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.shahepay.shahepayd</string>
+	<string>site.shahepay.shahepayd</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/local/bin/shahepayd</string>

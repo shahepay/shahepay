@@ -1,10 +1,10 @@
-package org.shahepay;
+package site.shahepay;
 
 import com.google.common.io.BaseEncoding;
 import java.util.Arrays;
 import java.math.BigInteger;
 import javax.xml.bind.DatatypeConverter;
-import static org.shahepay.NativeSecp256k1Util.*;
+import static site.shahepay.NativeSecp256k1Util.*;
 
 /**
  * This class holds test cases defined for testing this library.

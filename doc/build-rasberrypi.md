@@ -1,6 +1,6 @@
 RASBERRY PI BUILD NOTES
 ====================
-Origin: traysi.org/shahepay_rpi.php
+Origin: traysi.site.shahepay_rpi.php
 
 # Install necessary packages:
 ```

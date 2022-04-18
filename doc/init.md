@@ -109,13 +109,13 @@ setting the SHAHEPAYD and FLAGS environment variables in the file
 
 ### Mac OS X
 
-Copy org.shahepay.shahepayd.plist into ~/Library/LaunchAgents. Load the launch agent by
-running `launchctl load ~/Library/LaunchAgents/org.shahepay.shahepayd.plist`.
+Copy site.shahepay.shahepayd.plist into ~/Library/LaunchAgents. Load the launch agent by
+running `launchctl load ~/Library/LaunchAgents/site.shahepay.shahepayd.plist`.
 
 This Launch Agent will cause shahepayd to start whenever the user logs in.
 
 NOTE: This approach is intended for those wanting to run shahepayd as the current user.
-You will need to modify org.shahepay.shahepayd.plist if you intend to use it as a
+You will need to modify site.shahepay.shahepayd.plist if you intend to use it as a
 Launch Daemon with a dedicated shahepay user.
 
 Auto-respawn

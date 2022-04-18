@@ -276,14 +276,14 @@ shahepay.site (see below for shahepay.site update instructions).
 - Update shahepay.site version
 
   - First, check to see if the shahepay.site maintainers have prepared a
-    release: https://github.com/shahepay-dot-org/shahepay.site/labels/Releases
+    release: https://github.com/shahepay-dot-site.shahepay.site/labels/Releases
 
       - If they have, it will have previously failed their Travis CI
         checks because the final release files weren't uploaded.
         Trigger a Travis CI rebuild---if it passes, merge.
 
   - If they have not prepared a release, follow the shahepay.site release
-    instructions: https://github.com/shahepay-dot-org/shahepay.site#release-notes
+    instructions: https://github.com/shahepay-dot-site.shahepay.site#release-notes
 
   - After the pull request is merged, the website will automatically show the newest version within 15 minutes, as well
     as update the OS download links. Ping @saivann/@harding (saivann/harding on Freenode) in case anything goes wrong

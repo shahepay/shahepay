@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.shahepay;
+package site.shahepay;
 
 public class NativeSecp256k1Util{
 

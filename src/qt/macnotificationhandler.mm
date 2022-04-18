@@ -15,7 +15,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.shahepayfoundation.shahepay-Qt";
+        return @"site.shahepayfoundation.shahepay-Qt";
     } else {
         return [self __bundleIdentifier];
     }

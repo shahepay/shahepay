@@ -20,8 +20,8 @@ Summary:	Peer to Peer Cryptographic Currency
 
 Group:		Applications/System
 License:	MIT
-URL:		https://shahepay.com/
-Source0:	https://shahepay.com/bin/shahepay-%{version}/shahepay-%{version}.tar.gz
+URL:		https://shahepay.site/
+Source0:	https://shahepay.site/bin/shahepay-%{version}/shahepay-%{version}.tar.gz
 Source1:	http://download.oracle.com/berkeley-db/db-%{bdbv}.NC.tar.gz
 
 Source10:	https://raw.githubusercontent.com/shahepay/shahepay/v%{version}/contrib/debian/examples/shahepay.conf

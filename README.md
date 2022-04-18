@@ -18,7 +18,7 @@
 
 #### Contact :
 #### [Website](https://shahepay.github.io)
-#### [Block Explorer](https://explorer.shahepay.com)
+#### [Block Explorer](https://explorer.shahepay.site)
 #### [Official Mining Pool](https://minenow.ml)
 
 #### [Discord Chat](https://discord.com/invite/HavCDpdCTM)

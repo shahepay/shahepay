@@ -32,7 +32,7 @@ Build shahepay Core
 
 1. Clone the shahepay source code and cd into `shahepay`
 
-        git clone https://github.com/shahepayProject/shahepay
+        git clone https://github.com/shahepay/shahepay
         cd shahepay
 
 2.  Build shahepay:

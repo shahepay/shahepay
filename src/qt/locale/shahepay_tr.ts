@@ -480,7 +480,7 @@
         <translation>Güncel</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
         <translation>Olası shahepay komut satırı seçeneklerinin listesini görmek için %1 yardım mesajını göster</translation>
     </message>
     <message>

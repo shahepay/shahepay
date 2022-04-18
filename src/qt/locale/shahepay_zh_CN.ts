@@ -480,7 +480,7 @@
         <translation>已是最新</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
         <translation>显示 %1 帮助信息，获取可用命令行选项列表</translation>
     </message>
     <message>

@@ -2,12 +2,12 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: shahepay
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
  irc://#shahepay@freenode.net
-Source: https://github.com/shahepayProject/shahepay
+Source: https://github.com/shahepay/shahepay
 
 Files: *
 Copyright: 2009-2017, shahepay Core Developers
 License: Expat
-Comment: The shahepay Core Developers encompasses the current developers listed on shahepay.com,
+Comment: The shahepay Core Developers encompasses the current developers listed on shahepay.site,
          as well as the numerous contributors to the project.
 
 Files: debian/*

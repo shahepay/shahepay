@@ -140,7 +140,7 @@ public:
 
 
         // Main Seeders
-	vSeeds.emplace_back("dnsseed.shahepay.com", true);
+	vSeeds.emplace_back("dnsseed.shahepay.site", true);
 
 	// Backup Seeders
 	vSeeds.emplace_back("38.242.239.64", true);

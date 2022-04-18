@@ -3,18 +3,18 @@ release-notes at release time)
 
 shahepay Core version *version* is now available from:
 
-  <https://shahepay.com/bin/shahepay-*version*/>
+  <https://shahepay.site/bin/shahepay-*version*/>
 
 This is a new major version release, including new features, various bugfixes
 and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/shahepayProject/shahepay/issues>
+  <https://github.com/shahepay/shahepay/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://shahepay.com/en/list/announcements/join/>
+  <https://shahepay.site/en/list/announcements/join/>
 
 How to Upgrade
 ==============

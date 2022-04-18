@@ -480,7 +480,7 @@
         <translation>Синхронизировано</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
         <translation>Показать помощь по %1, чтобы получить список доступных параметров командной строки</translation>
     </message>
     <message>

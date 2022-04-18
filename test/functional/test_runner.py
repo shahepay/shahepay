@@ -262,8 +262,8 @@ def main():
 
     # Don't run tests on Windows by default
     if config["environment"]["EXEEXT"] == ".exe" and not args.force:
-        # https://github.com/shahepayProject/shahepay/commit/d52802551752140cf41f0d9a225a43e84404d3e9
-        # https://github.com/shahepayProject/shahepay/pull/5677#issuecomment-136646964
+        # https://github.com/shahepay/shahepay.sitemit/d52802551752140cf41f0d9a225a43e84404d3e9
+        # https://github.com/shahepay/shahepay/pull/5677#issuecomment-136646964
         print("Tests currently disabled on Windows by default. Use --force option to enable")
         sys.exit(0)
 

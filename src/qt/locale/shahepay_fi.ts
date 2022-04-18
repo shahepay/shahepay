@@ -480,7 +480,7 @@
         <translation>Rahansiirtohistoria on ajan tasalla</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
         <translation>Näytä %1 ohjeet saadaksesi listan mahdollisista shahepayin komentorivivalinnoista</translation>
     </message>
     <message>

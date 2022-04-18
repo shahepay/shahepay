@@ -15,11 +15,11 @@ It is considered good form for all sources to reference a URL where the source
 can be downloaded.
 
 Sources 0-9 should be reserved for source code tarballs. `Source0` should
-reference the release tarball available from https://shahepay.com/bin/ and
+reference the release tarball available from https://shahepay.site/bin/ and
 `Source1` should reference the BerkeleyDB source.
 
 Sources 10-99 are for source files that are maintained in the
-[shahepay git repository](https://github.com/shahepayProject/shahepay) but are not part of
+[shahepay git repository](https://github.com/shahepay/shahepay) but are not part of
 the release tarball. Most of these will reside in the `contrib` sub-directory.
 
 Sources 10-19 should be reserved for miscellaneous configuration files.

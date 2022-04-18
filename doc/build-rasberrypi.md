@@ -36,7 +36,7 @@ sudo make install
 # Build shahepay
 ```
 cd ~/build/
-git clone https://github.com/shahepayProject/shahepay
+git clone https://github.com/shahepay/shahepay
 cd shahepay/
 ./autogen.sh
 ./configure --disable-tests --with-gui=no CPPFLAGS="-I/usr/local/BerkeleyDB.4.8/include -O2" LDFLAGS="-L/usr/local/BerkeleyDB.4.8/lib"

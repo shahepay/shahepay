@@ -5,7 +5,7 @@ Setup
 ---------------------
 shahepay Core is the original shahepay client and it builds the backbone of the network. It downloads and, by default, stores the entire history of shahepay transactions; depending on the speed of your computer and network connection, the synchronization process is typically complete in under an hour.
 
-To download compiled binaries of the shahepay Core and wallet, visit the [GitHub release page](https://github.com/shahepayProject/shahepay/releases).
+To download compiled binaries of the shahepay Core and wallet, visit the [GitHub release page](https://github.com/shahepay/shahepay/releases).
 
 Running
 ---------------------
@@ -111,47 +111,47 @@ Building from source
 ---------------------
 The following are developer notes on how to build the shahepay core software on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
-- [Dependencies](https://github.com/shahepayProject/shahepay/tree/master/doc/dependencies.md)
-- [OS X Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-osx.md)
-- [Unix Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-unix.md)
-- [Windows Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-windows.md)
-- [OpenBSD Build Notes](https://github.com/shahepayProject/shahepay/tree/master/doc/build-openbsd.md)
-- [Gitian Building Guide](https://github.com/shahepayProject/shahepay/tree/master/doc/gitian-building.md)
+- [Dependencies](https://github.com/shahepay/shahepay/tree/master/doc/dependencies.md)
+- [OS X Build Notes](https://github.com/shahepay/shahepay/tree/master/doc/build-osx.md)
+- [Unix Build Notes](https://github.com/shahepay/shahepay/tree/master/doc/build-unix.md)
+- [Windows Build Notes](https://github.com/shahepay/shahepay/tree/master/doc/build-windows.md)
+- [OpenBSD Build Notes](https://github.com/shahepay/shahepay/tree/master/doc/build-openbsd.md)
+- [Gitian Building Guide](https://github.com/shahepay/shahepay/tree/master/doc/gitian-building.md)
 
 Development
 ---------------------
-shahepay repo's [root README](https://github.com/shahepayProject/shahepay/blob/master/README.md) contains relevant information on the development process and automated testing.
+shahepay repo's [root README](https://github.com/shahepay/shahepay/blob/master/README.md) contains relevant information on the development process and automated testing.
 
-- [Developer Notes](https://github.com/shahepayProject/shahepay/blob/master/doc/developer-notes.md)
-- [Release Notes](https://github.com/shahepayProject/shahepay/blob/master/doc/release-notes.md)
-- [Release Process](https://github.com/shahepayProject/shahepay/blob/master/doc/release-process.md)
+- [Developer Notes](https://github.com/shahepay/shahepay/blob/master/doc/developer-notes.md)
+- [Release Notes](https://github.com/shahepay/shahepay/blob/master/doc/release-notes.md)
+- [Release Process](https://github.com/shahepay/shahepay/blob/master/doc/release-process.md)
 - [Source Code Documentation (External Link)](https://dev.visucore.com/shahepay/doxygen/) -- 2018-05-11 -- Broken link
-- [Translation Process](https://github.com/shahepayProject/shahepay/blob/master/doc/translation_process.md)
-- [Translation Strings Policy](https://github.com/shahepayProject/shahepay/blob/master/doc/translation_strings_policy.md)
-- [Travis CI](https://github.com/shahepayProject/shahepay/blob/master/doc/travis-ci.md)
-- [Unauthenticated REST Interface](https://github.com/shahepayProject/shahepay/blob/master/doc/REST-interface.md)
-- [Shared Libraries](https://github.com/shahepayProject/shahepay/blob/master/doc/shared-libraries.md)
-- [BIPS](https://github.com/shahepayProject/shahepay/blob/master/doc/bips.md)
-- [Dnsseed Policy](https://github.com/shahepayProject/shahepay/blob/master/doc/dnsseed-policy.md)
-- [Benchmarking](https://github.com/shahepayProject/shahepay/blob/master/doc/benchmarking.md)
+- [Translation Process](https://github.com/shahepay/shahepay/blob/master/doc/translation_process.md)
+- [Translation Strings Policy](https://github.com/shahepay/shahepay/blob/master/doc/translation_strings_policy.md)
+- [Travis CI](https://github.com/shahepay/shahepay/blob/master/doc/travis-ci.md)
+- [Unauthenticated REST Interface](https://github.com/shahepay/shahepay/blob/master/doc/REST-interface.md)
+- [Shared Libraries](https://github.com/shahepay/shahepay/blob/master/doc/shared-libraries.md)
+- [BIPS](https://github.com/shahepay/shahepay/blob/master/doc/bips.md)
+- [Dnsseed Policy](https://github.com/shahepay/shahepay/blob/master/doc/dnsseed-policy.md)
+- [Benchmarking](https://github.com/shahepay/shahepay/blob/master/doc/benchmarking.md)
 
 ### Resources
 - Discuss on the [shahepayTalk](https://www.shahepaytalk.org/) forums, in the [Development & Technical Discussion board](https://www.shahepaytalk.org/?forum=661517).
 - Discuss on chat [Discord](https://discord.gg/DUkcBst), [Telegram](https://t.me/shahepayDev) or [Reddit](https://www.reddit.com/r/shahepay/).
 - Find out more on the [shahepay Wiki](https://shahepay.wiki/wiki/shahepay_Wiki)
-- Visit the project home [shahepay.com](https://shahepay.com)
+- Visit the project home [shahepay.site](https://shahepay.site)
 
 ### Miscellaneous
-- [Assets Attribution](https://github.com/shahepayProject/shahepay/blob/master/doc/assets-attribution.md)
-- [Files](https://github.com/shahepayProject/shahepay/blob/master/doc/files.md)
-- [Fuzz-testing](https://github.com/shahepayProject/shahepay/blob/master/doc/fuzzing.md)
-- [Reduce Traffic](https://github.com/shahepayProject/shahepay/blob/master/doc/reduce-traffic.md)
-- [Tor Support](https://github.com/shahepayProject/shahepay/blob/master/doc/tor.md)
-- [Init Scripts (systemd/upstart/openrc)](https://github.com/shahepayProject/shahepay/blob/master/doc/init.md)
-- [ZMQ](https://github.com/shahepayProject/shahepay/blob/master/doc/zmq.md)
+- [Assets Attribution](https://github.com/shahepay/shahepay/blob/master/doc/assets-attribution.md)
+- [Files](https://github.com/shahepay/shahepay/blob/master/doc/files.md)
+- [Fuzz-testing](https://github.com/shahepay/shahepay/blob/master/doc/fuzzing.md)
+- [Reduce Traffic](https://github.com/shahepay/shahepay/blob/master/doc/reduce-traffic.md)
+- [Tor Support](https://github.com/shahepay/shahepay/blob/master/doc/tor.md)
+- [Init Scripts (systemd/upstart/openrc)](https://github.com/shahepay/shahepay/blob/master/doc/init.md)
+- [ZMQ](https://github.com/shahepay/shahepay/blob/master/doc/zmq.md)
 
 License
 ---------------------
-Distributed under the [MIT software license](https://github.com/shahepayProject/shahepay/blob/master/COPYING).
+Distributed under the [MIT software license](https://github.com/shahepay/shahepay/blob/master/COPYING).
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
 cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.

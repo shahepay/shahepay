@@ -113,7 +113,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 36
 
 #define QAPP_ORG_NAME "shahepay"
-#define QAPP_ORG_DOMAIN "shahepay.com"
+#define QAPP_ORG_DOMAIN "shahepay.site"
 #define QAPP_APP_NAME_DEFAULT "shahepay-Qt"
 #define QAPP_APP_NAME_TESTNET "shahepay-Qt-testnet"
 

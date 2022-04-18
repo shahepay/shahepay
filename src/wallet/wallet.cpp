@@ -2379,8 +2379,8 @@ std::map<CTxDestination, std::vector<COutput>> CWallet::ListAssets() const
     // CWalletTx objects, callers to this function really should acquire the
     // cs_wallet lock before calling it. However, the current caller doesn't
     // acquire this lock yet. There was an attempt to add the missing lock in
-    // https://github.com/shahepayProject/shahepay/pull/10340, but that change has been
-    // postponed until after https://github.com/shahepayProject/shahepay/pull/10244 to
+    // https://github.com/shahepay/shahepay/pull/10340, but that change has been
+    // postponed until after https://github.com/shahepay/shahepay/pull/10244 to
     // avoid adding some extra complexity to the Qt code.
 
     std::map<CTxDestination, std::vector<COutput>> result;
@@ -2431,8 +2431,8 @@ std::map<CTxDestination, std::vector<COutput>> CWallet::ListCoins() const
     // CWalletTx objects, callers to this function really should acquire the
     // cs_wallet lock before calling it. However, the current caller doesn't
     // acquire this lock yet. There was an attempt to add the missing lock in
-    // https://github.com/shahepayProject/shahepay/pull/10340, but that change has been
-    // postponed until after https://github.com/shahepayProject/shahepay/pull/10244 to
+    // https://github.com/shahepay/shahepay/pull/10340, but that change has been
+    // postponed until after https://github.com/shahepay/shahepay/pull/10244 to
     // avoid adding some extra complexity to the Qt code.
 
     std::map<CTxDestination, std::vector<COutput>> result;
@@ -4438,7 +4438,7 @@ void CWallet::GetKeyBirthTimes(std::map<CTxDestination, int64_t> &mapKeyBirth) c
  *
  * For more information see CWalletTx::nTimeSmart,
  * https://shahepaytalk.org/?topic=54527, or
- * https://github.com/shahepayProject/shahepay/pull/1393.
+ * https://github.com/shahepay/shahepay/pull/1393.
  */
 unsigned int CWallet::ComputeTimeSmart(const CWalletTx& wtx) const
 {

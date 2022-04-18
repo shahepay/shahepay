@@ -480,7 +480,7 @@
         <translation>Atualizado</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
         <translation>Mostrar a mensagem de ajuda %1 para obter uma lista com possíveis opções a usar na linha de comandos.</translation>
     </message>
     <message>
@@ -2365,7 +2365,7 @@
     </message>
     <message>
         <source>The shahepay address the message was signed with</source>
-        <translation>O endereço shahepay com que a mensagem foi designada</translation>
+        <translation>O endereço shahepay.site que a mensagem foi designada</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified shahepay address</source>

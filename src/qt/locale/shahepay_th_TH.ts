@@ -320,8 +320,8 @@
         <translation>ทันสมัย</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
-        <translation>แสดง %1 ข้อความช่วยเหลือ เพื่อแสดงรายการ ตัวเลือกที่เป็นไปได้สำหรับ shahepay command-line</translation>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
+        <translation>แสดง %1 ข้อความช่วยเหลือ เพื่อแสดงรายการ ตัวเลือกที่เป็นไปได้สำหรับ shahepay.sitemand-line</translation>
     </message>
     <message>
         <source>%1 client</source>

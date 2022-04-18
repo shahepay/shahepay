@@ -368,8 +368,8 @@
         <translation>Up to date</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
-        <translation>Show the %1 help message to get a list with possible shahepay command-line options</translation>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
+        <translation>Show the %1 help message to get a list with possible shahepay.sitemand-line options</translation>
     </message>
     <message>
         <source>%1 client</source>

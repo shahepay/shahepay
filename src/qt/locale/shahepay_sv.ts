@@ -481,7 +481,7 @@ Var vänlig och försök igen.</translation>
         <translation>Uppdaterad</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
         <translation>Visa %1 hjälpmeddelande för att få en lista med möjliga shahepay kommandoradsalternativ.</translation>
     </message>
     <message>

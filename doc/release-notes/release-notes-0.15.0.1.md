@@ -1,20 +1,20 @@
 shahepay Core version *0.15.0.1* is now available from:
 
-  <https://shahepay.com/bin/shahepay-0.15.0.1/>
+  <https://shahepay.site/bin/shahepay-0.15.0.1/>
 
 and
 
-  <https://shahepay.com/bin/shahepay-0.15.0.1/>
+  <https://shahepay.site/bin/shahepay-0.15.0.1/>
 
 This is a minor bug fix for 0.15.0.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/shahepayProject/shahepay/issues>
+  <https://github.com/shahepay/shahepay/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://shahepay.com/en/list/announcements/join/>
+  <https://shahepay.site/en/list/announcements/join/>
 
 How to Upgrade
 ==============

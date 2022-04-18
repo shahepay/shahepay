@@ -518,7 +518,7 @@ QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/shahepaystrings.cpp: $(libshahepay_server_a_SOURCES) $(libshahepay_wallet_a_SOURCES) $(libshahepay_common_a_SOURCES) $(libshahepay_zmq_a_SOURCES) $(libshahepay_consensus_a_SOURCES) $(libshahepay_util_a_SOURCES)
+$(srcdir)/qt/shahepaystrings.cpp: $(libshahepay_server_a_SOURCES) $(libshahepay_wallet_a_SOURCES) $(libshahepay.sitemon_a_SOURCES) $(libshahepay_zmq_a_SOURCES) $(libshahepay_consensus_a_SOURCES) $(libshahepay_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" COPYRIGHT_HOLDERS="$(COPYRIGHT_HOLDERS)" COPYRIGHT_HOLDERS_SUBSTITUTION="$(COPYRIGHT_HOLDERS_SUBSTITUTION)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 

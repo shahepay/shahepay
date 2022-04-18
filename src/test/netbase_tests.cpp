@@ -90,10 +90,10 @@ BOOST_FIXTURE_TEST_SUITE(netbase_tests, BasicTestingSetup)
     {
         BOOST_TEST_MESSAGE("Running NetBase SplitHost Test");
 
-        BOOST_CHECK(TestSplitHost("www.shahepay.com", "www.shahepay.com", -1));
-        BOOST_CHECK(TestSplitHost("[www.shahepay.com]", "www.shahepay.com", -1));
-        BOOST_CHECK(TestSplitHost("www.shahepay.com:80", "www.shahepay.com", 80));
-        BOOST_CHECK(TestSplitHost("[www.shahepay.com]:80", "www.shahepay.com", 80));
+        BOOST_CHECK(TestSplitHost("www.shahepay.site", "www.shahepay.site", -1));
+        BOOST_CHECK(TestSplitHost("[www.shahepay.site]", "www.shahepay.site", -1));
+        BOOST_CHECK(TestSplitHost("www.shahepay.site:80", "www.shahepay.site", 80));
+        BOOST_CHECK(TestSplitHost("[www.shahepay.site]:80", "www.shahepay.site", 80));
         BOOST_CHECK(TestSplitHost("127.0.0.1", "127.0.0.1", -1));
         BOOST_CHECK(TestSplitHost("127.0.0.1:8767", "127.0.0.1", 8767));
         BOOST_CHECK(TestSplitHost("[127.0.0.1]", "127.0.0.1", -1));

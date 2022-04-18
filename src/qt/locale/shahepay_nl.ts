@@ -480,8 +480,8 @@
         <translation>Bijgewerkt</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible shahepay command-line options</source>
-        <translation>Toon het %1 hulpbericht om een lijst te krijgen met mogelijke shahepay commandoregelopties</translation>
+        <source>Show the %1 help message to get a list with possible shahepay.sitemand-line options</source>
+        <translation>Toon het %1 hulpbericht om een lijst te krijgen met mogelijke shahepay.sitemandoregelopties</translation>
     </message>
     <message>
         <source>%1 client</source>

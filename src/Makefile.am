@@ -25,7 +25,7 @@ SHAHEPAY_INCLUDES += -I$(srcdir)/secp256k1/include
 SHAHEPAY_INCLUDES += $(UNIVALUE_CFLAGS)
 
 LIBSHAHEPAY_SERVER=libshahepay_server.a
-LIBSHAHEPAY_COMMON=libshahepay_common.a
+LIBSHAHEPAY_COMMON=libshahepay.sitemon.a
 LIBSHAHEPAY_CONSENSUS=libshahepay_consensus.a
 LIBSHAHEPAY_CLI=libshahepay_cli.a
 LIBSHAHEPAY_UTIL=libshahepay_util.a
@@ -390,9 +390,9 @@ libshahepay_consensus_a_SOURCES = \
   $(SHAHEPAY_CORE_H)
 
 # common: shared between shahepayd, and shahepay-qt and non-server tools
-libshahepay_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
-libshahepay_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libshahepay_common_a_SOURCES = \
+libshahepay.sitemon_a_CPPFLAGS = $(AM_CPPFLAGS) $(SHAHEPAY_INCLUDES)
+libshahepay.sitemon_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libshahepay.sitemon_a_SOURCES = \
   base58.cpp \
   chainparams.cpp \
   coins.cpp \

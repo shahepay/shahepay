@@ -26,9 +26,9 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://shahepay.com/
-Vcs-Git: git://github.com/shahepayProject/shahepay.git
-Vcs-Browser: https://github.com/shahepayProject/shahepay
+Homepage: https://shahepay.site/
+Vcs-Git: git://github.com/shahepay/shahepay.git
+Vcs-Browser: https://github.com/shahepay/shahepay
 
 Package: shahepayd
 Architecture: any

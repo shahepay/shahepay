@@ -666,6 +666,12 @@ void ReadConfigFile(const std::string& confPath)
         return; // Nothing to read, so just return
     }
 
+void ArgsManager::ReadConfigFile(const std::string &confPath)
+{
+    fs::ifstream streamConfig(GetConfigFile(confPath));
+    if (!streamConfig.good())
+        return; // No shahepay.conf file is OK    
+    
     {
         LOCK(cs_args);
         std::set<std::string> setOptions;

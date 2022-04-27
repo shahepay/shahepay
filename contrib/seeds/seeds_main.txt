@@ -1,4 +1,4 @@
-addnode=dnsseed.shahepay.site
+dnsseed.shahepay.site
 135.125.225.55:56789
 51.195.249.132:56789
 51.77.48.45:56789

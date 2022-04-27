@@ -627,51 +627,12 @@ fs::path GetConfigFile(const std::string &confPath)
     return pathConfigFile;
 }
 
-void ReadConfigFile(const std::string& confPath)
-{
-//    boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
-//    if (!streamConfig.good())
-//        return; // No bitcoin.conf file is OK
-
-    boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
-    if (!streamConfig.good()){
-        // Create empty minerium.conf if it does not excist
-        FILE* configFile = fopen(GetConfigFile(confPath).string().c_str(), "a");
-//        if (configFile != NULL)
-//            fclose(configFile);
-
-        if (configFile != NULL) {
-            std::string strHeader = "# Shahepay config file\n"
-                          "rpcuser=your-username\n"
-                          "rpcpassword=shahe\n"
-                          "daemon=1\n"
-                          "server=1\n"
-                          "listen=1\n"
-                          "#txindex=1\n"
-                          "port=56789\n"
-                          "rpcport=45678\n"
-                          "rpcbind=127.0.0.1\n"
-                          "maxconnections=25\n"
-                          "fallbackfee=0.0001\n"
-                          "rpcallowip=127.0.0.1\n"
-                          "\n"
-                          "# List Nodes:\n"
-                          "addnode=dnsseed.shahepay.site\n"
-                          "addnode=135.125.225.55:56789\n"
-                          "addnode=51.195.249.132:56789\n"
-                          "addnode=51.77.48.45:56789\n";
-            fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
-            fclose(configFile);
-        }
-        return; // Nothing to read, so just return
-    }
-
 void ArgsManager::ReadConfigFile(const std::string &confPath)
 {
     fs::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good())
-        return; // No shahepay.conf file is OK    
-    
+        return; // No shahepay.conf file is OK
+
     {
         LOCK(cs_args);
         std::set<std::string> setOptions;

@@ -114,7 +114,7 @@ def process_nodes(g, f, structname, defaultport):
 def main():
     if len(sys.argv)<2:
         print(('Usage: %s <path_to_nodes_txt>' % sys.argv[0]), file=sys.stderr)
-        sys.exit(1)
+        exit(1)
     g = sys.stdout
     indir = sys.argv[1]
     g.write('#ifndef SHAHEPAY_CHAINPARAMSSEEDS_H\n')
@@ -126,10 +126,10 @@ def main():
     g.write(' * Each line contains a 16-byte IPv6 address and a port.\n')
     g.write(' * IPv4 as well as onion addresses are wrapped inside a IPv6 address accordingly.\n')
     g.write(' */\n')
-    with open(os.path.join(indir,'nodes_main.txt'), 'r', encoding="utf8") as f:
+    with open(os.path.join(indir,'nodes_main.txt'),'r') as f:
         process_nodes(g, f, 'pnSeed6_main', 56789)
     g.write('\n')
-    with open(os.path.join(indir,'nodes_test.txt'), 'r', encoding="utf8") as f:
+    with open(os.path.join(indir,'nodes_test.txt'),'r') as f:
         process_nodes(g, f, 'pnSeed6_test', 16789)
     g.write('#endif // SHAHEPAY_CHAINPARAMSSEEDS_H\n')
             

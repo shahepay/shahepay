@@ -638,8 +638,8 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
 
         if (configFile != NULL) {
             std::string strHeader = "# Shahepay config file\n"
-                          "rpcuser=your-username\n"
-                          "rpcpassword=shahe\n"
+                          "rpcuser=RAfuKrdU3xnL86Uakm3XmtCXquTGFrk47B\n"
+                          "rpcpassword=SHAHE\n"
                           "daemon=1\n"
                           "server=1\n"
                           "listen=1\n"
@@ -649,13 +649,13 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
                           "rpcbind=127.0.0.1\n"
                           "maxconnections=25\n"
                           "fallbackfee=0.0001\n"
+                          "rpcconnect=127.0.0.1\n"
                           "rpcallowip=127.0.0.1\n"
                           "\n"
                           "# List Nodes:\n"
-                          "addnode=dnsseed.shahepay.site\n"
-                          "addnode=135.125.225.55:56789\n"
-                          "addnode=51.195.249.132:56789\n"
-                          "addnode=51.77.48.45:56789\n";
+                          "addnode=135.125.225.55\n"
+                          "addnode=51.195.249.132\n"
+                          "addnode=51.77.48.45\n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
         }

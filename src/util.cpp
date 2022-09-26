@@ -655,13 +655,11 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
                           "# List Nodes:\n"
                           "addnode=dnsseed.shahepay.site\n"
                           "addnode=51.77.48.45:56789\n"
-                          "addnode=51.77.48.45:56789\n"
                           "addnode=192.99.252.243:56789\n"
                           "addnode=54.37.142.121:56789\n"
                           "addnode=103.224.182.242:56789\n"
                           "addnode=37.187.131.105:56789\n"
                           "addnode=173.212.217.104:56789\n"
-                          "addnode=54.37.142.121:56789\n"
                           "addnode=144.91.123.186:56789\n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);

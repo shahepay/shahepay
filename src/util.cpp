@@ -971,10 +971,6 @@ std::string CopyrightHolders(const std::string &strPrefix)
     {
         strCopyrightHolders += "\n" + strPrefix + "The Raven Core developers";
     }
-    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("The Alfariqi Crypto Core") == std::string::npos)
-    {
-         strCopyrightHolders += "\n" + strPrefix + "The Alfariqi Crypto Core developers";
-    }
     if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("The Shahepay Core") == std::string::npos)
     {
         strCopyrightHolders += "\n" + strPrefix + "The Shahepay Core developers";

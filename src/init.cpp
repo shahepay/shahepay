@@ -600,8 +600,6 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(strprintf("Copyright (C) %i-%i The Raven Core Developers", 2009, COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf("Copyright (C) %i-%i The Alfariqi Crypto Developers", 2022, COPYRIGHT_YEAR)) + "\n" +
-           "\n" +
            FormatParagraph(strprintf("Copyright (C) %i The Shahepay Core Developers", 2022)) + "\n" +
            "\n" +
            FormatParagraph(strprintf(_("Please contribute if you find Shahepay useful. "

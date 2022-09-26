@@ -93,29 +93,29 @@ public:
         consensus.nRuleChangeActivationThreshold = 1613; // Approx 80% of 2016
         consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
 
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 1814;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 1814;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
 
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1646929722;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1677293351;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1814;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1646929722;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1677293351;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1814;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1646929722;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1677293351;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1714;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1646929722;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1677293351;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1714;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 
- //       consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;
- //       consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1646929722;
- //       consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1677293351;
- //       consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411;
- //       consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
+ 	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;
+ 	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1646929722;
+ 	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1677293351;
+ 	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411;
+ 	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.nMinimumChainWork = uint256S("0x00");
 
@@ -237,29 +237,29 @@ public:
         consensus.nRuleChangeActivationThreshold = 1310;
         consensus.nMinerConfirmationWindow = 2016;
 	    
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 1310;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 1310;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 2016;
 	    
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 5;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1649780603; // Tue, 12 Apr 2022 16:23:23 +0000
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1677293351; // Sat, 25 Feb 2023 02:49:11 +0000
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1310;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 5;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 1649780603; // Tue, 12 Apr 2022 16:23:23 +0000
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 1677293351; // Sat, 25 Feb 2023 02:49:11 +0000
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 1310;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 	    
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 6;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1649780603; // Tue, 12 Apr 2022 16:23:23 +0000
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1677293351;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1310;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 6;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 1649780603; // Tue, 12 Apr 2022 16:23:23 +0000
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 1677293351;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 1310;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 2016;
 	    
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 7;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1649780603; // Tue, 12 Apr 2022 16:23:23 +0000
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1677293351;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 7;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 1649780603; // Tue, 12 Apr 2022 16:23:23 +0000
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 1677293351;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 1411;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 2016;
 
         consensus.nMinimumChainWork = uint256S("0x00");
 
@@ -274,8 +274,6 @@ public:
 
         nPruneAfterHeight = 500;
 
-  //      uint32_t nGenesisTime = 1649365513;
-
 
         genesis = CreateGenesisBlock(1649407854, 20908957, 0x1e00ffff, 2, 500 * COIN);
 
@@ -283,7 +281,6 @@ public:
 
         assert(consensus.hashGenesisBlock == uint256S("0x00000087d3328011c972af5837f8b8e62f7fcbf4688cf19da12407237314e254"));
         assert(genesis.hashMerkleRoot == uint256S("ce420af565487f911206de0108dd9a33dc746407165cb135c9977f8fecf4d0f0"));
-
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -366,26 +363,26 @@ public:
         consensus.nRuleChangeActivationThreshold = 108;
         consensus.nMinerConfirmationWindow = 144;
 	    
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 999999999999ULL;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 108;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 144;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 0;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 999999999999ULL;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 108;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 144;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 0;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 999999999999ULL;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 108;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 144;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 0;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 999999999999ULL;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 108;
-//        consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 144;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 0;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 999999999999ULL;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideRuleChangeActivationThreshold = 108;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nOverrideMinerConfirmationWindow = 144;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].bit = 6;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nStartTime = 0;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nTimeout = 999999999999ULL;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideRuleChangeActivationThreshold = 108;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ASSETS].nOverrideMinerConfirmationWindow = 144;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].bit = 7;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nStartTime = 0;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nTimeout = 999999999999ULL;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideRuleChangeActivationThreshold = 108;
+	consensus.vDeployments[Consensus::DEPLOYMENT_MSG_REST_ASSETS].nOverrideMinerConfirmationWindow = 144;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].bit = 8;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nStartTime = 0;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nTimeout = 999999999999ULL;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideRuleChangeActivationThreshold = 108;
+	consensus.vDeployments[Consensus::DEPLOYMENT_ENFORCE_VALUE].nOverrideMinerConfirmationWindow = 144;
 
         consensus.nMinimumChainWork = uint256S("0x00");
 

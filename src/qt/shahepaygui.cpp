@@ -629,12 +629,12 @@ void shahepayGUI::createToolBars()
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
-        toolbar->addAction(createAssetAction);
-        toolbar->addAction(transferAssetAction);
-        toolbar->addAction(manageAssetAction);
+//        toolbar->addAction(createAssetAction);
+//        toolbar->addAction(transferAssetAction);
+//        toolbar->addAction(manageAssetAction);
 //        toolbar->addAction(messagingAction);
 //        toolbar->addAction(votingAction);
-        toolbar->addAction(restrictedAssetAction);
+//        toolbar->addAction(restrictedAssetAction);
 
         QString openSansFontString = "font: normal 22pt \"Open Sans\";";
         QString normalString = "font: normal 22pt \"Arial\";";

@@ -632,9 +632,9 @@ void shahepayGUI::createToolBars()
         toolbar->addAction(createAssetAction);
         toolbar->addAction(transferAssetAction);
         toolbar->addAction(manageAssetAction);
+        toolbar->addAction(restrictedAssetAction);
         toolbar->addAction(messagingAction);
         toolbar->addAction(votingAction);
-        toolbar->addAction(restrictedAssetAction);
 
         QString openSansFontString = "font: normal 22pt \"Open Sans\";";
         QString normalString = "font: normal 22pt \"Arial\";";

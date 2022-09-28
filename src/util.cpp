@@ -661,7 +661,8 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
                           "addnode=37.187.131.105:56789\n"
                           "addnode=173.212.217.104:56789\n"
                           "addnode=144.91.123.186:56789\n"
-                          "addnode=[2001:41d0:a:4169::1]:56789\n";       
+                          "addnode=[2001:41d0:a:4169::1]:56789\n"  
+                          "addnode=shahepay.pool4u.net:29154\n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
         }

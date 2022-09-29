@@ -92,7 +92,7 @@ Coin Specifications
 * Block Size : 1 MB (may increase in the future)
 * Coin Maturity : 26
 * RPC port : 45678
-* P2P port : 56789
+* P2P port : 29154 (old 56789)
 
 
 Abstract

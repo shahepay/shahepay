@@ -188,19 +188,19 @@ public:
         nIssueRestrictedAssetBurnAmount = 1500 * COIN;
         nAddNullQualifierTagBurnAmount = .1 * COIN;
 
-        // Shahepay Community Asset Address
-        strIssueAssetBurnAddress = "SVofnKu8U9uCbZrLK7dBevRYJVxNaUPg1z";
-        strReissueAssetBurnAddress = "SgfdPmuEJHnuEk8XUmbbFAV79iqoj2qSf9";
-        strIssueSubAssetBurnAddress = "SiQ56nm6SEkrcg5QvEA4FBM1XTQr3ZzMX5";
-        strIssueUniqueAssetBurnAddress = "SNzoXQb3JwKgdP9i3U7JjYfLqnKQ3GW3Js";
-        strIssueMsgChannelAssetBurnAddress = "SXptGbVNUjw7t6KgAhZsswFDm8VjZuCoqm";
-        strIssueQualifierAssetBurnAddress = "SdQTP75LuGfbPniMTEikNkAD8HtoUNtx9S";
-        strIssueSubQualifierAssetBurnAddress = "SdzzjDWdU4fcMQa1KvcpmtVmLweMZeANyj";
-        strIssueRestrictedAssetBurnAddress = "SWd3GsxVC23J2KWBdAW1vGTbNwbFwmZsuG";
-        strAddNullQualifierTagBurnAddress = "SetYk6H4NojLzXnGA7eskNKcZkvpUhGpDh";
+        // Burn Addresses
+        strIssueAssetBurnAddress = "SDissueAssetXXXXXXXXXXXXXXXXarpEmt";
+        strReissueAssetBurnAddress = "SDReissueAssetXXXXXXXXXXXXXXZAKPbJ";
+        strIssueSubAssetBurnAddress = "SDissueSubAssetXXXXXXXXXXXXXW6D3dn";
+        strIssueUniqueAssetBurnAddress = "SDissueUniqueAssetXXXXXXXXXXSkWCDd";
+        strIssueMsgChannelAssetBurnAddress = "SDissueMsgChanneLAssetXXXXXXSkQjob";
+        strIssueQualifierAssetBurnAddress = "SDissueQuaLifierXXXXXXXXXXXXZVc7zN";
+        strIssueSubQualifierAssetBurnAddress = "SDissueSubQuaLifierXXXXXXXXXUhKn5T";
+        strIssueRestrictedAssetBurnAddress = "SDissueRestrictedXXXXXXXXXXXXveZHA";
+        strAddNullQualifierTagBurnAddress = "SDaddTagBurnXXXXXXXXXXXXXXXXaqLzue";
 
-        //Global Development Address
-        strGlobalBurnAddress = "ShHciapTkwEyAcbja8GEuu6s7e52zHVdMv";
+            //Global Burn Address
+        strGlobalBurnAddress = "SDBurnXXXXXXXXXXXXXXXXXXXXXXWdW4er";
 
         // DGW Activation
         nDGWActivationBlock = 1;

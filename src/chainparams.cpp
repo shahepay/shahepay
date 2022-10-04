@@ -139,13 +139,15 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x00000087d3328011c972af5837f8b8e62f7fcbf4688cf19da12407237314e254"));
         assert(genesis.hashMerkleRoot == uint256S("ce420af565487f911206de0108dd9a33dc746407165cb135c9977f8fecf4d0f0"));
 
-        // Main Seeders
-	vSeeds.emplace_back("dnsseed.shahepay.site", false);
-
+	// Main Seeders
+	vSeeds.emplace_back("seed01.shahepay.site", false);
+	vSeeds.emplace_back("seed02.shahepay.site", false);
+	vSeeds.emplace_back("seed03.shahepay.site", false);
+	vSeeds.emplace_back("seed04.shahepay.site", false);
+	vSeeds.emplace_back("seed05.shahepay.site", false);
+	
 	// Backup Seeders
-	vSeeds.emplace_back("51.77.48.45", false);
-	vSeeds.emplace_back("192.99.252.243", false);
-	vSeeds.emplace_back("54.37.142.121", false);
+	vSeeds.emplace_back("dnsseed.shahepay.site", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63); // S
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,40); // H

@@ -655,7 +655,9 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
                           "addnode=seed03.shahepay.site\n"
                           "addnode=seed04.shahepay.site\n" 
                           "addnode=seed05.shahepay.site\n"
-                          "addnode=dnsseed.shahepay.site\n";
+                          "addnode=seed06.shahepay.site\n"
+                          "addnode=seed07.shahepay.site\n"
+                          "addnode=seed08.shahepay.site\n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
         }

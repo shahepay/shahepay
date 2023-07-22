@@ -1,7 +1,7 @@
 Shahepay Core integration/staging tree
 ======================================
 
-https://shahepay.site
+https://shahepay.cloud
 
 To see how to run Shahepay, please read the respective files in [the doc folder](doc)
 

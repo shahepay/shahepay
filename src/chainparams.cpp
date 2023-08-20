@@ -140,14 +140,14 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("ce420af565487f911206de0108dd9a33dc746407165cb135c9977f8fecf4d0f0"));
 
 	// Main Seeders
-	vSeeds.emplace_back("seed01.shahepay.site", false);
-	vSeeds.emplace_back("seed02.shahepay.site", false);
-	vSeeds.emplace_back("seed03.shahepay.site", false);
-	vSeeds.emplace_back("seed04.shahepay.site", false);
-	vSeeds.emplace_back("seed05.shahepay.site", false);
+	vSeeds.emplace_back("seed01.shahepay.cloud", false);
+	vSeeds.emplace_back("seed02.shahepay.cloud", false);
+	vSeeds.emplace_back("seed03.shahepay.cloud", false);
+	vSeeds.emplace_back("seed04.shahepay.cloud", false);
+	vSeeds.emplace_back("seed05.shahepay.cloud", false);
 	
 	// Backup Seeders
-	vSeeds.emplace_back("dnsseed.shahepay.site", false);
+	vSeeds.emplace_back("dnsseed.shahepay.cloud", false);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,63); // S
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,40); // H

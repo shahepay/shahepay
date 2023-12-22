@@ -107,7 +107,7 @@ Make the directory for sources and go into it.
 
 __Download ShahePay source.__
 
-`git clone https://github.com/ShahePay/ShahePay`
+`git clone https://github.com/shahepay/shahepay.git`
 
 `cd ShahePay`
 

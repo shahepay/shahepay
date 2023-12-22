@@ -650,14 +650,11 @@ void ArgsManager::ReadConfigFile(const std::string &confPath)
                           "rpcallowip=127.0.0.1\n"
                           "\n"
                           "# List Nodes:\n"
-                          "addnode=seed01.shahepay.site:29154\n"
-                          "addnode=seed02.shahepay.site:29154\n"
-                          "addnode=seed03.shahepay.site:29154\n"
-                          "addnode=seed04.shahepay.site:29154\n" 
-                          "addnode=seed05.shahepay.site:29154\n"
-                          "addnode=seed06.shahepay.site:29154\n"
-                          "addnode=seed07.shahepay.site:29154\n"
-                          "addnode=seed08.shahepay.site:29154\n";
+                          "addnode=seed01.shahepay.cloud\n"
+                          "addnode=seed02.shahepay.cloud\n"
+                          "addnode=seed03.shahepay.cloud\n"
+                          "addnode=seed04.shahepay.cloud\n" 
+                          "addnode=seed05.shahepay.cloud\n";
             fwrite(strHeader.c_str(), std::strlen(strHeader.c_str()), 1, configFile);
             fclose(configFile);
         }

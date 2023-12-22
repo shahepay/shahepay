@@ -43,6 +43,7 @@ libczmq-dev
 autoconf
 automake
 libtool
+libboost-all-dev
 protobuf-compiler
 `
 
@@ -84,6 +85,7 @@ libczmq-dev
 autoconf
 automake
 libtool
+libboost-all-dev
 protobuf-compiler
 `
 

@@ -87,6 +87,13 @@ libtool
 protobuf-compiler
 `
 
+BerkeleyDB is required for the wallet
+----------------------------
+`$ sudo apt-get install software-properties-common -y
+sudo add-apt-repository -y ppa:luke-jr/bitcoincore
+sudo apt update -y && sudo apt upgrade -y
+`
+
 Directory structure
 ------------------
 ShahePay sources in `$HOME/src`
@@ -94,7 +101,7 @@ ShahePay sources in `$HOME/src`
 Berkeley DB will be installed to `$HOME/src/db4`
 
 
-ShahePay
+Shahepay
 ------------------
 
 Start in $HOME

@@ -131,7 +131,7 @@ __The build process:__
 
 `export BDB_PREFIX=$HOME/src/db4`
 
-`./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" --prefix=/usr/local --disable-tests --disable-gui-tests --disable-bench
+`./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include" --prefix=/usr/local --disable-tests --disable-gui-tests --disable-bench --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX CXXFLAGS="-fPIC" CPPFLAGS="-fPIC" --enable-hardening
 ` 
 
 _Adjust to own needs. This will install the binaries to `/usr/local/bin`_

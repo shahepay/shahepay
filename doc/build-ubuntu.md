@@ -109,7 +109,7 @@ __Download ShahePay source.__
 
 `git clone https://github.com/shahepay/shahepay.git`
 
-`cd ShahePay`
+`cd shahepay`
 
 
 __Download and build Berkeley DB 4.8__

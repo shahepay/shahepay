@@ -87,8 +87,8 @@ Coin Specifications
 * Algorithm : X16Rv2
 * Block Time : 60 second
 * Block Reward : 500 SHAHE
-* Block Reward halving schedule : 210000 block
-* Total Coin Supply : 210 Million
+* Block Reward halving schedule : 2100000 block
+* Total Coin Supply : 2.1 Billion
 * Block Size : 1 MB (may increase in the future)
 * Coin Maturity : 26
 * RPC port : 45678
